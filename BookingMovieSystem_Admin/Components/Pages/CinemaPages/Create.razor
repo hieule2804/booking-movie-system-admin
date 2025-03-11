@@ -1,0 +1,109 @@
+﻿@page "/cinemas/create"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>Cinema</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm Method="post" Model="Cinema" OnValidSubmit="AddCinema" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+            <div class="mb-3">
+                <label for="cinemaname" class="form-label">Cinema Name:</label>
+                <InputText id="cinemaname" @bind-Value="Cinema.CinemaName" class="form-control" />
+                <ValidationMessage For="() => Cinema.CinemaName" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="city" class="form-label">City:</label>
+                <InputText id="city" @bind-Value="Cinema.City" class="form-control" />
+                <ValidationMessage For="() => Cinema.City" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address:</label>
+                <InputText id="address" @bind-Value="Cinema.Address" class="form-control" />
+                <ValidationMessage For="() => Cinema.Address" class="text-danger" />
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<h3>Select Screens</h3>
+<div class="mb-3">
+    <div>
+        @foreach (var screen in ScreenSelections)
+        {
+            <div class="form-check">
+                <InputCheckbox id="@($"screen-{screen.ScreenId}")" @bind-Value="screen.IsSelected" class="form-check-input" />
+                <label for="@($"screen-{screen.ScreenId}")" class="form-check-label">@screen.ScreenName</label>
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <p><strong>Total selected screens: </strong>@TotalSelectedScreens</p>
+</div>
+
+<div>
+    <a href="/cinemas">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private Cinema Cinema { get; set; } = new();
+
+    private List<Screen> Screens = new();
+    private List<ScreenSelection> ScreenSelections = new();
+    private List<ScreenSelection> ScreenSelectionsTrue = new();
+    private int TotalSelectedScreens => ScreenSelectionsTrue.Count;
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = await DbFactory.CreateDbContextAsync();
+        Screens = await context.Screens.ToListAsync();
+
+        ScreenSelections = Screens.Select(screen => new ScreenSelection
+            {
+                ScreenId = screen.ScreenId,
+                ScreenName = screen.ScreenName,
+                IsSelected = false
+            }).ToList();
+    }
+
+    // Phương thức tự động cập nhật danh sách các màn hình được chọn
+    private void UpdateScreenSelections()
+    {
+        // Lọc các màn hình đã được chọn
+        ScreenSelectionsTrue = ScreenSelections.Where(s => s.IsSelected).ToList();
+    }
+
+    private async Task AddCinema()
+    {
+        using var context = DbFactory.CreateDbContext();
+        UpdateScreenSelections();
+        Console.WriteLine(ScreenSelectionsTrue.Count);
+
+        // Lưu Cinema vào cơ sở dữ liệu
+        context.Cinemas.Add(Cinema);
+        await context.SaveChangesAsync();
+
+        // Điều hướng về danh sách cinemas
+        NavigationManager.NavigateTo("/cinemas");
+    }
+
+    // Lớp đối tượng để lưu trạng thái chọn của mỗi màn hình
+    private class ScreenSelection
+    {
+        public int ScreenId { get; set; }
+        public string ScreenName { get; set; } = string.Empty;
+        public bool IsSelected { get; set; }
+    }
+}

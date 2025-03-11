@@ -1,0 +1,78 @@
+﻿@page "/cinemas/details"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Chi tiết Rạp Chiếu Phim</PageTitle>
+
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Chi tiết Rạp Chiếu Phim</h1>
+
+    <div class="card shadow-lg">
+        <div class="card-body">
+            @if (cinema is null)
+            {
+                <p class="text-muted text-center"><em>Đang tải dữ liệu...</em></p>
+            }
+            else
+            {
+                <h3 class="card-title">@cinema.CinemaName</h3>
+                <p class="card-text">
+                    <strong>Thành phố:</strong> @cinema.City <br />
+                    <strong>Địa chỉ:</strong> @cinema.Address
+                </p>
+
+                <div class="mt-3">
+                    <a href="@($"/cinemas/edit?cinemaid={cinema.CinemaId}")" class="btn btn-primary">Chỉnh sửa</a>
+                    <a href="/cinemas" class="btn btn-secondary">Quay lại danh sách</a>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h2 class="text-center">Danh sách Phòng Chiếu</h2>
+
+        @if (screenNames is null || !screenNames.Any())
+        {
+            <p class="text-muted text-center"><em>Không có phòng chiếu nào.</em></p>
+        }
+        else
+        {
+            <ul class="list-group">
+                @foreach (var screenName in screenNames)
+                {
+                    <li class="list-group-item">@screenName</li>
+                }
+            </ul>
+        }
+    </div>
+</div>
+
+@code {
+    private Cinema? cinema;
+    private List<string> screenNames = new();
+
+    [SupplyParameterFromQuery]
+    private int CinemaId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = await DbFactory.CreateDbContextAsync();
+
+        // Lấy thông tin rạp
+        cinema = await context.Cinemas.FirstOrDefaultAsync(m => m.CinemaId == CinemaId);
+        if (cinema is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+            return;
+        }
+
+        // Chỉ lấy danh sách ScreenName của rạp
+        screenNames = await context.Screens
+            .Where(s => s.CinemaId == CinemaId)
+            .Select(s => s.ScreenName)
+            .ToListAsync();
+    }
+}
