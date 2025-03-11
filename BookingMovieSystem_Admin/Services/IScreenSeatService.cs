@@ -8,5 +8,7 @@ namespace BookingMovieSystem_Admin.Services
     public interface IScreenSeatService
     {
         Task<IEnumerable<ScreenSeat>> GetScreensByScreenId(int screenId);
+        Task AddScreenSeat(ScreenSeat screenSeat);
+        Task<bool> DeleteScreenSeat(int screenSeatId);
     }
 }

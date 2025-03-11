@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BookingMovieSystem_Admin.Models;
 
@@ -21,5 +22,6 @@ public partial class Movie
 
     public string Description { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual ICollection<Showtime> Showtimes { get; set; } = new List<Showtime>();
 }

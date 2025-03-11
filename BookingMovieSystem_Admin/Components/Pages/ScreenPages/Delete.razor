@@ -52,6 +52,8 @@
     private async Task DeleteScreen()
     {
         using var context = DbFactory.CreateDbContext();
+        var showTime = await context.Showtimes.FirstOrDefaultAsync(m => m.ScreenId == ScreenId);
+        context.Showtimes.Remove(showTime);
         context.Screens.Remove(screen!);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/screens");

@@ -10,5 +10,7 @@ namespace BookingMovieSystem_Admin.Services
         Task<IEnumerable<ScreenDtos>> GetScreensWithSeatCountAsync();
 
         Task<Screen> GetScreenByIdAsync(int id);
+        Task UpdateScreen(Screen screen); 
+
     }
 }

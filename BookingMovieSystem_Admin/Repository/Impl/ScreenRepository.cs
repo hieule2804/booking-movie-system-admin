@@ -29,6 +29,10 @@ namespace BookingMovieSystem_Admin.Repository.Impl
                 .ThenInclude(ss => ss.SeatType)
                 .ToListAsync();
         }
-
+        public async Task UpdateScreen(Screen screen)
+        {
+            _context.Screens.Update(screen);
+            await _context.SaveChangesAsync();
+        }
     }
 }

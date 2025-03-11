@@ -20,5 +20,15 @@ namespace BookingMovieSystem_Admin.Services.Impl
         {
             return await _screenSeatRepository.GetScreensByScreenId(screenId);
         }
+
+        public async Task AddScreenSeat(ScreenSeat screenSeat)
+        {
+            await _screenSeatRepository.AddScreenSeat(screenSeat);
+        }
+
+        public async Task<bool> DeleteScreenSeat(int screenSeatId)
+        {
+            return await _screenSeatRepository.DeleteScreenSeat(screenSeatId);
+        }
     }
 }

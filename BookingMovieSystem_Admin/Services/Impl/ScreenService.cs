@@ -40,5 +40,9 @@ namespace BookingMovieSystem_Admin.Services.Impl
         {
            return await _screenRepository.GetScreenByIdAsync(id);
         }
+        public async Task UpdateScreen(Screen screen)
+        {
+            await _screenRepository.UpdateScreen(screen);
+        }
     }
 }

@@ -300,3 +300,4 @@ D:\FPT UNI\SP25\PRN222\BookingMovieSystem_Admin\BookingMovieSystem_Admin\bin\Deb
 D:\FPT UNI\SP25\PRN222\BookingMovieSystem_Admin\BookingMovieSystem_Admin\bin\Debug\net8.0\BookingMovieSystem_Admin.pdb
 D:\FPT UNI\SP25\PRN222\BookingMovieSystem_Admin\BookingMovieSystem_Admin\obj\Debug\net8.0\BookingMovieSystem_Admin.genruntimeconfig.cache
 D:\FPT UNI\SP25\PRN222\BookingMovieSystem_Admin\BookingMovieSystem_Admin\obj\Debug\net8.0\ref\BookingMovieSystem_Admin.dll
+D:\FPT UNI\SP25\PRN222\BookingMovieSystem_Admin\BookingMovieSystem_Admin\obj\Debug\net8.0\BookingMovieSystem_Admin.sourcelink.json
