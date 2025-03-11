@@ -1,0 +1,74 @@
+﻿@page "/screenseats/create"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create Screen Seat</PageTitle>
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">Create Screen Seat</h2>
+        </div>
+        <div class="card-body">
+            <EditForm method="post" Model="ScreenSeat" OnValidSubmit="AddScreenSeat" FormName="create" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger" role="alert" />
+                <div class="mb-3">
+                    <label for="screenid" class="form-label">Screen:</label>
+                    <InputSelect id="screenid" @bind-Value="ScreenSeat.ScreenId" class="form-control">
+                        <option value="">-- Select Screen --</option>
+                        @foreach (var screen in Screens)
+                        {
+                            <option value="@screen.ScreenId">@screen.ScreenName</option>
+                        }
+                    </InputSelect>
+                    <ValidationMessage For="() => ScreenSeat.ScreenId" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="seatlabel" class="form-label">Seat Label:</label>
+                    <InputText id="seatlabel" @bind-Value="ScreenSeat.SeatLabel" class="form-control" />
+                    <ValidationMessage For="() => ScreenSeat.SeatLabel" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="seattypeid" class="form-label">Seat Type:</label>
+                    <InputSelect id="seattypeid" @bind-Value="ScreenSeat.SeatTypeId" class="form-control">
+                        <option value="">-- Select Seat Type --</option>
+                        @foreach (var type in SeatTypes)
+                        {
+                            <option value="@type.SeatTypeId">@type.SeatTypeName</option>
+                        }
+                    </InputSelect>
+                    <ValidationMessage For="() => ScreenSeat.SeatTypeId" class="text-danger" />
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Create</button>
+                    <a href="/screenseats" class="btn btn-secondary">Back to List</a>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private ScreenSeat ScreenSeat { get; set; } = new();
+    private List<SeatType> SeatTypes { get; set; } = new();
+    private List<Screen> Screens { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        SeatTypes = await context.SeatTypes.ToListAsync();
+        Screens = await context.Screens.ToListAsync();
+    }
+
+    private async Task AddScreenSeat()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.ScreenSeats.Add(ScreenSeat);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/screenseats");
+    }
+}

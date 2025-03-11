@@ -1,0 +1,72 @@
+﻿@page "/screenseats/details"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Screen Seat Details</PageTitle>
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0"><i class="bi bi-chair"></i> Screen Seat Details</h2>
+        </div>
+        <div class="card-body">
+            @if (screenseat is null)
+            {
+                <p class="text-muted"><em>Loading...</em></p>
+            }
+            else
+            {
+                <dl class="row">
+                    <dt class="col-sm-4 bg-light p-2 fw-bold">Screen ID</dt>
+                    <dd class="col-sm-8 p-2">@screenseat.ScreenId</dd>
+
+                    <dt class="col-sm-4 bg-light p-2 fw-bold">Seat Label</dt>
+                    <dd class="col-sm-8 p-2">@screenseat.SeatLabel</dd>
+
+                    <dt class="col-sm-4 bg-light p-2 fw-bold">Seat Type ID</dt>
+                    <dd class="col-sm-8 p-2">@screenseat.SeatTypeId</dd>
+
+                    <dt class="col-sm-4 bg-light p-2 fw-bold">Seat Type Name</dt>
+                    <dd class="col-sm-8 p-2 text-primary fw-bold">@(screenseat.SeatType?.SeatTypeName ?? "N/A")</dd>
+
+                    <dt class="col-sm-4 bg-light p-2 fw-bold">Base Price</dt>
+                    <dd class="col-sm-8 p-2 text-success fw-bold">@(screenseat.SeatType?.BasePrice.ToString("C") ?? "$0.00")</dd>
+                </dl>
+            }
+        </div>
+        <div class="card-footer text-end">
+            @if (screenseat is not null)
+            {
+                <a href="@($"/screenseats/edit?screenseatid={screenseat.ScreenSeatId}")" class="btn btn-warning">
+                    <i class="bi bi-pencil-square"></i> Edit
+                </a>
+            }
+            <a href="/screenseats" class="btn btn-secondary">
+                <i class="bi bi-arrow-left-circle"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>
+
+@code {
+    private ScreenSeat? screenseat;
+
+    [SupplyParameterFromQuery]
+    private int ScreenSeatId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        screenseat = await context.ScreenSeats
+            .Include(s => s.SeatType) // ✅ Load thêm thông tin về SeatType
+            .FirstOrDefaultAsync(m => m.ScreenSeatId == ScreenSeatId);
+
+        if (screenseat is null)
+        {
+            Console.WriteLine($"❌ ScreenSeat ID {ScreenSeatId} not found.");
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

@@ -64,6 +64,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5QYWdlc1xJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Create.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5TZWF0UGFnZXNcQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Delete.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5TZWF0UGFnZXNcRGVsZXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Details.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5TZWF0UGFnZXNcRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Edit.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5TZWF0UGFnZXNcRWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5TZWF0UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

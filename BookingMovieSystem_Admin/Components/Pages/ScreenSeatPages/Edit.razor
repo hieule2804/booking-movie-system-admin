@@ -1,0 +1,111 @@
+﻿@page "/screenseats/edit"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h2>ScreenSeat</h2>
+<hr />
+@if (ScreenSeat is null || SeatTypes == null || Screens == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="ScreenSeat" OnValidSubmit="UpdateScreenSeat" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary role="alert" />
+                <input type="hidden" name="ScreenSeat.ScreenSeatId" value="@ScreenSeat.ScreenSeatId" />
+                <div class="mb-3">
+                    <label for="screenid" class="form-label">Screen:</label>
+                    <InputSelect id="screenid" @bind-Value="ScreenSeat.ScreenId" class="form-control">
+                        @foreach (var screen in Screens)
+                        {
+                            <option value="@screen.ScreenId">@screen.ScreenName</option>
+                        }
+                    </InputSelect>
+                    <ValidationMessage For="() => ScreenSeat.ScreenId" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="seatlabel" class="form-label">SeatLabel:</label>
+                    <InputText id="seatlabel" @bind-Value="ScreenSeat.SeatLabel" class="form-control" />
+                    <ValidationMessage For="() => ScreenSeat.SeatLabel" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="seattypeid" class="form-label">SeatType:</label>
+                    <InputSelect id="seattypeid" @bind-Value="ScreenSeat.SeatTypeId" class="form-control">
+                        @foreach (var type in SeatTypes)
+                        {
+                            <option value="@type.SeatTypeId">@type.SeatTypeName</option>
+                        }
+                    </InputSelect>
+                    <ValidationMessage For="() => ScreenSeat.SeatTypeId" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/screenseats">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    private int ScreenSeatId { get; set; }
+
+    [SupplyParameterFromForm]
+    private ScreenSeat? ScreenSeat { get; set; }
+    private List<SeatType>? SeatTypes;
+    private List<Screen>? Screens;
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        SeatTypes = await context.SeatTypes.AsNoTracking().ToListAsync();
+        Screens = await context.Screens.AsNoTracking().ToListAsync();
+        ScreenSeat ??= await context.ScreenSeats.FirstOrDefaultAsync(m => m.ScreenSeatId == ScreenSeatId);
+
+        if (ScreenSeat is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    private async Task UpdateScreenSeat()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Attach(ScreenSeat!).State = EntityState.Modified;
+
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!ScreenSeatExists(ScreenSeat!.ScreenSeatId))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/screenseats");
+    }
+
+    private bool ScreenSeatExists(int screenseatid)
+    {
+        using var context = DbFactory.CreateDbContext();
+        return context.ScreenSeats.Any(e => e.ScreenSeatId == screenseatid);
+    }
+}

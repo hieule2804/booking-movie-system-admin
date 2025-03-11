@@ -1,0 +1,48 @@
+﻿@page "/screenseats"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using BookingMovieSystem_Admin.Models
+@implements IAsyncDisposable
+@inject IDbContextFactory<G5MovieTicketBookingSystemContext> DbFactory
+
+<PageTitle>Screen Seats</PageTitle>
+
+<div class="container mt-4">
+    <h1 class="text-primary text-center">Screen Seats</h1>
+
+    <p class="text-end">
+        <a href="screenseats/create" class="btn btn-success">Create New</a>
+    </p>
+
+    <div class="table-responsive">
+        <QuickGrid Class="table table-striped table-hover table-bordered" Items="@ScreenSeats.AsQueryable()">
+            <PropertyColumn Property="screenseat => screenseat.SeatLabel" Title="Seat Label" />
+            <PropertyColumn Property="screenseat => screenseat.SeatType.SeatTypeName" Title="Seat Type" />
+            <PropertyColumn Property="screenseat => screenseat.SeatType.BasePrice" Title="Base Price" />
+
+            <TemplateColumn Title="Actions" Context="screenseat">
+                <div class="d-flex justify-content-center gap-2">
+                    <a href="@($"screenseats/edit?screenseatid={screenseat.ScreenSeatId}")" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="@($"screenseats/details?screenseatid={screenseat.ScreenSeatId}")" class="btn btn-info btn-sm">Details</a>
+                    <a href="@($"screenseats/delete?screenseatid={screenseat.ScreenSeatId}")" class="btn btn-danger btn-sm">Delete</a>
+                </div>
+            </TemplateColumn>
+        </QuickGrid>
+    </div>
+</div>
+
+@code {
+    private G5MovieTicketBookingSystemContext context = default!;
+    private List<ScreenSeat> ScreenSeats = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        context = DbFactory.CreateDbContext();
+        ScreenSeats = await context.ScreenSeats
+            .Include(s => s.SeatType) // 🔹 Load dữ liệu từ bảng SeatType
+            .AsNoTracking() // 🔹 Tối ưu hóa truy vấn
+            .ToListAsync();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

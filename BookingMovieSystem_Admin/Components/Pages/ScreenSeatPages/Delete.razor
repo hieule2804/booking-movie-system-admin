@@ -1,0 +1,95 @@
+﻿@page "/screenseats/delete"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Delete Screen Seat</PageTitle>
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-danger text-white">
+            <h2 class="mb-0"><i class="bi bi-trash"></i> Delete Screen Seat</h2>
+        </div>
+        <div class="card-body">
+            @if (screenseat is null)
+            {
+                <p class="text-muted"><em>Loading...</em></p>
+            }
+            else
+            {
+                <p class="text-danger fw-bold">
+                    ⚠️ Are you sure you want to delete this seat? This action <strong>cannot</strong> be undone.
+                </p>
+                <dl class="row">
+                    <dt class="col-sm-4 bg-light p-2 fw-bold">Screen ID</dt>
+                    <dd class="col-sm-8 p-2">@screenseat.ScreenId</dd>
+
+                    <dt class="col-sm-4 bg-light p-2 fw-bold">Seat Label</dt>
+                    <dd class="col-sm-8 p-2">@screenseat.SeatLabel</dd>
+
+                    <dt class="col-sm-4 bg-light p-2 fw-bold">Seat Type</dt>
+                    <dd class="col-sm-8 p-2">@seatType?.SeatTypeName</dd>
+
+                    <dt class="col-sm-4 bg-light p-2 fw-bold">Base Price</dt>
+                    <dd class="col-sm-8 p-2">@seatType?.BasePrice.ToString("C")</dd> <!-- Hiển thị giá với đơn vị tiền tệ -->
+                </dl>
+            }
+        </div>
+        <div class="card-footer text-end">
+            @if (screenseat is not null)
+            {
+                <EditForm Model="screenseat" OnValidSubmit="DeleteScreenSeat" FormName="delete">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this seat?')">
+                        <i class="bi bi-trash-fill"></i> Delete
+                    </button>
+                </EditForm>
+            }
+            <a href="/screenseats" class="btn btn-secondary">
+                <i class="bi bi-arrow-left-circle"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>
+
+@code {
+    private ScreenSeat? screenseat;
+    private SeatType? seatType; // Thêm biến để lấy thông tin SeatType
+
+    [SupplyParameterFromQuery]
+    private int ScreenSeatId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+
+        // Lấy thông tin ScreenSeat
+        screenseat = await context.ScreenSeats
+            .FirstOrDefaultAsync(m => m.ScreenSeatId == ScreenSeatId);
+
+        // Lấy thông tin SeatType từ SeatTypeId
+        if (screenseat is not null)
+        {
+            seatType = await context.SeatTypes
+                .FirstOrDefaultAsync(st => st.SeatTypeId == screenseat.SeatTypeId);
+        }
+
+        if (screenseat is null)
+        {
+            Console.WriteLine($"❌ ScreenSeat ID {ScreenSeatId} not found.");
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    private async Task DeleteScreenSeat()
+    {
+        using var context = DbFactory.CreateDbContext();
+        if (screenseat is not null)
+        {
+            context.ScreenSeats.Remove(screenseat);
+            await context.SaveChangesAsync();
+            Console.WriteLine($"✅ Deleted ScreenSeat ID {ScreenSeatId}");
+        }
+        NavigationManager.NavigateTo("/screenseats");
+    }
+}
