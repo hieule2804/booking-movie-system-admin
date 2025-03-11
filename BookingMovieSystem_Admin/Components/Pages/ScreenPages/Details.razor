@@ -1,0 +1,84 @@
+﻿@page "/screens/details"
+@using BookingMovieSystem_Admin.Services
+@using BookingMovieSystem_Admin.Models
+@using BookingMovieSystem_Admin.Components.Pages.Shares
+@using BookingMovieSystem_Admin.Dtos
+@inject IScreenService ScreenService
+@inject IScreenSeatService ScreenSeatService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+@if (screen is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div>
+        <h2>Screen Information</h2>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">ScreenName</dt>
+            <dd class="col-sm-10">@screen.ScreenName</dd>
+        </dl>
+
+        <h3>Seats</h3>
+        @if (screenSeats != null && screenSeats.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Seat Label</th>
+                        <th>Seat Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var seat in screenSeats)
+                    {
+                        <tr>
+                            <td>@seat.SeatLabel</td>
+                            <td>@seat.SeatType.SeatTypeName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <p>No seats available for this screen.</p>
+        }
+
+        <div>
+            <a href="@($"/screens/edit?screenid={screen.ScreenId}")">Edit</a> |
+            <a href="@($"/screens")">Back to List</a>
+        </div>
+    </div>
+}
+
+@code {
+    private Screen? screen;
+    private IQueryable<ScreenSeat>? screenSeats;
+
+    [SupplyParameterFromQuery]
+    private int ScreenId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        screen = await ScreenService.GetScreenByIdAsync(ScreenId);
+        var screenSeatList = await ScreenSeatService.GetScreensByScreenId(ScreenId);
+        screenSeats = screenSeatList.AsQueryable();
+        if (screen is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+            return;
+        }
+
+
+    }
+
+  
+}

@@ -1,0 +1,49 @@
+﻿@page "/screens/create"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>Screen</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Screen" OnValidSubmit="AddScreen" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="cinemaid" class="form-label">CinemaId:</label> 
+                <InputNumber id="cinemaid" @bind-Value="Screen.CinemaId" class="form-control" /> 
+                <ValidationMessage For="() => Screen.CinemaId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="screenname" class="form-label">ScreenName:</label> 
+                <InputText id="screenname" @bind-Value="Screen.ScreenName" class="form-control" /> 
+                <ValidationMessage For="() => Screen.ScreenName" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/screens">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private Screen Screen { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddScreen()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Screens.Add(Screen);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/screens");
+    }
+}

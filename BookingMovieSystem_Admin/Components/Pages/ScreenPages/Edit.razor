@@ -1,0 +1,94 @@
+﻿@page "/screens/edit"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h2>Screen</h2>
+<hr />
+@if (Screen is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Screen" OnValidSubmit="UpdateScreen" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary role="alert"/>
+                <input type="hidden" name="Screen.ScreenId" value="@Screen.ScreenId" />
+                <div class="mb-3">
+                    <label for="cinemaid" class="form-label">CinemaId:</label>
+                    <InputNumber id="cinemaid" @bind-Value="Screen.CinemaId" class="form-control" />
+                    <ValidationMessage For="() => Screen.CinemaId" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="screenname" class="form-label">ScreenName:</label>
+                    <InputText id="screenname" @bind-Value="Screen.ScreenName" class="form-control" />
+                    <ValidationMessage For="() => Screen.ScreenName" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/screens">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    private int ScreenId { get; set; }
+
+    [SupplyParameterFromForm]
+    private Screen? Screen { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        Screen ??= await context.Screens.FirstOrDefaultAsync(m => m.ScreenId == ScreenId);
+
+        if (Screen is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more information, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task UpdateScreen()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Attach(Screen!).State = EntityState.Modified;
+
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!ScreenExists(Screen!.ScreenId))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/screens");
+    }
+
+    private bool ScreenExists(int screenid)
+    {
+        using var context = DbFactory.CreateDbContext();
+        return context.Screens.Any(e => e.ScreenId == screenid);
+    }
+}

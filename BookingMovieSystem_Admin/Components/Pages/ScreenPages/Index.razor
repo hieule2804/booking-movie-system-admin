@@ -1,0 +1,42 @@
+﻿@page "/screens"
+@using BookingMovieSystem_Admin.Services
+@using BookingMovieSystem_Admin.Dtos
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject IScreenService ScreenService
+
+<PageTitle>Screen List</PageTitle>
+
+<h1>Screen List</h1>
+
+<p>
+    <a href="screens/create">Create New</a>
+</p>
+
+@if (screens != null)
+{
+    <QuickGrid Class="table" Items="screens">
+        <PropertyColumn Property="screen => screen.CinemaId" Title="Cinema ID" />
+        <PropertyColumn Property="screen => screen.ScreenName" Title="Screen Name" />
+        <PropertyColumn Property="screen => screen.SeatCount" Title="Total Seats" />
+
+        <TemplateColumn Context="screen">
+            <a href="@($"screens/edit?screenid={screen.ScreenId}")">Edit</a> |
+            <a href="@($"screens/details?screenid={screen.ScreenId}")">Details</a> |
+            <a href="@($"screens/delete?screenid={screen.ScreenId}")">Delete</a>
+        </TemplateColumn>
+    </QuickGrid>
+}
+else
+{
+    <p>Loading screens...</p>
+}
+
+@code {
+    private IQueryable<ScreenDtos>? screens;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var screenList = await ScreenService.GetScreensWithSeatCountAsync();
+        screens = screenList.AsQueryable(); 
+    }
+}
