@@ -1,95 +1,115 @@
 ﻿@page "/cinemas/edit"
 @using Microsoft.EntityFrameworkCore
 @using BookingMovieSystem_Admin.Models
-@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject IDbContextFactory<G5MovieTicketBookingSystemContext> DbFactory
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JS
 
-<PageTitle>Chỉnh sửa Rạp Chiếu Phim</PageTitle>
+<PageTitle>Edit</PageTitle>
 
-<div class="container mt-4">
-    <h1 class="mb-4 text-center">Chỉnh sửa Rạp Chiếu Phim</h1>
+<h1>Edit Cinema</h1>
 
-    @if (Cinema is null)
+<h2>Cinema</h2>
+<hr />
+@if (Cinema is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm Model="Cinema" OnValidSubmit="UpdateCinema">
+                <DataAnnotationsValidator />
+                <ValidationSummary role="alert" />
+                <input type="hidden" name="Cinema.CinemaId" value="@Cinema.CinemaId" />
+                <div class="mb-3">
+                    <label for="cinemaname" class="form-label">Cinema Name:</label>
+                    <InputText id="cinemaname" @bind-Value="Cinema.CinemaName" class="form-control" aria-required="true" />
+                    <ValidationMessage For="() => Cinema.CinemaName" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="city" class="form-label">City:</label>
+                    <InputText id="city" @bind-Value="Cinema.City" class="form-control" aria-required="true" />
+                    <ValidationMessage For="() => Cinema.City" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address:</label>
+                    <InputText id="address" @bind-Value="Cinema.Address" class="form-control" aria-required="true" />
+                    <ValidationMessage For="() => Cinema.Address" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+
+    <h2>Screens in this Cinema</h2>
+    <hr />
+    @if (Screens is null || Screens.Count == 0)
     {
-        <p class="text-muted text-center"><em>Đang tải dữ liệu...</em></p>
+        <p><em>No screens available for this cinema.</em></p>
     }
     else
     {
-        <div class="card shadow-lg">
-            <div class="card-body">
-                <EditForm method="post" Model="Cinema" OnValidSubmit="UpdateCinema">
-                    <DataAnnotationsValidator />
-                    <ValidationSummary role="alert" />
-                    <input type="hidden" name="Cinema.CinemaId" value="@Cinema.CinemaId" />
-
-                    <div class="mb-3">
-                        <label for="cinemaname" class="form-label">Tên Rạp:</label>
-                        <InputText id="cinemaname" @bind-Value="Cinema.CinemaName" class="form-control" />
-                        <ValidationMessage For="() => Cinema.CinemaName" class="text-danger" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="city" class="form-label">Thành phố:</label>
-                        <InputText id="city" @bind-Value="Cinema.City" class="form-control" />
-                        <ValidationMessage For="() => Cinema.City" class="text-danger" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Địa chỉ:</label>
-                        <InputText id="address" @bind-Value="Cinema.Address" class="form-control" />
-                        <ValidationMessage For="() => Cinema.Address" class="text-danger" />
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">💾 Lưu</button>
-                </EditForm>
-            </div>
-        </div>
-
-        <div class="mt-5">
-            <h2 class="text-center">Danh sách Phòng Chiếu</h2>
-
-            @if (Screens is null || !Screens.Any())
-            {
-                <p class="text-muted text-center"><em>Không có phòng chiếu nào.</em></p>
-            }
-            else
-            {
-                <table class="table table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Tên Phòng</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var (screen, index) in Screens.Select((value, i) => (value, i + 1)))
-                        {
-                            <tr>
-                                <td>@index</td>
-                                <td>@screen.ScreenName</td>
-                                <td>
-                                    <button class="btn btn-sm btn-danger" @onclick="() => DeleteScreen(screen.ScreenId)">🗑️ Xóa</button>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            }
-
-            <div class="mt-3">
-                <h4>Thêm Phòng Chiếu</h4>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Nhập tên phòng" @bind="NewScreenName">
-                    <button class="btn btn-success" @onclick="AddScreen">➕ Thêm</button>
-                </div>
-            </div>
-        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Screen Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var screen in Screens)
+                {
+                    <tr>
+                        <td>@screen.ScreenName</td>
+                        <td>
+                            <button class="btn btn-danger" @onclick="() => ConfirmDeleteScreen(screen.ScreenId)">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     }
 
-    <div class="mt-4">
-        <a href="/cinemas" class="btn btn-secondary">⬅️ Quay lại danh sách</a>
-    </div>
+    <h2>All Screens (Available to Add)</h2>
+    <hr />
+    @if (AllScreens is null || AllScreens.Count == 0)
+    {
+        <p><em>No screens available.</em></p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Screen Name</th>
+                    <th>Cinema Assigned</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var screen in AllScreens)
+                {
+                    <tr>
+                        <td>@screen.ScreenName</td>
+                        <td>
+                            @(screen.CinemaId == null ? "Not Assigned" : $"Cinema {screen.CinemaId}")
+                        </td>
+                        <td>
+                           
+                                <button class="btn btn-success" @onclick="() => AddScreenToCinema(screen.ScreenId)">Add</button>
+                            <!-- Thêm nút Add vào Action nếu chưa được gán Cinema -->
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+
+<div>
+    <a href="/cinemas">Back to List</a>
 </div>
 
 @code {
@@ -97,30 +117,30 @@
     private int CinemaId { get; set; }
 
     private Cinema? Cinema { get; set; }
-    private List<Screen> Screens = new();
-    private string NewScreenName = "";
+    private List<Screen> Screens { get; set; } = new();
+    private List<Screen> AllScreens { get; set; } = new(); // Danh sách tất cả Screen
 
     protected override async Task OnInitializedAsync()
     {
-        using var context = await DbFactory.CreateDbContextAsync();
+        using var context = DbFactory.CreateDbContext();
+        Cinema ??= await context.Cinemas.FirstOrDefaultAsync(m => m.CinemaId == CinemaId);
 
-        // Lấy thông tin rạp
-        Cinema = await context.Cinemas.FirstOrDefaultAsync(m => m.CinemaId == CinemaId);
         if (Cinema is null)
         {
             NavigationManager.NavigateTo("notfound");
             return;
         }
 
-        // Lấy danh sách phòng chiếu của rạp
-        Screens = await context.Screens
-            .Where(s => s.CinemaId == CinemaId)
-            .ToListAsync();
+        // Lấy danh sách các screen thuộc Cinema hiện tại
+        Screens = await context.Screens.Where(s => s.CinemaId == CinemaId).ToListAsync();
+
+        // Lấy danh sách tất cả screen (bao gồm cả screen đã có và chưa có CinemaId)
+        AllScreens = await context.Screens.ToListAsync();
     }
 
     private async Task UpdateCinema()
     {
-        using var context = await DbFactory.CreateDbContextAsync();
+        using var context = DbFactory.CreateDbContext();
         context.Attach(Cinema!).State = EntityState.Modified;
 
         try
@@ -142,45 +162,42 @@
         NavigationManager.NavigateTo("/cinemas");
     }
 
-    private async Task AddScreen()
-    {
-        if (!string.IsNullOrWhiteSpace(NewScreenName))
-        {
-            using var context = await DbFactory.CreateDbContextAsync();
-
-            var newScreen = new Screen
-                {
-                    CinemaId = CinemaId,
-                    ScreenName = NewScreenName
-                };
-
-            context.Screens.Add(newScreen);
-            await context.SaveChangesAsync();
-
-            Screens.Add(newScreen);
-            NewScreenName = ""; 
-        }
-    }
-
-    private async Task DeleteScreen(int screenId)
-    {
-        using var context = await DbFactory.CreateDbContextAsync();
-
-        var screen = await context.Screens.FindAsync(screenId);
-        if (screen != null)
-        {
-            context.Screens.Remove(screen);
-            await context.SaveChangesAsync();
-
-            // Cập nhật danh sách phòng chiếu sau khi xóa
-            Screens.Remove(screen);
-        }
-    }
-
-
     private bool CinemaExists(int cinemaid)
     {
         using var context = DbFactory.CreateDbContext();
         return context.Cinemas.Any(e => e.CinemaId == cinemaid);
+    }
+
+    private async Task ConfirmDeleteScreen(int screenId)
+    {
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete this screen?");
+        if (confirmed)
+        {
+            using var context = DbFactory.CreateDbContext();
+            var screen = await context.Screens.FindAsync(screenId);
+
+            if (screen != null)
+            {
+                await context.SaveChangesAsync();
+
+                Screens.Remove(screen);
+                StateHasChanged();
+            }
+        }
+    }
+
+    private async Task AddScreenToCinema(int screenId)
+    {
+        using var context = DbFactory.CreateDbContext();
+        var screen = await context.Screens.FindAsync(screenId);
+
+        if (screen != null)
+        {
+            screen.CinemaId = CinemaId;
+            await context.SaveChangesAsync();
+
+            Screens.Add(screen);
+            StateHasChanged();
+        }
     }
 }

@@ -6,123 +6,56 @@
 
 <PageTitle>Create</PageTitle>
 
-<h1>Create</h1>
+<h1>Create Cinema</h1>
 
 <h2>Cinema</h2>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <EditForm Method="post" Model="Cinema" OnValidSubmit="AddCinema" FormName="create" Enhance>
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert" />
-            <div class="mb-3">
-                <label for="cinemaname" class="form-label">Cinema Name:</label>
-                <InputText id="cinemaname" @bind-Value="Cinema.CinemaName" class="form-control" />
-                <ValidationMessage For="() => Cinema.CinemaName" class="text-danger" />
-            </div>
-            <div class="mb-3">
-                <label for="city" class="form-label">City:</label>
-                <InputText id="city" @bind-Value="Cinema.City" class="form-control" />
-                <ValidationMessage For="() => Cinema.City" class="text-danger" />
-            </div>
-            <div class="mb-3">
-                <label for="address" class="form-label">Address:</label>
-                <InputText id="address" @bind-Value="Cinema.Address" class="form-control" />
-                <ValidationMessage For="() => Cinema.Address" class="text-danger" />
-            </div>
-            <button type="submit" class="btn btn-primary">Create</button>
-        </EditForm>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <EditForm method="post" Model="Cinema" OnValidSubmit="AddCinema" FormName="create" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger" role="alert" />
+
+                <div class="mb-3">
+                    <label for="cinemaname" class="form-label">Cinema Name:</label>
+                    <InputText id="cinemaname" @bind-Value="Cinema.CinemaName" class="form-control" aria-required="true" />
+                    <ValidationMessage For="() => Cinema.CinemaName" class="text-danger" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="city" class="form-label">City:</label>
+                    <InputText id="city" @bind-Value="Cinema.City" class="form-control" aria-required="true" />
+                    <ValidationMessage For="() => Cinema.City" class="text-danger" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address:</label>
+                    <InputText id="address" @bind-Value="Cinema.Address" class="form-control" aria-required="true" />
+                    <ValidationMessage For="() => Cinema.Address" class="text-danger" />
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">Create</button>
+                </div>
+            </EditForm>
+        </div>
     </div>
 </div>
 
-<h3>Select Screens</h3>
-<div class="mb-3">
-    <!-- Wrap the InputCheckbox components -->
-    @foreach (var screen in ScreenSelections)
-    {
-        <div class="form-check">
-            <InputCheckbox id="@($"screen-{screen.ScreenId}")" class="form-check-input" @bind-Value="screen.IsSelected" @onchange="OnScreenSelectionChanged" />
-            <label for="@($"screen-{screen.ScreenId}")" class="form-check-label">@screen.ScreenName</label>
-        </div>
-    }
-</div>
-
-<div>
-    <p><strong>Total selected screens: </strong>@TotalSelectedScreens</p>
-</div>
-
-<div>
-    <a href="/cinemas">Back to List</a>
+<div class="mt-3 text-center">
+    <a href="/cinemas" class="btn btn-link">Back to List</a>
 </div>
 
 @code {
     [SupplyParameterFromForm]
     private Cinema Cinema { get; set; } = new();
 
-    private List<Screen> Screens = new();
-    private List<ScreenSelection> ScreenSelections = new();
-    private List<int> SelectedScreenIds = new(); // To store selected screen IDs
-    private int TotalSelectedScreens => SelectedScreenIds.Count; // Count of selected screens
-
-    protected override async Task OnInitializedAsync()
-    {
-        using var context = await DbFactory.CreateDbContextAsync();
-        Screens = await context.Screens.ToListAsync();
-
-        ScreenSelections = Screens.Select(screen => new ScreenSelection
-            {
-                ScreenId = screen.ScreenId,
-                ScreenName = screen.ScreenName,
-                IsSelected = false // Initially, none are selected
-            }).ToList();
-    }
-
-    private void OnScreenSelectionChanged()
-    {
-        SelectedScreenIds = ScreenSelections
-            .Where(s => s.IsSelected)
-            .Select(s => s.ScreenId)
-            .ToList();
-    }
-
     private async Task AddCinema()
     {
         using var context = DbFactory.CreateDbContext();
-
         context.Cinemas.Add(Cinema);
         await context.SaveChangesAsync();
-
-        var cinemaId = Cinema.CinemaId;
-
-        Console.WriteLine("SelectedScreenIds: " + string.Join(", ", SelectedScreenIds));
-
-        foreach (var selectedScreenId in SelectedScreenIds)
-        {
-            var screen = await context.Screens
-                .FirstOrDefaultAsync(s => s.ScreenId == selectedScreenId);
-
-            if (screen != null)
-            {
-                screen.CinemaId = cinemaId;
-            }
-        }
-
-        await context.SaveChangesAsync();
-
         NavigationManager.NavigateTo("/cinemas");
-    }
-
-    private class ScreenSelection
-    {
-        public int ScreenId { get; set; }
-        public string ScreenName { get; set; } = string.Empty;
-        public bool IsSelected { get; set; }
-    }
-
-    // CinemaScreen class to store the relation between Cinema and Screen
-    public class CinemaScreen
-    {
-        public int CinemaId { get; set; }
-        public int ScreenId { get; set; }
     }
 }
