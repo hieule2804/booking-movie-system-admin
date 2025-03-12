@@ -158,7 +158,7 @@
             await context.SaveChangesAsync();
 
             Screens.Add(newScreen);
-            NewScreenName = ""; // Reset input
+            NewScreenName = ""; 
         }
     }
 
@@ -171,9 +171,12 @@
         {
             context.Screens.Remove(screen);
             await context.SaveChangesAsync();
+
+            // Cập nhật danh sách phòng chiếu sau khi xóa
             Screens.Remove(screen);
         }
     }
+
 
     private bool CinemaExists(int cinemaid)
     {

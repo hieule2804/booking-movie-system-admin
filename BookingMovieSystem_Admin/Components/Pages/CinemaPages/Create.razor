@@ -37,15 +37,14 @@
 
 <h3>Select Screens</h3>
 <div class="mb-3">
-    <div>
-        @foreach (var screen in ScreenSelections)
-        {
-            <div class="form-check">
-                <InputCheckbox id="@($"screen-{screen.ScreenId}")" @bind-Value="screen.IsSelected" class="form-check-input" />
-                <label for="@($"screen-{screen.ScreenId}")" class="form-check-label">@screen.ScreenName</label>
-            </div>
-        }
-    </div>
+    <!-- Wrap the InputCheckbox components -->
+    @foreach (var screen in ScreenSelections)
+    {
+        <div class="form-check">
+            <InputCheckbox id="@($"screen-{screen.ScreenId}")" class="form-check-input" @bind-Value="screen.IsSelected" @onchange="OnScreenSelectionChanged" />
+            <label for="@($"screen-{screen.ScreenId}")" class="form-check-label">@screen.ScreenName</label>
+        </div>
+    }
 </div>
 
 <div>
@@ -62,8 +61,8 @@
 
     private List<Screen> Screens = new();
     private List<ScreenSelection> ScreenSelections = new();
-    private List<ScreenSelection> ScreenSelectionsTrue = new();
-    private int TotalSelectedScreens => ScreenSelectionsTrue.Count;
+    private List<int> SelectedScreenIds = new(); // To store selected screen IDs
+    private int TotalSelectedScreens => SelectedScreenIds.Count; // Count of selected screens
 
     protected override async Task OnInitializedAsync()
     {
@@ -74,36 +73,56 @@
             {
                 ScreenId = screen.ScreenId,
                 ScreenName = screen.ScreenName,
-                IsSelected = false
+                IsSelected = false // Initially, none are selected
             }).ToList();
     }
 
-    // Phương thức tự động cập nhật danh sách các màn hình được chọn
-    private void UpdateScreenSelections()
+    private void OnScreenSelectionChanged()
     {
-        // Lọc các màn hình đã được chọn
-        ScreenSelectionsTrue = ScreenSelections.Where(s => s.IsSelected).ToList();
+        SelectedScreenIds = ScreenSelections
+            .Where(s => s.IsSelected)
+            .Select(s => s.ScreenId)
+            .ToList();
     }
 
     private async Task AddCinema()
     {
         using var context = DbFactory.CreateDbContext();
-        UpdateScreenSelections();
-        Console.WriteLine(ScreenSelectionsTrue.Count);
 
-        // Lưu Cinema vào cơ sở dữ liệu
         context.Cinemas.Add(Cinema);
         await context.SaveChangesAsync();
 
-        // Điều hướng về danh sách cinemas
+        var cinemaId = Cinema.CinemaId;
+
+        Console.WriteLine("SelectedScreenIds: " + string.Join(", ", SelectedScreenIds));
+
+        foreach (var selectedScreenId in SelectedScreenIds)
+        {
+            var screen = await context.Screens
+                .FirstOrDefaultAsync(s => s.ScreenId == selectedScreenId);
+
+            if (screen != null)
+            {
+                screen.CinemaId = cinemaId;
+            }
+        }
+
+        await context.SaveChangesAsync();
+
         NavigationManager.NavigateTo("/cinemas");
     }
 
-    // Lớp đối tượng để lưu trạng thái chọn của mỗi màn hình
     private class ScreenSelection
     {
         public int ScreenId { get; set; }
         public string ScreenName { get; set; } = string.Empty;
         public bool IsSelected { get; set; }
+    }
+
+    // CinemaScreen class to store the relation between Cinema and Screen
+    public class CinemaScreen
+    {
+        public int CinemaId { get; set; }
+        public int ScreenId { get; set; }
     }
 }

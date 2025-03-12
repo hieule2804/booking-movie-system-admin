@@ -1,0 +1,123 @@
+﻿@page "/movies/edit"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Edit Movie</PageTitle>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Edit Movie</h1>
+
+    <h2 class="mb-3">Movie Details</h2>
+    <hr />
+
+    @if (Movie is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <EditForm method="post" Model="Movie" OnValidSubmit="UpdateMovie" FormName="edit" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary role="alert" class="text-danger" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title:</label>
+                        <InputText id="title" @bind-Value="Movie.Title" class="form-control" />
+                        <ValidationMessage For="() => Movie.Title" class="text-danger" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="genre" class="form-label">Genre:</label>
+                        <InputText id="genre" @bind-Value="Movie.Genre" class="form-control" />
+                        <ValidationMessage For="() => Movie.Genre" class="text-danger" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="duration" class="form-label">Duration (minutes):</label>
+                        <InputNumber id="duration" @bind-Value="Movie.Duration" class="form-control" />
+                        <ValidationMessage For="() => Movie.Duration" class="text-danger" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="language" class="form-label">Language:</label>
+                        <InputText id="language" @bind-Value="Movie.Language" class="form-control" />
+                        <ValidationMessage For="() => Movie.Language" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="rating" class="form-label">Rating:</label>
+                        <InputNumber id="rating" @bind-Value="Movie.Rating" class="form-control" />
+                        <ValidationMessage For="() => Movie.Rating" class="text-danger" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="releasedate" class="form-label">Release Date:</label>
+                        <InputDate id="releasedate" @bind-Value="Movie.ReleaseDate" class="form-control" />
+                        <ValidationMessage For="() => Movie.ReleaseDate" class="text-danger" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description:</label>
+                        <InputText id="description" @bind-Value="Movie.Description" class="form-control" />
+                        <ValidationMessage For="() => Movie.Description" class="text-danger" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a href="/movies" class="btn btn-secondary ms-3">Back to List</a>
+            </div>
+        </EditForm>
+    }
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    private int MovieId { get; set; }
+
+    [SupplyParameterFromForm]
+    private Movie? Movie { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        Movie ??= await context.Movies.FirstOrDefaultAsync(m => m.MovieId == MovieId);
+
+        if (Movie is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    private async Task UpdateMovie()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Attach(Movie!).State = EntityState.Modified;
+
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!MovieExists(Movie!.MovieId))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/movies");
+    }
+
+    private bool MovieExists(int movieid)
+    {
+        using var context = DbFactory.CreateDbContext();
+        return context.Movies.Any(e => e.MovieId == movieid);
+    }
+}

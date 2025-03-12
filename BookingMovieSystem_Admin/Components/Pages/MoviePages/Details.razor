@@ -1,0 +1,67 @@
+﻿@page "/movies/details"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Movie Details</PageTitle>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Movie Details</h1>
+
+    <h2 class="mb-3">Movie Information</h2>
+    <hr />
+
+    @if (movie is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <dl class="row">
+            <dt class="col-sm-3">Title:</dt>
+            <dd class="col-sm-9">@movie.Title</dd>
+
+            <dt class="col-sm-3">Genre:</dt>
+            <dd class="col-sm-9">@movie.Genre</dd>
+
+            <dt class="col-sm-3">Duration:</dt>
+            <dd class="col-sm-9">@movie.Duration</dd>
+
+            <dt class="col-sm-3">Language:</dt>
+            <dd class="col-sm-9">@movie.Language</dd>
+
+            <dt class="col-sm-3">Rating:</dt>
+            <dd class="col-sm-9">@movie.Rating</dd>
+
+            <dt class="col-sm-3">Release Date:</dt>
+            <dd class="col-sm-9">@movie.ReleaseDate</dd>
+
+            <dt class="col-sm-3">Description:</dt>
+            <dd class="col-sm-9">@movie.Description</dd>
+        </dl>
+
+        <div class="mt-4">
+            <a href="@($"/movies/edit?movieid={movie.MovieId}")" class="btn btn-warning">Edit</a>
+            <a href="@($"/movies")" class="btn btn-secondary ms-3">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private Movie? movie;
+
+    [SupplyParameterFromQuery]
+    private int MovieId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        movie = await context.Movies.FirstOrDefaultAsync(m => m.MovieId == MovieId);
+
+        if (movie is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}
