@@ -97,9 +97,7 @@ else
                             @(screen.CinemaId == null ? "Not Assigned" : $"Cinema {screen.CinemaId}")
                         </td>
                         <td>
-                           
-                                <button class="btn btn-success" @onclick="() => AddScreenToCinema(screen.ScreenId)">Add</button>
-                            <!-- Thêm nút Add vào Action nếu chưa được gán Cinema -->
+                            <button class="btn btn-success" @onclick="() => AddScreenToCinema(screen.ScreenId)">Add</button>
                         </td>
                     </tr>
                 }
@@ -118,7 +116,7 @@ else
 
     private Cinema? Cinema { get; set; }
     private List<Screen> Screens { get; set; } = new();
-    private List<Screen> AllScreens { get; set; } = new(); // Danh sách tất cả Screen
+    private List<Screen> AllScreens { get; set; } = new(); // All screens list
 
     protected override async Task OnInitializedAsync()
     {
@@ -131,10 +129,10 @@ else
             return;
         }
 
-        // Lấy danh sách các screen thuộc Cinema hiện tại
+        // Get list of screens associated with the current cinema
         Screens = await context.Screens.Where(s => s.CinemaId == CinemaId).ToListAsync();
 
-        // Lấy danh sách tất cả screen (bao gồm cả screen đã có và chưa có CinemaId)
+        // Get list of all screens (including unassigned ones)
         AllScreens = await context.Screens.ToListAsync();
     }
 

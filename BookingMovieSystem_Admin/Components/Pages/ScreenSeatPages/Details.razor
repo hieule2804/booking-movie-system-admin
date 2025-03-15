@@ -60,7 +60,7 @@
     {
         using var context = DbFactory.CreateDbContext();
         screenseat = await context.ScreenSeats
-            .Include(s => s.SeatType) // ✅ Load thêm thông tin về SeatType
+            .Include(s => s.SeatType)
             .FirstOrDefaultAsync(m => m.ScreenSeatId == ScreenSeatId);
 
         if (screenseat is null)

@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace BookingMovieSystem_Admin.Models;
 
 public partial class TicketScanLog
 {
-    [Key]
     public int ScanId { get; set; }
 
     public int TicketId { get; set; }

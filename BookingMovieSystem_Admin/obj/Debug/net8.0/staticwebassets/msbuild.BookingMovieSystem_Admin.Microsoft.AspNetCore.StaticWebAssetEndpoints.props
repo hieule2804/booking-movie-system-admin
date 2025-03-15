@@ -16,13 +16,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\BookingMovieSystem_Admin.4jy47e11l2.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"4jy47e11l2"},{"Name":"integrity","Value":"sha256-0DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k="},{"Name":"label","Value":"_content/BookingMovieSystem_Admin/BookingMovieSystem_Admin.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5931"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00220DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Mar 2025 04:16:21 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5931"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00220DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k=\u0022"},{"Name":"Last-Modified","Value":"Sat, 15 Mar 2025 08:35:04 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BookingMovieSystem_Admin/BookingMovieSystem_Admin.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\BookingMovieSystem_Admin.4jy47e11l2.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-0DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5931"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00220DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Mar 2025 04:16:21 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5931"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00220DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k=\u0022"},{"Name":"Last-Modified","Value":"Sat, 15 Mar 2025 08:35:04 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BookingMovieSystem_Admin/bootstrap/bootstrap.min.bpk8xqwxhs.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\bootstrap\bootstrap.min.css'))</AssetFile>

@@ -9,6 +9,8 @@ public partial class OrderItem
 
     public int OrderId { get; set; }
 
+    public int ShowtimeId { get; set; }
+
     public int ScreenSeatId { get; set; }
 
     public decimal PriceCharged { get; set; }
@@ -16,6 +18,8 @@ public partial class OrderItem
     public virtual Order Order { get; set; } = null!;
 
     public virtual ScreenSeat ScreenSeat { get; set; } = null!;
+
+    public virtual Showtime Showtime { get; set; } = null!;
 
     public virtual Ticket? Ticket { get; set; }
 }

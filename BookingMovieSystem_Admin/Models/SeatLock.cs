@@ -13,11 +13,13 @@ public partial class SeatLock
 
     public DateTime LockStartTime { get; set; }
 
+    public int ShowtimeId { get; set; }
+
     public DateTime LockExpiryTime { get; set; }
 
-    public string LockStatus { get; set; } = null!;
-
     public virtual ScreenSeat ScreenSeat { get; set; } = null!;
+
+    public virtual Showtime Showtime { get; set; } = null!;
 
     public virtual User User { get; set; } = null!;
 }

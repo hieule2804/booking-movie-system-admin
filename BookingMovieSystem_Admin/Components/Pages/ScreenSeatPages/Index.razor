@@ -39,8 +39,8 @@
     {
         context = DbFactory.CreateDbContext();
         ScreenSeats = await context.ScreenSeats
-            .Include(s => s.SeatType) // 🔹 Load dữ liệu từ bảng SeatType
-            .AsNoTracking() // 🔹 Tối ưu hóa truy vấn
+            .Include(s => s.SeatType)
+            .AsNoTracking()
             .ToListAsync();
     }
 

@@ -14,17 +14,17 @@
     <div class="col-md-4">
         <EditForm method="post" Model="Screen" OnValidSubmit="AddScreen" FormName="create" Enhance>
             <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert"/>
+            <ValidationSummary class="text-danger" role="alert" />
             <div class="mb-3">
-                <label for="cinemaid" class="form-label">CinemaId:</label> 
-                <InputNumber id="cinemaid" @bind-Value="Screen.CinemaId" class="form-control" /> 
-                <ValidationMessage For="() => Screen.CinemaId" class="text-danger" /> 
-            </div>        
+                <label for="cinemaid" class="form-label">CinemaId:</label>
+                <InputNumber id="cinemaid" @bind-Value="Screen.CinemaId" class="form-control" />
+                <ValidationMessage For="() => Screen.CinemaId" class="text-danger" />
+            </div>
             <div class="mb-3">
-                <label for="screenname" class="form-label">ScreenName:</label> 
-                <InputText id="screenname" @bind-Value="Screen.ScreenName" class="form-control" /> 
-                <ValidationMessage For="() => Screen.ScreenName" class="text-danger" /> 
-            </div>        
+                <label for="screenname" class="form-label">ScreenName:</label>
+                <InputText id="screenname" @bind-Value="Screen.ScreenName" class="form-control" />
+                <ValidationMessage For="() => Screen.ScreenName" class="text-danger" />
+            </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
     </div>
@@ -38,7 +38,6 @@
     [SupplyParameterFromForm]
     private Screen Screen { get; set; } = new();
 
-    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddScreen()
     {
         using var context = DbFactory.CreateDbContext();

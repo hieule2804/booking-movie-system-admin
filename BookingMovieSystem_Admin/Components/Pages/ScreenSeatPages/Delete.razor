@@ -32,7 +32,7 @@
                     <dd class="col-sm-8 p-2">@seatType?.SeatTypeName</dd>
 
                     <dt class="col-sm-4 bg-light p-2 fw-bold">Base Price</dt>
-                    <dd class="col-sm-8 p-2">@seatType?.BasePrice.ToString("C")</dd> <!-- Hiển thị giá với đơn vị tiền tệ -->
+                    <dd class="col-sm-8 p-2">@seatType?.BasePrice.ToString("C")</dd>
                 </dl>
             }
         </div>
@@ -54,7 +54,7 @@
 
 @code {
     private ScreenSeat? screenseat;
-    private SeatType? seatType; // Thêm biến để lấy thông tin SeatType
+    private SeatType? seatType;
 
     [SupplyParameterFromQuery]
     private int ScreenSeatId { get; set; }
@@ -63,11 +63,9 @@
     {
         using var context = DbFactory.CreateDbContext();
 
-        // Lấy thông tin ScreenSeat
         screenseat = await context.ScreenSeats
             .FirstOrDefaultAsync(m => m.ScreenSeatId == ScreenSeatId);
 
-        // Lấy thông tin SeatType từ SeatTypeId
         if (screenseat is not null)
         {
             seatType = await context.SeatTypes
