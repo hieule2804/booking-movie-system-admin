@@ -1,0 +1,86 @@
+﻿@page "/showtimes"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using BookingMovieSystem_Admin.Models
+@using BookingMovieSystem_Admin.Models
+@implements IAsyncDisposable
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="showtimes/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.Showtimes">
+    <PropertyColumn Property="showtime => showtime.Movie.Title" />
+    <PropertyColumn Property="showtime => showtime.Screen.ScreenName" />
+    <PropertyColumn Property="showtime => showtime.ShowDate" />
+    <PropertyColumn Property="showtime => showtime.ShowTime" />
+    <PropertyColumn Property="showtime => showtime.ExperienceType" />
+    <PropertyColumn Property="showtime => showtime.IsSoldOut" />
+
+    <TemplateColumn Context="showtime">
+        <a href="@($"showtimes/edit?showtimeid={showtime.ShowtimeId}")">Edit</a> |
+        <a href="@($"showtimes/details?showtimeid={showtime.ShowtimeId}")">Details</a> |
+        <a href="@($"showtimes/delete?showtimeid={showtime.ShowtimeId}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private G5MovieTicketBookingSystemContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+
+        var showtimes = context.Showtimes
+            .Include(s => s.Movie) 
+            .Include(s => s.Screen)  
+            .ToList();
+
+    }
+
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+@* <script src="~/microsoft/signalr/dist/browser/signalr.js"></script> *@
+
+<script>
+        // Kết nối đến SignalR Hub
+    var connection = new signalR.HubConnectionBuilder()
+        .withUrl("/showTimeHub")
+        .build();
+
+
+    //     var connection = new signalR.HubConnectionBuilder()
+    // .withUrl("/foodHub", { accessTokenFactory: () => localStorage.getItem("authToken") })
+    // .build();
+
+    // Bắt đầu kết nối SignalR
+    connection.start().catch(function (err) {
+        console.error("❌ SignalR Connection Error:", err.toString());
+    });
+
+    // Lắng nghe sự kiện cập nhật
+    connection.on("ReceiveUpdateNotification", function (showtime) {
+
+        location.reload();
+
+    });
+     connection.on("ReceiveAddNotification", function (showtime) {
+
+        location.reload();
+
+    });
+     connection.on("ReceiveDeleteNotification", function (showtime) {
+
+        location.reload();
+
+    });
+
+</script>

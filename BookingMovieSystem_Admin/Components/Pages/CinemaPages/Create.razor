@@ -1,4 +1,6 @@
 ﻿@page "/cinemas/create"
+@using BookingMovieSystem_Admin.Hub
+@using Microsoft.AspNetCore.SignalR
 @using Microsoft.EntityFrameworkCore
 @using BookingMovieSystem_Admin.Models
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
@@ -49,12 +51,13 @@
 @code {
     [SupplyParameterFromForm]
     private Cinema Cinema { get; set; } = new();
-
+    [Inject] private IHubContext<CinemaHub> HubContext { get; set; } = default!;
     private async Task AddCinema()
     {
         using var context = DbFactory.CreateDbContext();
         context.Cinemas.Add(Cinema);
         await context.SaveChangesAsync();
+        await HubContext.Clients.All.SendAsync("ReceiveAddNotification", Cinema);
         NavigationManager.NavigateTo("/cinemas");
     }
 }

@@ -1,4 +1,6 @@
 ﻿@page "/cinemas/delete"
+@using BookingMovieSystem_Admin.Hub
+@using Microsoft.AspNetCore.SignalR
 @using Microsoft.EntityFrameworkCore
 @using BookingMovieSystem_Admin.Models
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
@@ -42,7 +44,7 @@
 
     [SupplyParameterFromQuery]
     private int CinemaId { get; set; }
-
+    [Inject] private IHubContext<CinemaHub> HubContext { get; set; } = default!;
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
@@ -69,6 +71,7 @@
         context.Cinemas.Remove(cinema!);
 
         await context.SaveChangesAsync();
+        await HubContext.Clients.All.SendAsync("ReceiveDeleteNotification", cinema.CinemaId);
         NavigationManager.NavigateTo("/cinemas");
     }
 }

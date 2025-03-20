@@ -3,12 +3,160 @@
   "WorkspaceRootPath": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenseatpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenseatpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\showtimepages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\showtimepages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\userpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\userpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\userpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\userpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\userpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\userpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\userpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\userpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\moviepages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\moviepages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\cinemapages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\cinemapages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\moviepages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\moviepages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\moviepages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\moviepages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\hub\\userhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\hub\\userhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\hub\\showtimehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\hub\\showtimehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\showtimepages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\showtimepages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\showtimepages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\showtimepages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\showtimepages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\showtimepages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\moviepages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\moviepages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\cinemapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\cinemapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\hub\\screenseathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\hub\\screenseathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenseatpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenseatpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\hub\\screenhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\hub\\screenhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenseatpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenseatpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\cinemapages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\cinemapages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\cinemapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\cinemapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\hub\\moviehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\hub\\moviehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenseatpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenseatpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\hub\\cinemahub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\hub\\cinemahub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenseatpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenseatpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\userpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\userpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\models\\screen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\models\\screen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\services\\iscreenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,104 +203,12 @@
       "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\userpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\userpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\userpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\userpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\userpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\userpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\userpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\userpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\userpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\userpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenseatpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenseatpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenseatpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenseatpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenseatpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenseatpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenseatpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenseatpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenseatpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenseatpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenpages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenpages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenpages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\screenpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\screenpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\moviepages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\moviepages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\moviepages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\moviepages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\moviepages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\moviepages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\moviepages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\moviepages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\moviepages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\moviepages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\cinemapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\cinemapages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\cinemapages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\cinemapages\\edit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\cinemapages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\cinemapages\\details.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\cinemapages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\cinemapages\\delete.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\cinemapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\cinemapages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\models\\showtime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -161,10 +217,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\models\\g5movieticketbookingsystemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\models\\g5movieticketbookingsystemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -177,10 +229,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|solutionrelative:bookingmoviesystem_admin\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{405483F9-F491-4611-8589-6AFD05BFFBF2}|BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj|d:\\fpt uni\\sp25\\prn222\\bookingmoviesystem_admin\\bookingmoviesystem_admin\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -202,7 +250,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 330,
-          "SelectedChildIndex": 85,
+          "SelectedChildIndex": 193,
           "Children": [
             {
               "$type": "Bookmark",
@@ -258,10 +306,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:22:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:25:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
@@ -270,23 +314,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:27:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:25:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:34:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:32:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:30:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Bookmark",
@@ -506,15 +538,7 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:21:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:17:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:10:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
               "$type": "Bookmark",
@@ -534,6 +558,10 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:5:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
@@ -542,323 +570,741 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:29:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f53-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{f5cd1b51-c771-5648-966f-646d419b1e7c}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:41:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:30:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:147:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:148:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:143:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:144:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:145:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:146:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:38:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:69:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:27:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:70:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:71:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:69:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:73:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:72:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:54:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:49:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:68:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:67:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:18:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:17:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:45:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1196186238:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:14:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:18:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:10:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:21:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:19:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:20:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:9:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:46:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:47:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:63:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:64:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:65:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:37:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:36:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:39:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:40:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:43:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:42:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:41:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{99a11807-c5db-4877-ad35-09b56a044012}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{9a7cebbb-dc5c-4986-bc49-962da46aa506}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{26341fe2-71dd-46fd-bb1b-2e51a92a0d64}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{80c411e8-fd5e-4b16-914b-0d9d84172cc1}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c93a910a-0fa6-4307-93a4-f2bd61ec7828}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:48:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:143:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:144:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:145:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:146:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:147:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:145:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:146:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:147:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:146:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:147:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{605322a2-17ae-43f4-b60f-766556e46c87}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:16:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:44:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:63:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:74:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:14:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:22:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:27:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:25:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:30:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:21:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:10:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UserHub.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\UserHub.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Hub\\UserHub.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\UserHub.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Hub\\UserHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T15:19:04.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ShowTimeHub.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\ShowTimeHub.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Hub\\ShowTimeHub.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\ShowTimeHub.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Hub\\ShowTimeHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T15:15:02.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\User.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Models\\User.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\User.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Models\\User.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA7wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T08:36:04.052Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IScreenService.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\IScreenService.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Services\\IScreenService.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\IScreenService.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Services\\IScreenService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T04:43:00.238Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Program.cs",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Program.cs",
               "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Program.cs",
               "RelativeToolTip": "BookingMovieSystem_Admin\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwD4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-15T08:17:17.231Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IScreenSeatService.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\IScreenSeatService.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Services\\IScreenSeatService.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\IScreenSeatService.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Services\\IScreenSeatService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T04:40:41.139Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ScreenService.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\Impl\\ScreenService.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Services\\Impl\\ScreenService.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\Impl\\ScreenService.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Services\\Impl\\ScreenService.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAUwDAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T04:37:23.363Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ScreenSeatService.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\Impl\\ScreenSeatService.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Services\\Impl\\ScreenSeatService.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\Impl\\ScreenSeatService.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Services\\Impl\\ScreenSeatService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAUwCIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T04:37:25.013Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IScreenSeatRepository.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\IScreenSeatRepository.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Repository\\IScreenSeatRepository.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\IScreenSeatRepository.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Repository\\IScreenSeatRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T04:37:29.31Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IScreenRepository.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\IScreenRepository.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Repository\\IScreenRepository.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\IScreenRepository.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Repository\\IScreenRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T04:43:30.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ScreenSeatRepository.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\Impl\\ScreenSeatRepository.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Repository\\Impl\\ScreenSeatRepository.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\Impl\\ScreenSeatRepository.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Repository\\Impl\\ScreenSeatRepository.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAA0wCwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T04:37:28.073Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ScreenRepository.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\Impl\\ScreenRepository.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Repository\\Impl\\ScreenRepository.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\Impl\\ScreenRepository.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Repository\\Impl\\ScreenRepository.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAUwCYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T04:43:37.687Z",
+              "DocumentIndex": 11,
+              "Title": "Index.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Index.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Index.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Index.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Index.razor",
+              "ViewState": "AgIAACgAAAAAAAAAAAAIwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-12T00:47:15.789Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "_Imports.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\_Imports.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\_Imports.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\_Imports.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\_Imports.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Create.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Create.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Create.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Create.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Create.razor",
+              "ViewState": "AgIAADoAAAAAAAAAAAAUwEoAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T08:33:38.804Z",
+              "WhenOpened": "2025-03-12T00:46:31.428Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "App.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\App.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\App.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\App.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\App.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T08:33:38.214Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Routes.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Routes.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Routes.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Routes.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Routes.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T08:33:37.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Details.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Details.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Details.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Details.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Details.razor",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAUwDUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T08:16:18.276Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 8,
               "Title": "Edit.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Edit.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Edit.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Edit.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Edit.razor",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAUwGYAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Edit.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Edit.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Edit.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Edit.razor",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAUwGcAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T08:16:22.585Z",
+              "WhenOpened": "2025-03-12T00:49:26.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 4,
               "Title": "Index.razor",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Index.razor",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Index.razor",
               "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Index.razor",
               "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Index.razor",
-              "ViewState": "AgIAACgAAAAAAAAAAAAUwD4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAIwFwAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-12T03:19:24.128Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Delete.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Delete.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Delete.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Delete.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Delete.razor",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAUwEQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T08:16:08.613Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 5,
               "Title": "Create.razor",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Create.razor",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Create.razor",
               "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Create.razor",
               "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Create.razor",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAUwG8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAUwEUAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-12T03:17:08.242Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 7,
+              "Title": "Delete.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Delete.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Delete.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Delete.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Delete.razor",
+              "ViewState": "AgIAACoAAAAAAAAAAAAUwDIAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-15T08:16:08.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Delete.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Delete.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Delete.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Delete.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Delete.razor",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAAEkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-11T09:45:36.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Edit.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Edit.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Edit.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Edit.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Edit.razor",
+              "ViewState": "AgIAADoAAAAAAAAAAAAUwEgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-15T08:16:22.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Index.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Index.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Index.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Index.razor",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAE8AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-15T09:18:19.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Index.razor",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Index.razor",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Index.razor",
               "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Index.razor",
               "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Index.razor",
-              "ViewState": "AgIAABoAAAAAAAAAAAAUwDAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-11T06:18:55.803Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Edit.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Edit.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Edit.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Edit.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Edit.razor",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAUwG8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T06:23:12.918Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Details.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Details.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Details.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Details.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Details.razor",
-              "ViewState": "AgIAADIAAAAAAAAAAAAUwEgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T06:35:35.143Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Delete.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Delete.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Delete.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Delete.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Delete.razor",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAUwF0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T06:51:35.427Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Create.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Create.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Create.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Create.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Create.razor",
-              "ViewState": "AgIAADQAAAAAAAAAAAAUwEoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T06:18:47.552Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 1,
               "Title": "Index.razor",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Index.razor",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Index.razor",
               "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Index.razor",
               "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Index.razor",
-              "ViewState": "AgIAABoAAAAAAAAAAAAUwDAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAIwE8AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-11T06:36:54.889Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 14,
+              "Title": "Edit.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Edit.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Edit.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Edit.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Edit.razor",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAAAFAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T15:18:13.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Create.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Create.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Create.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Create.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Create.razor",
+              "ViewState": "AgIAACsAAAAAAAAAAAAowD0AAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-15T09:17:51.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Delete.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Delete.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Delete.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Delete.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Delete.razor",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAUwE8AAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-12T00:50:12.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Create.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Create.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Create.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Create.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Create.razor",
+              "ViewState": "AgIAABwAAAAAAAAAAAAUwCkAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-15T08:15:42.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Index.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Index.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Index.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Index.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Index.razor",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAIwEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-11T08:58:03.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Delete.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Delete.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Delete.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Delete.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ShowtimePages\\Delete.razor",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAADkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T03:49:02.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ScreenSeatHub.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\ScreenSeatHub.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Hub\\ScreenSeatHub.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\ScreenSeatHub.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Hub\\ScreenSeatHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T14:41:37.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Delete.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Delete.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Delete.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Delete.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Delete.razor",
+              "ViewState": "AgIAACEAAAAAAAAAAAAUwCoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-11T04:47:30.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "Details.razor",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Details.razor",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Details.razor",
@@ -871,251 +1317,233 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Edit.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Edit.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Edit.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Edit.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Edit.razor",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAUwFUAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 24,
+              "Title": "Create.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Create.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Create.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Create.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Create.razor",
+              "ViewState": "AgIAACoAAAAAAAAAAAAUwDwAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T04:28:38.305Z",
+              "WhenOpened": "2025-03-11T06:18:47.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ScreenHub.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\ScreenHub.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Hub\\ScreenHub.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\ScreenHub.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Hub\\ScreenHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T15:11:05.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 26,
-              "Title": "Delete.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Delete.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Delete.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Delete.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Delete.razor",
-              "ViewState": "AgIAACgAAAAAAAAAAAAUwD4AAAAAAAAAAAAAAA==",
+              "Title": "Edit.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Edit.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Edit.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Edit.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Edit.razor",
+              "ViewState": "AgIAADoAAAAAAAAAAAAUwFsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T04:47:30.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Create.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Create.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Create.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Create.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Create.razor",
-              "ViewState": "AgIAABoAAAAAAAAAAAAUwDAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T08:15:42.33Z",
+              "WhenOpened": "2025-03-11T06:23:12.918Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 28,
-              "Title": "Index.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Index.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Index.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Index.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Index.razor",
-              "ViewState": "AgIAABUAAAAAAAAAAAAUwCsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-12T00:47:15.789Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Edit.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Edit.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Edit.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Edit.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Edit.razor",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAUwHsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-12T00:49:26.791Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "Details.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Details.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Details.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Details.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Details.razor",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAUwEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-12T00:49:54.875Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Delete.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Delete.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Delete.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Delete.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Delete.razor",
-              "ViewState": "AgIAADoAAAAAAAAAAAAUwFAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-12T00:50:12.984Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Create.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Create.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Create.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Create.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Create.razor",
-              "ViewState": "AgIAADsAAAAAAAAAAAAUwFEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-12T00:46:31.428Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "Index.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Index.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Index.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Index.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Index.razor",
-              "ViewState": "AgIAADIAAAAAAAAAAAAUwEgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T08:58:03.599Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Edit.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Edit.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Edit.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Edit.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Edit.razor",
-              "ViewState": "AgIAALMAAAAAAAAAAAAUwMkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-12T02:26:20.663Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Details.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Details.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Details.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Details.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Details.razor",
-              "ViewState": "AgIAADgAAAAAAAAAAAAUwE4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T09:05:55.313Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "Delete.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Delete.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Delete.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Delete.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Delete.razor",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T09:45:36.396Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
               "Title": "Create.razor",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Create.razor",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Create.razor",
               "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Create.razor",
               "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Create.razor",
-              "ViewState": "AgIAACYAAAAAAAAAAAAUwDwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADUAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-12T01:45:36.047Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "Showtime.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\Showtime.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Models\\Showtime.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\Showtime.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Models\\Showtime.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T08:22:12.778Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "G5MovieTicketBookingSystemContext.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\G5MovieTicketBookingSystemContext.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Models\\G5MovieTicketBookingSystemContext.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\G5MovieTicketBookingSystemContext.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Models\\G5MovieTicketBookingSystemContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T08:22:08.624Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Layout\\MainLayout.razor",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Layout\\MainLayout.razor",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Layout\\MainLayout.razor",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Layout\\MainLayout.razor",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 21,
+              "Title": "Edit.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Edit.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Edit.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Edit.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenPages\\Edit.razor",
+              "ViewState": "AgIAACkAAAAAAAAAAAAUwDIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T06:19:02.718Z"
+              "WhenOpened": "2025-03-11T04:28:38.305Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 29,
+              "Title": "MovieHub.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\MovieHub.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Hub\\MovieHub.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\MovieHub.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Hub\\MovieHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T15:07:16.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Delete.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Delete.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Delete.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Delete.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Delete.razor",
+              "ViewState": "AgIAADcAAAAAAAAAAAAUwFUAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-11T06:51:35.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Edit.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Edit.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Edit.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Edit.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Edit.razor",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAUwJQAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-12T02:26:20.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "CinemaHub.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\CinemaHub.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Hub\\CinemaHub.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Hub\\CinemaHub.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Hub\\CinemaHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T14:59:49.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Details.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Details.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Details.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Details.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\UserPages\\Details.razor",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAUwDUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-15T08:16:18.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Details.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Details.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Details.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Details.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\ScreenSeatPages\\Details.razor",
+              "ViewState": "AgIAADIAAAAAAAAAAAAUwEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-11T06:35:35.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "IScreenSeatRepository.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\IScreenSeatRepository.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Repository\\IScreenSeatRepository.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\IScreenSeatRepository.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Repository\\IScreenSeatRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T04:37:29.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "ScreenSeatService.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\Impl\\ScreenSeatService.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Services\\Impl\\ScreenSeatService.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\Impl\\ScreenSeatService.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Services\\Impl\\ScreenSeatService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAUwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T04:37:25.013Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\User.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Models\\User.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\User.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Models\\User.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T08:36:04.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Movie.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\Movie.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Models\\Movie.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\Movie.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Models\\Movie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T09:18:53.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Screen.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\Screen.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Models\\Screen.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\Screen.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Models\\Screen.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T09:18:59.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Layout\\NavMenu.razor",
               "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACYAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T06:19:03.311Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T06:19:03.311Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "ScreenDtos.cs",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Dtos\\ScreenDtos.cs",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Dtos\\ScreenDtos.cs",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Dtos\\ScreenDtos.cs",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\Dtos\\ScreenDtos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 41,
+              "Title": "ScreenService.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\Impl\\ScreenService.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Services\\Impl\\ScreenService.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\Impl\\ScreenService.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Services\\Impl\\ScreenService.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAUwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T08:16:45.545Z"
+              "WhenOpened": "2025-03-11T04:37:23.363Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\appsettings.json",
-              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\appsettings.json",
-              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\appsettings.json",
-              "RelativeToolTip": "BookingMovieSystem_Admin\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-12T04:15:20.791Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 37,
               "Title": "Weather.razor",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\Weather.razor",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\Weather.razor",
@@ -1127,7 +1555,187 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "IScreenSeatService.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\IScreenSeatService.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Services\\IScreenSeatService.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\IScreenSeatService.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Services\\IScreenSeatService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T04:40:41.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "IScreenService.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\IScreenService.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Services\\IScreenService.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Services\\IScreenService.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Services\\IScreenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T04:43:00.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "IScreenRepository.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\IScreenRepository.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Repository\\IScreenRepository.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\IScreenRepository.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Repository\\IScreenRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T04:43:30.634Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 45,
+              "Title": "ScreenSeatRepository.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\Impl\\ScreenSeatRepository.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Repository\\Impl\\ScreenSeatRepository.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\Impl\\ScreenSeatRepository.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Repository\\Impl\\ScreenSeatRepository.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAA0wCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T04:37:28.073Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "ScreenRepository.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\Impl\\ScreenRepository.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Repository\\Impl\\ScreenRepository.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Repository\\Impl\\ScreenRepository.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Repository\\Impl\\ScreenRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAUwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T04:43:37.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\_Imports.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\_Imports.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-15T08:33:38.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "App.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\App.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\App.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\App.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-15T08:33:38.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Routes.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Routes.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Routes.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-15T08:33:37.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "Details.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Details.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Details.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Details.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\MoviePages\\Details.razor",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAUwEMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-12T00:49:54.875Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "Details.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Details.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Details.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Details.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Pages\\CinemaPages\\Details.razor",
+              "ViewState": "AgIAADgAAAAAAAAAAAAUwE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-11T09:05:55.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Showtime.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\Showtime.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Models\\Showtime.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\Showtime.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Models\\Showtime.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T08:22:12.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "G5MovieTicketBookingSystemContext.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\G5MovieTicketBookingSystemContext.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Models\\G5MovieTicketBookingSystemContext.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Models\\G5MovieTicketBookingSystemContext.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Models\\G5MovieTicketBookingSystemContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T08:22:08.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-11T06:19:02.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ScreenDtos.cs",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Dtos\\ScreenDtos.cs",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Dtos\\ScreenDtos.cs",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Dtos\\ScreenDtos.cs",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\Dtos\\ScreenDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T08:16:45.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\appsettings.json",
+              "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\appsettings.json",
+              "ToolTip": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\appsettings.json",
+              "RelativeToolTip": "BookingMovieSystem_Admin\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-12T04:15:20.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
               "Title": "Home.razor",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\Home.razor",
@@ -1139,7 +1747,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 58,
               "Title": "Error.razor",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\Error.razor",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\Error.razor",
@@ -1151,7 +1759,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 59,
               "Title": "Counter.razor",
               "DocumentMoniker": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\Components\\Pages\\Counter.razor",
               "RelativeDocumentMoniker": "BookingMovieSystem_Admin\\Components\\Pages\\Counter.razor",
@@ -1160,14 +1768,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-15T08:16:30.028Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         },
@@ -1177,7 +1777,121 @@
           "Children": [
             {
               "$type": "Bookmark",
+              "Name": "ST:132:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{5b6781c0-e99d-11d0-9954-00a0c91bc8e5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:16:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 89,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{93c5e7ad-af06-49e6-a756-b8f3eaca790d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:43:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:23:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:24:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:28:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:35:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{260978c3-582c-487d-ab12-c1fdde07c578}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:15:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:26:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:33:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:35:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:36:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:38:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:39:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:40:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:42:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:15:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:28:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:22:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Bookmark",
@@ -1193,28 +1907,16 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:43:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:45:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:32:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:12:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:13:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         },
         {
-          "DockedWidth": 89,
+          "DockedWidth": 381,
           "SelectedChildIndex": -1,
           "Children": [
             {

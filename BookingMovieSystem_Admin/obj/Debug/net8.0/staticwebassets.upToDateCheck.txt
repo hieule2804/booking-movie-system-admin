@@ -2,3 +2,5 @@ wwwroot\app.css
 wwwroot\bootstrap\bootstrap.min.css
 wwwroot\bootstrap\bootstrap.min.css.map
 wwwroot\favicon.png
+wwwroot\lib\microsoft\signalr\dist\browser\signalr.js
+wwwroot\lib\microsoft\signalr\dist\browser\signalr.min.js

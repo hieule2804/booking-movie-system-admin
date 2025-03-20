@@ -5,6 +5,7 @@ using BookingMovieSystem_Admin.Repository;
 using BookingMovieSystem_Admin.Services.Impl;
 using BookingMovieSystem_Admin.Services;
 using Microsoft.EntityFrameworkCore;
+using BookingMovieSystem_Admin.Hub;
 
 namespace BookingMovieSystem_Admin
 {
@@ -30,6 +31,7 @@ namespace BookingMovieSystem_Admin
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+            builder.Services.AddSignalR();
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
@@ -47,12 +49,18 @@ namespace BookingMovieSystem_Admin
 
             app.UseHttpsRedirection();
 
-            app.UseStaticFiles();
+       
+                app.UseStaticFiles();
             app.UseAntiforgery();
+
 
             app.MapRazorComponents<App>()
                 .AddInteractiveServerRenderMode();
-
+            app.MapHub<ScreenSeatHub>("/screenseatHub");
+            app.MapHub<CinemaHub>("/cinemaHub");
+            app.MapHub<MovieHub>("/movieHub");
+            app.MapHub<ShowTimeHub>("/showTimeHub");
+            app.MapHub<UserHub>("/userHub");
             app.Run();
         }
     }

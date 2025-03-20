@@ -1,4 +1,6 @@
 ﻿@page "/screenseats/edit"
+@using BookingMovieSystem_Admin.Hub
+@using Microsoft.AspNetCore.SignalR
 @using Microsoft.EntityFrameworkCore
 @using BookingMovieSystem_Admin.Models
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
@@ -65,7 +67,7 @@ else
     private ScreenSeat? ScreenSeat { get; set; }
     private List<SeatType>? SeatTypes;
     private List<Screen>? Screens;
-
+    [Inject] private IHubContext<ScreenSeatHub> HubContext { get; set; } = default!;
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
@@ -87,6 +89,7 @@ else
         try
         {
             await context.SaveChangesAsync();
+            await HubContext.Clients.All.SendAsync("ReceiveUpdateNotification", ScreenSeat);
         }
         catch (DbUpdateConcurrencyException)
         {

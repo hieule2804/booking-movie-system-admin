@@ -1,4 +1,6 @@
 ﻿@page "/screens/create"
+@using BookingMovieSystem_Admin.Hub
+@using Microsoft.AspNetCore.SignalR
 @using Microsoft.EntityFrameworkCore
 @using BookingMovieSystem_Admin.Models
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
@@ -37,12 +39,13 @@
 @code {
     [SupplyParameterFromForm]
     private Screen Screen { get; set; } = new();
-
+    [Inject] private IHubContext<ScreenHub> HubContext { get; set; } = default!;
     private async Task AddScreen()
     {
         using var context = DbFactory.CreateDbContext();
         context.Screens.Add(Screen);
         await context.SaveChangesAsync();
+        await HubContext.Clients.All.SendAsync("ReceiveAddNotification", Screen);
         NavigationManager.NavigateTo("/screens");
     }
 }

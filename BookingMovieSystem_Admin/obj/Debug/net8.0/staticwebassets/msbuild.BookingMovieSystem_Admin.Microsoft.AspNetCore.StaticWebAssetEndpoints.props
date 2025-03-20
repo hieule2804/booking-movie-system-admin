@@ -16,13 +16,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\BookingMovieSystem_Admin.4jy47e11l2.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"4jy47e11l2"},{"Name":"integrity","Value":"sha256-0DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k="},{"Name":"label","Value":"_content/BookingMovieSystem_Admin/BookingMovieSystem_Admin.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5931"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00220DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k=\u0022"},{"Name":"Last-Modified","Value":"Sat, 15 Mar 2025 08:35:04 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5931"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00220DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k=\u0022"},{"Name":"Last-Modified","Value":"Sat, 15 Mar 2025 09:16:14 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BookingMovieSystem_Admin/BookingMovieSystem_Admin.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\BookingMovieSystem_Admin.4jy47e11l2.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-0DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5931"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00220DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k=\u0022"},{"Name":"Last-Modified","Value":"Sat, 15 Mar 2025 08:35:04 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5931"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00220DZms5BRqn5ZudS1HW0tRn8R\u002BdT\u002BKH4ZAWVNb4kEh9k=\u0022"},{"Name":"Last-Modified","Value":"Sat, 15 Mar 2025 09:16:14 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BookingMovieSystem_Admin/bootstrap/bootstrap.min.bpk8xqwxhs.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\bootstrap\bootstrap.min.css'))</AssetFile>
@@ -59,6 +59,30 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1148"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00224mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Mar 2025 01:53:34 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BookingMovieSystem_Admin/lib/microsoft/signalr/dist/browser/signalr.cqu3aupeo3.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\microsoft\signalr\dist\browser\signalr.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"cqu3aupeo3"},{"Name":"integrity","Value":"sha256-rK9Zx8UOZ\u002ByR2hZ9Ov8dBexROapvuO2mE9jAx7ZIquA="},{"Name":"label","Value":"_content/BookingMovieSystem_Admin/lib/microsoft/signalr/dist/browser/signalr.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"160262"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022rK9Zx8UOZ\u002ByR2hZ9Ov8dBexROapvuO2mE9jAx7ZIquA=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Mar 2025 14:42:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BookingMovieSystem_Admin/lib/microsoft/signalr/dist/browser/signalr.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\microsoft\signalr\dist\browser\signalr.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rK9Zx8UOZ\u002ByR2hZ9Ov8dBexROapvuO2mE9jAx7ZIquA="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"160262"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022rK9Zx8UOZ\u002ByR2hZ9Ov8dBexROapvuO2mE9jAx7ZIquA=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Mar 2025 14:42:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BookingMovieSystem_Admin/lib/microsoft/signalr/dist/browser/signalr.min.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\microsoft\signalr\dist\browser\signalr.min.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-4opyCjWbN8sBV1jVQ/kIcw7Vu\u002BR42wlQa7aIfxgxNTg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"47647"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00224opyCjWbN8sBV1jVQ/kIcw7Vu\u002BR42wlQa7aIfxgxNTg=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Mar 2025 14:42:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BookingMovieSystem_Admin/lib/microsoft/signalr/dist/browser/signalr.min.m3i9f6419i.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\microsoft\signalr\dist\browser\signalr.min.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"m3i9f6419i"},{"Name":"integrity","Value":"sha256-4opyCjWbN8sBV1jVQ/kIcw7Vu\u002BR42wlQa7aIfxgxNTg="},{"Name":"label","Value":"_content/BookingMovieSystem_Admin/lib/microsoft/signalr/dist/browser/signalr.min.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"47647"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00224opyCjWbN8sBV1jVQ/kIcw7Vu\u002BR42wlQa7aIfxgxNTg=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Mar 2025 14:42:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

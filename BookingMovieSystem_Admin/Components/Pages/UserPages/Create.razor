@@ -1,4 +1,6 @@
 ﻿@page "/users/create"
+@using BookingMovieSystem_Admin.Hub
+@using Microsoft.AspNetCore.SignalR
 @using Microsoft.EntityFrameworkCore
 @using BookingMovieSystem_Admin.Models
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
@@ -65,7 +67,7 @@
     private User User { get; set; } = new();
     private List<Role> AvailableRoles = new();
     private int SelectedRoleId { get; set; }
-
+    [Inject] private IHubContext<UserHub> HubContext { get; set; } = default!;
     protected override async Task OnInitializedAsync()
     {
         using var context = await DbFactory.CreateDbContextAsync();
@@ -105,7 +107,7 @@
                 Console.WriteLine("❌ ERROR: Role not found!");
             }
         }
-
+        await HubContext.Clients.All.SendAsync("ReceiveAddNotification", User);
         NavigationManager.NavigateTo("/users");
     }
 }

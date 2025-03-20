@@ -1,0 +1,56 @@
+﻿@page "/showtimes/details"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>Showtime</h2>
+    <hr />
+    @if (showtime is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">MovieId</dt>
+            <dd class="col-sm-10">@showtime.MovieId</dd>
+            <dt class="col-sm-2">ScreenId</dt>
+            <dd class="col-sm-10">@showtime.ScreenId</dd>
+            <dt class="col-sm-2">ShowDate</dt>
+            <dd class="col-sm-10">@showtime.ShowDate</dd>
+            <dt class="col-sm-2">ShowTime</dt>
+            <dd class="col-sm-10">@showtime.ShowTime</dd>
+            <dt class="col-sm-2">ExperienceType</dt>
+            <dd class="col-sm-10">@showtime.ExperienceType</dd>
+            <dt class="col-sm-2">IsSoldOut</dt>
+            <dd class="col-sm-10">@showtime.IsSoldOut</dd>
+        </dl>
+        <div>
+            <a href="@($"/showtimes/edit?showtimeid={showtime.ShowtimeId}")">Edit</a> |
+            <a href="@($"/showtimes")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private Showtime? showtime;
+
+    [SupplyParameterFromQuery]
+    private int ShowtimeId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        showtime = await context.Showtimes.FirstOrDefaultAsync(m => m.ShowtimeId == ShowtimeId);
+
+        if (showtime is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

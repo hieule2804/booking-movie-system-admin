@@ -1,4 +1,6 @@
 ﻿@page "/cinemas/edit"
+@using BookingMovieSystem_Admin.Hub
+@using Microsoft.AspNetCore.SignalR
 @using Microsoft.EntityFrameworkCore
 @using BookingMovieSystem_Admin.Models
 @inject IDbContextFactory<G5MovieTicketBookingSystemContext> DbFactory
@@ -117,7 +119,7 @@ else
     private Cinema? Cinema { get; set; }
     private List<Screen> Screens { get; set; } = new();
     private List<Screen> AllScreens { get; set; } = new(); // All screens list
-
+    [Inject] private IHubContext<CinemaHub> HubContext { get; set; } = default!;
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
@@ -144,6 +146,7 @@ else
         try
         {
             await context.SaveChangesAsync();
+            await HubContext.Clients.All.SendAsync("ReceiveUpdateNotification", Cinema);
         }
         catch (DbUpdateConcurrencyException)
         {

@@ -46,3 +46,41 @@
         screens = screenList.AsQueryable();
     }
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+@* <script src="~/microsoft/signalr/dist/browser/signalr.js"></script> *@
+
+<script>
+        // Kết nối đến SignalR Hub
+    var connection = new signalR.HubConnectionBuilder()
+        .withUrl("/screenHub")
+        .build();
+
+
+    //     var connection = new signalR.HubConnectionBuilder()
+    // .withUrl("/foodHub", { accessTokenFactory: () => localStorage.getItem("authToken") })
+    // .build();
+
+    // Bắt đầu kết nối SignalR
+    connection.start().catch(function (err) {
+        console.error("❌ SignalR Connection Error:", err.toString());
+    });
+
+    // Lắng nghe sự kiện cập nhật
+    connection.on("ReceiveUpdateNotification", function (screen) {
+
+        location.reload();
+
+    });
+     connection.on("ReceiveAddNotification", function (screen) {
+
+        location.reload();
+
+    });
+     connection.on("ReceiveDeleteNotification", function (screen) {
+
+        location.reload();
+
+    });
+
+</script>

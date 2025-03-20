@@ -1,4 +1,6 @@
 ﻿@page "/screens/edit"
+@using BookingMovieSystem_Admin.Hub
+@using Microsoft.AspNetCore.SignalR
 @using Microsoft.EntityFrameworkCore
 @using BookingMovieSystem_Admin.Models
 @inject IDbContextFactory<G5MovieTicketBookingSystemContext> DbFactory
@@ -46,7 +48,7 @@ else
 
     [SupplyParameterFromQuery]
     private int ScreenId { get; set; }
-
+    [Inject] private IHubContext<ScreenHub> HubContext { get; set; } = default!;
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
@@ -73,6 +75,7 @@ else
 
             context.Entry(existingScreen).State = EntityState.Modified;
             await context.SaveChangesAsync();
+            await HubContext.Clients.All.SendAsync("ReceiveUpdateNotification", Screen);
             Console.WriteLine($"✅ Updated ScreenName to: {existingScreen.ScreenName}");
         }
         else

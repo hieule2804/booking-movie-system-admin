@@ -1,4 +1,6 @@
 ﻿@page "/screenseats/delete"
+@using BookingMovieSystem_Admin.Hub
+@using Microsoft.AspNetCore.SignalR
 @using Microsoft.EntityFrameworkCore
 @using BookingMovieSystem_Admin.Models
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
@@ -58,7 +60,7 @@
 
     [SupplyParameterFromQuery]
     private int ScreenSeatId { get; set; }
-
+    [Inject] private IHubContext<ScreenSeatHub> HubContext { get; set; } = default!;
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
@@ -86,6 +88,7 @@
         {
             context.ScreenSeats.Remove(screenseat);
             await context.SaveChangesAsync();
+            await HubContext.Clients.All.SendAsync("ReceiveAddNotification", screenseat.ScreenSeatId);
             Console.WriteLine($"✅ Deleted ScreenSeat ID {ScreenSeatId}");
         }
         NavigationManager.NavigateTo("/screenseats");
