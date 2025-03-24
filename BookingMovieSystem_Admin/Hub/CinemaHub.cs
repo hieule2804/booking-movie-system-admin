@@ -1,6 +1,5 @@
 ﻿using BookingMovieSystem_Admin.Models;
 using Microsoft.AspNetCore.SignalR;
-
 namespace BookingMovieSystem_Admin.Hub
 {
     public class CinemaHub : DynamicHub

@@ -13,6 +13,13 @@
         <a href="cinemas/create" class="btn btn-success">➕ Thêm Rạp Mới</a>
     </div>
 
+    <div class="mb-3">
+        <input class="form-control" style="max-width:600px" placeholder="Tìm kiếm Rạp..." @bind="searchItem" />
+        <button class="btn btn-primary mt-2" style="max-width:300px" @onclick="OnSearchClicked">
+            Tìm kiếm
+        </button>
+    </div>
+
     @if (cinemas is null)
     {
         <p class="text-muted text-center"><em>Đang tải dữ liệu...</em></p>
@@ -50,6 +57,13 @@
                         }
                     </tbody>
                 </table>
+
+                <!-- Phân trang -->
+                <div class="text-center">
+                    <button class="btn btn-secondary" @onclick="GoToPreviousPage" disabled="@IsFirstPage">Trước</button>
+                    <span>Trang @currentPage của @totalPages</span>
+                    <button class="btn btn-secondary" @onclick="GoToNextPage" disabled="@IsLastPage">Sau</button>
+                </div>
             </div>
         </div>
     }
@@ -57,13 +71,79 @@
 
 @code {
     private List<Cinema> cinemas = new();
+    private string searchItem = string.Empty;
+    private int currentPage = 1;
+    private int pageSize = 5;  // Số lượng rạp trên mỗi trang
+    private int totalPages = 1; // Tổng số trang
+    private int totalCinemas = 0; // Tổng số rạp chiếu phim
 
+    // OnInitializedAsync: Gọi hàm để tải dữ liệu ban đầu khi trang được tải.
     protected override async Task OnInitializedAsync()
     {
-        using var context = await DbFactory.CreateDbContextAsync();
-        cinemas = await context.Cinemas.ToListAsync();
+        await LoadCinemas();
     }
 
+    // Hàm tải danh sách rạp chiếu phim từ cơ sở dữ liệu.
+    private async Task LoadCinemas()
+    {
+        using var context = await DbFactory.CreateDbContextAsync();
+        var query = context.Cinemas.AsQueryable();
+
+        // Lọc theo từ khóa tìm kiếm
+        if (!string.IsNullOrEmpty(searchItem))
+        {
+            query = query.Where(c => EF.Functions.Like(c.CinemaName, $"%{searchItem}%") ||
+                                      EF.Functions.Like(c.City, $"%{searchItem}%") ||
+                                      EF.Functions.Like(c.Address, $"%{searchItem}%"));
+        }
+
+        // Tính tổng số rạp
+        totalCinemas = await query.CountAsync();
+
+        // Tính số trang
+        totalPages = (int)Math.Ceiling(totalCinemas / (double)pageSize);
+
+        // Lấy rạp chiếu phim cho trang hiện tại
+        cinemas = await query
+            .Skip((currentPage - 1) * pageSize)  // Bỏ qua các rạp đã được hiển thị trên các trang trước
+            .Take(pageSize)  // Lấy số lượng rạp trên trang hiện tại
+            .ToListAsync();
+    }
+
+    // Xử lý sự kiện nhấn nút "Tìm kiếm"
+    private async Task OnSearchClicked()
+    {
+        currentPage = 1; // Reset về trang đầu tiên khi tìm kiếm
+        await LoadCinemas();
+    }
+
+    // Chuyển sang trang trước
+    private async Task GoToPreviousPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+            await LoadCinemas();
+        }
+    }
+
+    // Chuyển sang trang sau
+    private async Task GoToNextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+            await LoadCinemas();
+        }
+    }
+
+    // Kiểm tra nếu đang ở trang đầu tiên
+    private bool IsFirstPage => currentPage == 1;
+
+    // Kiểm tra nếu đang ở trang cuối cùng
+    private bool IsLastPage => currentPage == totalPages;
+
+    // Hàm giải phóng tài nguyên khi trang bị hủy
     public async ValueTask DisposeAsync()
     {
         using var context = await DbFactory.CreateDbContextAsync();
@@ -71,41 +151,27 @@
     }
 }
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
 
-@* <script src="~/microsoft/signalr/dist/browser/signalr.js"></script> *@
-
 <script>
-        // Kết nối đến SignalR Hub
     var connection = new signalR.HubConnectionBuilder()
         .withUrl("/cinemaHub")
         .build();
 
-
-    //     var connection = new signalR.HubConnectionBuilder()
-    // .withUrl("/foodHub", { accessTokenFactory: () => localStorage.getItem("authToken") })
-    // .build();
-
-    // Bắt đầu kết nối SignalR
     connection.start().catch(function (err) {
         console.error("❌ SignalR Connection Error:", err.toString());
     });
 
-    // Lắng nghe sự kiện cập nhật
     connection.on("ReceiveUpdateNotification", function (cinema) {
-
         location.reload();
-
-    });
-     connection.on("ReceiveAddNotification", function (cinema) {
-
-        location.reload();
-
-    });
-     connection.on("ReceiveDeleteNotification", function (cinema) {
-
-        location.reload();
-
     });
 
+    connection.on("ReceiveAddNotification", function (cinema) {
+        location.reload();
+    });
+
+    connection.on("ReceiveDeleteNotification", function (cinema) {
+        location.reload();
+    });
 </script>
