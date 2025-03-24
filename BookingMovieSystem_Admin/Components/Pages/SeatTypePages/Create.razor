@@ -1,0 +1,49 @@
+﻿@page "/seattypes/create"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>SeatType</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="SeatType" OnValidSubmit="AddSeatType" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="seattypename" class="form-label">SeatTypeName:</label> 
+                <InputText id="seattypename" @bind-Value="SeatType.SeatTypeName" class="form-control" /> 
+                <ValidationMessage For="() => SeatType.SeatTypeName" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="baseprice" class="form-label">BasePrice:</label> 
+                <InputNumber id="baseprice" @bind-Value="SeatType.BasePrice" class="form-control" /> 
+                <ValidationMessage For="() => SeatType.BasePrice" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/seattypes">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private SeatType SeatType { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddSeatType()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.SeatTypes.Add(SeatType);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/seattypes");
+    }
+}

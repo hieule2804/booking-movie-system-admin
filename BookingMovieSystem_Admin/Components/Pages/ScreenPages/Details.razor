@@ -7,61 +7,80 @@
 @inject IScreenSeatService ScreenSeatService
 @inject NavigationManager NavigationManager
 
-<PageTitle>Details</PageTitle>
+<PageTitle>Chi tiết Phòng Chiếu</PageTitle>
 
-<h1>Details</h1>
+<div class="container mt-4">
+    <h1 class="text-center text-primary mb-4">Chi tiết Phòng Chiếu</h1>
 
-@if (screen is null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <div>
-        <h2>Screen Information</h2>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">ScreenName</dt>
-            <dd class="col-sm-10">@screen.ScreenName</dd>
-        </dl>
+    @if (screen is null)
+    {
+        <p class="text-center text-muted"><em>Đang tải...</em></p>
+    }
+    else
+    {
+        <div class="card shadow-lg mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Thông tin Phòng Chiếu</h2>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-3">Tên Phòng Chiếu</dt>
+                    <dd class="col-sm-9">@screen.ScreenName</dd>
+                </dl>
 
-        <h3>Seats</h3>
-        @if (screenSeats != null && screenSeats.Any())
-        {
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Seat Label</th>
-                        <th>Seat Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var seat in screenSeats)
-                    {
-                        <tr>
-                            <td>@seat.SeatLabel</td>
-                            <td>@seat.SeatType.SeatTypeName</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                <h3>Danh sách Ghế</h3>
 
-        }
-        else
-        {
-            <p>No seats available for this screen.</p>
-        }
+                @if (screenSeats != null && screenSeats.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Label Ghế</th>
+                                    <th>Loại Ghế</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var seat in pagedSeats)
+                                {
+                                    <tr>
+                                        <td>@seat.SeatLabel</td>
+                                        <td>@seat.SeatType.SeatTypeName</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
 
-        <div>
-            <a href="@($"/screens/edit?screenid={screen.ScreenId}")">Edit</a> |
-            <a href="@($"/screens")">Back to List</a>
+                    <!-- Phân trang -->
+                    <div class="d-flex justify-content-center mt-3">
+                        <button class="btn btn-secondary" @onclick="GoToPreviousPage" disabled="@IsFirstPage">Trước</button>
+                        <span class="mx-2">Trang @currentPage của @totalPages</span>
+                        <button class="btn btn-secondary" @onclick="GoToNextPage" disabled="@IsLastPage">Sau</button>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-center text-muted">Không có ghế nào cho phòng chiếu này.</p>
+                }
+
+                <div class="mt-4 text-center">
+                    <a href="@($"/screens/edit?screenid={screen.ScreenId}")" class="btn btn-warning">Chỉnh sửa</a>
+                    <a href="@($"/screens")" class="btn btn-secondary">Quay lại danh sách</a>
+                </div>
+            </div>
         </div>
-    </div>
-}
+    }
+</div>
 
 @code {
     private Screen? screen;
     private IQueryable<ScreenSeat>? screenSeats;
+
+    private List<ScreenSeat> pagedSeats = new(); // Ghế cho trang hiện tại
+    private int currentPage = 1;
+    private int pageSize = 5; // Số lượng ghế trên mỗi trang
+    private int totalPages = 1;
+    private int totalSeats = 0;
 
     [SupplyParameterFromQuery]
     private int ScreenId { get; set; }
@@ -71,10 +90,52 @@ else
         screen = await ScreenService.GetScreenByIdAsync(ScreenId);
         var screenSeatList = await ScreenSeatService.GetScreensByScreenId(ScreenId);
         screenSeats = screenSeatList.AsQueryable();
+
         if (screen is null)
         {
             NavigationManager.NavigateTo("notfound");
             return;
         }
+
+        // Tính tổng số ghế
+        totalSeats = screenSeats.Count();
+        totalPages = (int)Math.Ceiling(totalSeats / (double)pageSize);
+
+        UpdatePagedSeats();
     }
+
+    // Cập nhật ghế cho trang hiện tại
+    private void UpdatePagedSeats()
+    {
+        pagedSeats = screenSeats
+            .Skip((currentPage - 1) * pageSize) // Bỏ qua các ghế đã hiển thị trên các trang trước
+            .Take(pageSize) // Lấy số ghế cho trang hiện tại
+            .ToList();
+    }
+
+    // Chuyển sang trang trước
+    private async Task GoToPreviousPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+            UpdatePagedSeats();
+        }
+    }
+
+    // Chuyển sang trang sau
+    private async Task GoToNextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+            UpdatePagedSeats();
+        }
+    }
+
+    // Kiểm tra nếu đang ở trang đầu tiên
+    private bool IsFirstPage => currentPage == 1;
+
+    // Kiểm tra nếu đang ở trang cuối cùng
+    private bool IsLastPage => currentPage == totalPages;
 }

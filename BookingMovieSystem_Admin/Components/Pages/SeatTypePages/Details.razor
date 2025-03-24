@@ -1,0 +1,48 @@
+﻿@page "/seattypes/details"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>SeatType</h2>
+    <hr />
+    @if (seattype is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">SeatTypeName</dt>
+            <dd class="col-sm-10">@seattype.SeatTypeName</dd>
+            <dt class="col-sm-2">BasePrice</dt>
+            <dd class="col-sm-10">@seattype.BasePrice</dd>
+        </dl>
+        <div>
+            <a href="@($"/seattypes/edit?seattypeid={seattype.SeatTypeId}")">Edit</a> |
+            <a href="@($"/seattypes")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private SeatType? seattype;
+
+    [SupplyParameterFromQuery]
+    private int SeatTypeId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        seattype = await context.SeatTypes.FirstOrDefaultAsync(m => m.SeatTypeId == SeatTypeId);
+
+        if (seattype is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

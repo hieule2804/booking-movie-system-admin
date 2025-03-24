@@ -41,18 +41,29 @@
         else
         {
             <ul class="list-group">
-                @foreach (var screenName in screenNames)
+                @foreach (var screenName in pagedScreenNames)
                 {
                     <li class="list-group-item">@screenName</li>
                 }
             </ul>
+
+            <!-- Phân trang -->
+            <div class="d-flex justify-content-center mt-3">
+                <button class="btn btn-secondary" @onclick="GoToPreviousPage" disabled="@IsFirstPage">Trước</button>
+                <span class="mx-2">Trang @currentPage của @totalPages</span>
+                <button class="btn btn-secondary" @onclick="GoToNextPage" disabled="@IsLastPage">Sau</button>
+            </div>
         }
     </div>
 </div>
 
 @code {
     private Cinema? cinema;
-    private List<string> screenNames = new();
+    private List<string> screenNames = new(); // To store all screen names
+    private List<string> pagedScreenNames = new(); // To store the screen names for the current page
+    private int currentPage = 1;
+    private int pageSize = 5; // Number of screens per page
+    private int totalPages = 1; // Total number of pages
 
     [SupplyParameterFromQuery]
     private int CinemaId { get; set; }
@@ -69,10 +80,51 @@
             return;
         }
 
-        // Chỉ lấy danh sách ScreenName của rạp
+        // Lấy danh sách phòng chiếu của rạp này
         screenNames = await context.Screens
             .Where(s => s.CinemaId == CinemaId)
             .Select(s => s.ScreenName)
             .ToListAsync();
+
+        // Tính tổng số trang
+        totalPages = (int)Math.Ceiling(screenNames.Count / (double)pageSize);
+
+        // Lấy dữ liệu phòng chiếu cho trang hiện tại
+        UpdatePagedScreenNames();
     }
+
+    // Cập nhật danh sách phòng chiếu cho trang hiện tại
+    private void UpdatePagedScreenNames()
+    {
+        pagedScreenNames = screenNames
+            .Skip((currentPage - 1) * pageSize) // Bỏ qua các phòng chiếu đã hiển thị ở các trang trước
+            .Take(pageSize) // Lấy phòng chiếu cho trang hiện tại
+            .ToList();
+    }
+
+    // Điều hướng đến trang trước
+    private async Task GoToPreviousPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+            UpdatePagedScreenNames();
+        }
+    }
+
+    // Điều hướng đến trang sau
+    private async Task GoToNextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+            UpdatePagedScreenNames();
+        }
+    }
+
+    // Kiểm tra nếu đang ở trang đầu tiên
+    private bool IsFirstPage => currentPage == 1;
+
+    // Kiểm tra nếu đang ở trang cuối cùng
+    private bool IsLastPage => currentPage == totalPages;
 }

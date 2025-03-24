@@ -1,0 +1,105 @@
+﻿@page "/seattypes/delete"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
+
+<PageTitle>Delete Seat Type</PageTitle>
+
+<div class="container mt-4">
+    <h1 class="text-center text-danger">Xóa Loại Ghế</h1>
+
+    <p class="text-center">Bạn có chắc chắn muốn xóa loại ghế này?</p>
+
+    @if (seattype is null)
+    {
+        <p class="text-center text-muted"><em>Đang tải...</em></p>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Thông tin loại ghế</h5>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-3">Tên Loại Ghế</dt>
+                    <dd class="col-sm-9">@seattype.SeatTypeName</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Giá Cơ Bản</dt>
+                    <dd class="col-sm-9">@seattype.BasePrice.ToString("C")</dd>
+                </dl>
+
+                <!-- Xác nhận xóa -->
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-danger" @onclick="ConfirmDelete" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</button>
+                    <a href="/seattypes" class="btn btn-secondary">Trở lại danh sách</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Confirm Delete -->
+        <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmModalLabel">Xác nhận xóa</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Bạn có chắc chắn muốn xóa loại ghế này? Việc này không thể hoàn tác.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-danger" @onclick="DeleteSeatType">Xóa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private SeatType? seattype;
+
+    [SupplyParameterFromQuery]
+    private int SeatTypeId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        seattype = await context.SeatTypes.FirstOrDefaultAsync(m => m.SeatTypeId == SeatTypeId);
+
+        if (seattype is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // Hàm xác nhận xóa
+    private async Task ConfirmDelete()
+    {
+        // Chờ người dùng xác nhận trước khi xóa
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", "Bạn có chắc chắn muốn xóa loại ghế này?");
+        if (confirmed)
+        {
+            await DeleteSeatType();
+        }
+    }
+
+    // Hàm xóa loại ghế
+    private async Task DeleteSeatType()
+    {
+        using var context = DbFactory.CreateDbContext();
+        var Screen = await context.Screens.FindAsync(SeatTypeId);
+        foreach (var item in Screen.ScreenSeats)
+        {
+            context.ScreenSeats.Remove(item);
+
+        }
+        context.SeatTypes.Remove(seattype!);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/seattypes");
+    }
+}

@@ -1,0 +1,143 @@
+﻿@page "/seattypes"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@implements IAsyncDisposable
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+
+<PageTitle>Danh sách Loại Ghế</PageTitle>
+
+<div class="container mt-4">
+    <h1 class="text-center text-primary mb-4">Danh sách Loại Ghế</h1>
+
+    <!-- Tạo mới loại ghế -->
+    <div class="mb-4 text-end">
+        <a href="seattypes/create" class="btn btn-success">➕ Tạo Mới Loại Ghế</a>
+    </div>
+
+    @* <!-- Tìm kiếm --> *@
+    @* <div class="mb-3"> *@
+    @*     <input class="form-control" style="max-width:600px" placeholder="Tìm kiếm..." @bind="searchItem" /> *@
+    @*     <button class="btn btn-primary mt-2" style="max-width:300px" @onclick="OnSearchClicked"> *@
+    @*         Tìm kiếm *@
+    @*     </button> *@
+    @* </div> *@
+
+    <!-- Bảng hiển thị các loại ghế -->
+    @if (SeatTypes.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Tên Loại Ghế</th>
+                        <th>Giá Cơ Bản</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var seatType in SeatTypes)
+                    {
+                        <tr>
+                            <td>@seatType.SeatTypeName</td>
+                            <td>@seatType.BasePrice</td>
+                            <td>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a href="@($"seattypes/edit?seattypeid={seatType.SeatTypeId}")" class="btn btn-warning btn-sm">Chỉnh sửa</a>
+                                    <a href="@($"seattypes/details?seattypeid={seatType.SeatTypeId}")" class="btn btn-info btn-sm">Chi tiết</a>
+                                    <a href="@($"seattypes/delete?seattypeid={seatType.SeatTypeId}")" class="btn btn-danger btn-sm">Xóa</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Phân trang -->
+        <div class="text-center mt-3">
+            <button class="btn btn-secondary" @onclick="GoToPreviousPage" disabled="@IsFirstPage">Trước</button>
+            <span>Trang @currentPage của @totalPages</span>
+            <button class="btn btn-secondary" @onclick="GoToNextPage" disabled="@IsLastPage">Sau</button>
+        </div>
+    }
+    else
+    {
+        <p class="text-center text-muted">Không có loại ghế nào để hiển thị.</p>
+    }
+</div>
+
+@code {
+    private List<SeatType> SeatTypes = new();
+    private string searchItem = string.Empty;  // Từ khóa tìm kiếm
+    private int currentPage = 1;  // Trang hiện tại
+    private int pageSize = 5;  // Số lượng loại ghế trên mỗi trang
+    private int totalPages = 1; // Tổng số trang
+    private int totalSeatTypes = 0; // Tổng số loại ghế
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadSeatTypes();
+    }
+
+    private async Task LoadSeatTypes()
+    {
+        using var context = await DbFactory.CreateDbContextAsync();
+        var query = context.SeatTypes.AsQueryable();
+
+        // Nếu có từ khóa tìm kiếm, lọc danh sách theo tên loại ghế
+        if (!string.IsNullOrEmpty(searchItem))
+        {
+            query = query.Where(s => s.SeatTypeName.Contains(searchItem, StringComparison.OrdinalIgnoreCase));
+        }
+
+        // Tính tổng số loại ghế
+        totalSeatTypes = await query.CountAsync();
+
+        // Tính số trang
+        totalPages = (int)Math.Ceiling(totalSeatTypes / (double)pageSize);
+
+        // Lấy dữ liệu cho trang hiện tại
+        SeatTypes = await query
+            .Skip((currentPage - 1) * pageSize)  // Bỏ qua các bản ghi trước đó
+            .Take(pageSize)  // Lấy số lượng bản ghi cho trang hiện tại
+            .ToListAsync();
+    }
+
+    // Xử lý sự kiện khi nhấn nút "Tìm kiếm"
+    private async Task OnSearchClicked()
+    {
+        await LoadSeatTypes(); // Tải lại danh sách loại ghế theo từ khóa tìm kiếm
+    }
+
+    // Chuyển đến trang trước
+    private async Task GoToPreviousPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+            await LoadSeatTypes();
+        }
+    }
+
+    // Chuyển đến trang sau
+    private async Task GoToNextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+            await LoadSeatTypes();
+        }
+    }
+
+    // Kiểm tra nếu đang ở trang đầu tiên
+    private bool IsFirstPage => currentPage == 1;
+
+    // Kiểm tra nếu đang ở trang cuối cùng
+    private bool IsLastPage => currentPage == totalPages;
+
+    public async ValueTask DisposeAsync()
+    {
+        using var context = await DbFactory.CreateDbContextAsync();
+        await context.DisposeAsync();
+    }
+}

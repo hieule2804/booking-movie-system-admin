@@ -1,0 +1,103 @@
+﻿@page "/seattypes/edit"
+@using Microsoft.EntityFrameworkCore
+@using BookingMovieSystem_Admin.Models
+@inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Chỉnh sửa Loại Ghế</PageTitle>
+
+<div class="container mt-4">
+    <h1 class="text-center text-primary mb-4">Chỉnh sửa Loại Ghế</h1>
+
+    @if (SeatType is null)
+    {
+        <p class="text-center text-muted"><em>Đang tải...</em></p>
+    }
+    else
+    {
+        <EditForm Model="SeatType" OnValidSubmit="UpdateSeatType">
+            <DataAnnotationsValidator />
+            <ValidationSummary role="alert" />
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Thông tin Loại Ghế</h5>
+                    <hr />
+
+                    <input type="hidden" name="SeatType.SeatTypeId" value="@SeatType.SeatTypeId" />
+
+                    <!-- SeatType Name -->
+                    <div class="mb-3">
+                        <label for="seattypename" class="form-label">Tên Loại Ghế:</label>
+                        <InputText id="seattypename" @bind-Value="SeatType.SeatTypeName" class="form-control" />
+                        <ValidationMessage For="() => SeatType.SeatTypeName" class="text-danger" />
+                    </div>
+
+                    <!-- BasePrice -->
+                    <div class="mb-3">
+                        <label for="baseprice" class="form-label">Giá Cơ Bản:</label>
+                        <InputNumber id="baseprice" @bind-Value="SeatType.BasePrice" class="form-control" />
+                        <ValidationMessage For="() => SeatType.BasePrice" class="text-danger" />
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </EditForm>
+    }
+
+    <!-- Back to List Link -->
+    <div class="text-center mt-4">
+        <a href="/seattypes" class="btn btn-secondary">Trở lại danh sách</a>
+    </div>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    private int SeatTypeId { get; set; }
+
+    private SeatType? SeatType { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        SeatType ??= await context.SeatTypes.FirstOrDefaultAsync(m => m.SeatTypeId == SeatTypeId);
+
+        if (SeatType is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    private async Task UpdateSeatType()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Attach(SeatType!).State = EntityState.Modified;
+
+        try
+        {
+            await context.SaveChangesAsync();
+            NavigationManager.NavigateTo("/seattypes");
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!SeatTypeExists(SeatType!.SeatTypeId))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+    }
+
+    private bool SeatTypeExists(int seattypeid)
+    {
+        using var context = DbFactory.CreateDbContext();
+        return context.SeatTypes.Any(e => e.SeatTypeId == seattypeid);
+    }
+}
