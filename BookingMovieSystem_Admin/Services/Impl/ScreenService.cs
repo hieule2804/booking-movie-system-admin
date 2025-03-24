@@ -30,7 +30,7 @@ namespace BookingMovieSystem_Admin.Services.Impl
             return screens.Select(s => new ScreenDtos
             {
                 ScreenId = s.ScreenId,
-                CinemaId = s.CinemaId,
+                CinemaName = s.Cinema.CinemaName,
                 ScreenName = s.ScreenName,
                 SeatCount = s.ScreenSeats.Count
             }).ToList();

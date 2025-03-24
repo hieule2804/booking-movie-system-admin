@@ -1,65 +1,141 @@
 ﻿@page "/screens"
 @using BookingMovieSystem_Admin.Services
 @using BookingMovieSystem_Admin.Dtos
-@using Microsoft.AspNetCore.Components.QuickGrid
 @inject IScreenService ScreenService
 
-<PageTitle>Screen List</PageTitle>
+<PageTitle>Danh sách Màn Hình</PageTitle>
 
 <div class="container mt-4">
-    <h1 class="text-primary text-center">Screen List</h1>
+    <h1 class="text-primary text-center">Danh sách Màn Hình</h1>
 
     <p class="text-end">
-        <a href="screens/create" class="btn btn-success">Create New</a>
+        <a href="screens/create" class="btn btn-success">Tạo Mới</a>
     </p>
+
+    <!-- Tìm kiếm -->
+    <div class="mb-3">
+        <input class="form-control" style="max-width:600px" placeholder="Tìm kiếm Màn Hình..." @bind="searchItem" />
+        <button class="btn btn-primary mt-2" style="max-width:300px" @onclick="OnSearchClicked">
+            Tìm kiếm
+        </button>
+    </div>
 
     @if (screens != null)
     {
         <div class="table-responsive">
-            <QuickGrid Class="table table-striped table-hover table-bordered" Items="screens" PageSize="5">
-                <PropertyColumn Property="screen => screen.CinemaId" Title="Cinema ID" />
-                <PropertyColumn Property="screen => screen.ScreenName" Title="Screen Name" />
-                <PropertyColumn Property="screen => screen.SeatCount" Title="Total Seats" />
-
-                <TemplateColumn Title="Actions" Context="screen">
-                    <div class="d-flex justify-content-center gap-2">
-                        <a href="@($"screens/edit?screenid={screen.ScreenId}")" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="@($"screens/details?screenid={screen.ScreenId}")" class="btn btn-info btn-sm">Details</a>
-                        <a href="@($"screens/delete?screenid={screen.ScreenId}")" class="btn btn-danger btn-sm">Delete</a>
-                    </div>
-                </TemplateColumn>
-            </QuickGrid>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Cinema Name</th>
+                        <th>Screen Name</th>
+                        <th>Total Seats</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var screen in screens)
+                    {
+                        <tr>
+                            <td>@screen.CinemaName</td>
+                            <td>@screen.ScreenName</td>
+                            <td>@screen.SeatCount</td>
+                            <td>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a href="@($"screens/edit?screenid={screen.ScreenId}")" class="btn btn-warning btn-sm">Chỉnh sửa</a>
+                                    <a href="@($"screens/details?screenid={screen.ScreenId}")" class="btn btn-info btn-sm">Chi tiết</a>
+                                    <a href="@($"screens/delete?screenid={screen.ScreenId}")" class="btn btn-danger btn-sm">Xóa</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-secondary" @onclick="GoToPreviousPage" disabled="@IsFirstPage">Trước</button>
+            <span>Trang @currentPage của @totalPages</span>
+            <button class="btn btn-secondary" @onclick="GoToNextPage" disabled="@IsLastPage">Sau</button>
         </div>
     }
     else
     {
-        <p class="text-center text-muted">Loading screens...</p>
+        <p class="text-center text-muted">Đang tải màn hình...</p>
     }
 </div>
 
 @code {
-    private IQueryable<ScreenDtos>? screens;
-
+    private List<ScreenDtos>? screens;
+    private string searchItem = string.Empty; // Từ khóa tìm kiếm
+    private int currentPage = 1;  // Trang hiện tại
+    private int pageSize = 5;  // Số lượng màn hình trên mỗi trang
+    private int totalPages = 1; // Tổng số trang
+    private int totalScreens = 0; // Tổng số màn hình
     protected override async Task OnInitializedAsync()
     {
-        var screenList = await ScreenService.GetScreensWithSeatCountAsync();
-        screens = screenList.AsQueryable();
+        await LoadScreens();
     }
+
+    private async Task LoadScreens()
+    {
+        var query = await ScreenService.GetScreensWithSeatCountAsync();
+
+        // Nếu có từ khóa tìm kiếm, lọc danh sách màn hình theo tìm kiếm
+        if (!string.IsNullOrEmpty(searchItem))
+        {
+            query = query.Where(s => s.ScreenName.Contains(searchItem, StringComparison.OrdinalIgnoreCase));
+        }
+
+        totalScreens = query.Count();
+
+        // Tính số trang
+        totalPages = (int)Math.Ceiling(totalScreens / (double)pageSize);
+
+        // Chuyển query thành IQueryable và lấy dữ liệu cho trang hiện tại
+        screens = query
+            .AsQueryable()  // Chuyển IEnumerable thành IQueryable
+            .Skip((currentPage - 1) * pageSize)  // Bỏ qua các màn hình đã được hiển thị
+            .Take(pageSize)  // Lấy số lượng màn hình trên trang hiện tại
+            .ToList();  // Gọi ToList() thay vì ToListAsync()
+    }
+
+
+    // Xử lý sự kiện khi nhấn nút "Tìm kiếm"
+    private async Task OnSearchClicked()
+    {
+        await LoadScreens(); // Tải lại danh sách màn hình theo tìm kiếm
+    }
+    private async Task GoToPreviousPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+            await LoadScreens();
+        }
+    }
+
+    // Chuyển sang trang sau
+    private async Task GoToNextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+            await LoadScreens();
+        }
+    }
+
+    // Kiểm tra nếu đang ở trang đầu tiên
+    private bool IsFirstPage => currentPage == 1;
+
+    // Kiểm tra nếu đang ở trang cuối cùng
+    private bool IsLastPage => currentPage == totalPages;
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
 
-@* <script src="~/microsoft/signalr/dist/browser/signalr.js"></script> *@
-
 <script>
-        // Kết nối đến SignalR Hub
+    // Kết nối đến SignalR Hub
     var connection = new signalR.HubConnectionBuilder()
         .withUrl("/screenHub")
         .build();
-
-
-    //     var connection = new signalR.HubConnectionBuilder()
-    // .withUrl("/foodHub", { accessTokenFactory: () => localStorage.getItem("authToken") })
-    // .build();
 
     // Bắt đầu kết nối SignalR
     connection.start().catch(function (err) {
@@ -68,19 +144,14 @@
 
     // Lắng nghe sự kiện cập nhật
     connection.on("ReceiveUpdateNotification", function (screen) {
-
         location.reload();
-
-    });
-     connection.on("ReceiveAddNotification", function (screen) {
-
-        location.reload();
-
-    });
-     connection.on("ReceiveDeleteNotification", function (screen) {
-
-        location.reload();
-
     });
 
+    connection.on("ReceiveAddNotification", function (screen) {
+        location.reload();
+    });
+
+    connection.on("ReceiveDeleteNotification", function (screen) {
+        location.reload();
+    });
 </script>

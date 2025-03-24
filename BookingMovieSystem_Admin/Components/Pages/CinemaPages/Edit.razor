@@ -146,7 +146,7 @@ else
         try
         {
             await context.SaveChangesAsync();
-            await HubContext.Clients.All.SendAsync("ReceiveUpdateNotification", Cinema);
+            // await HubContext.Clients.All.SendAsync("ReceiveUpdateNotification", Cinema);
         }
         catch (DbUpdateConcurrencyException)
         {
@@ -191,12 +191,10 @@ else
     {
         using var context = DbFactory.CreateDbContext();
         var screen = await context.Screens.FindAsync(screenId);
-
         if (screen != null)
         {
-            screen.CinemaId = CinemaId;
             await context.SaveChangesAsync();
-
+            Console.WriteLine("Screen added to cinema");
             Screens.Add(screen);
             StateHasChanged();
         }

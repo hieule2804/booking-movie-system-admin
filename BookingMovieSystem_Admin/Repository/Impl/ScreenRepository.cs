@@ -27,6 +27,7 @@ namespace BookingMovieSystem_Admin.Repository.Impl
             return await _context.Screens
                 .Include(s => s.ScreenSeats)
                 .ThenInclude(ss => ss.SeatType)
+                .Include(s => s.Cinema)
                 .ToListAsync();
         }
         public async Task UpdateScreen(Screen screen)
