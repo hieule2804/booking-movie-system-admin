@@ -141,3 +141,28 @@
         await context.DisposeAsync();
     }
 }
+<script>
+    var connection = new signalR.HubConnectionBuilder()
+        .withUrl("/screenseatHub")
+        .build();
+
+    connection.start().catch(function (err) {
+        console.error("❌ SignalR Connection Error:", err.toString());
+    });
+
+    connection.on("ReceiveUpdateNotification", function (screenseat) {
+        // Thay vì reload lại trang, bạn có thể xử lý dữ liệu mới tại đây
+        console.log("Updated Screenseat", screenseat);
+        // Bạn có thể gọi một phương thức của Blazor để cập nhật UI
+    });
+
+    connection.on("ReceiveAddNotification", function (screenseat) {
+        console.log("Added Screenseat", screenseat);
+    });
+
+    connection.on("ReceiveDeleteNotification", function (screenseat) {
+        console.log("Deleted Screenseat", screenseat);
+    });
+</script>
+
+

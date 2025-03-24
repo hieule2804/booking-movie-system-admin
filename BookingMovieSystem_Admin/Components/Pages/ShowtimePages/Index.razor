@@ -1,86 +1,210 @@
 ﻿@page "/showtimes"
 @using Microsoft.EntityFrameworkCore
-@using Microsoft.AspNetCore.Components.QuickGrid
-@using BookingMovieSystem_Admin.Models
 @using BookingMovieSystem_Admin.Models
 @implements IAsyncDisposable
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Danh sách Showtimes</PageTitle>
 
-<h1>Index</h1>
+<h1>Danh sách Showtimes</h1>
 
 <p>
-    <a href="showtimes/create">Create New</a>
+    <a href="showtimes/create" class="btn btn-primary btn-sm">Create New</a>
 </p>
 
-<QuickGrid Class="table" Items="context.Showtimes">
-    <PropertyColumn Property="showtime => showtime.Movie.Title" />
-    <PropertyColumn Property="showtime => showtime.Screen.ScreenName" />
-    <PropertyColumn Property="showtime => showtime.ShowDate" />
-    <PropertyColumn Property="showtime => showtime.ShowTime" />
-    <PropertyColumn Property="showtime => showtime.ExperienceType" />
-    <PropertyColumn Property="showtime => showtime.IsSoldOut" />
 
-    <TemplateColumn Context="showtime">
-        <a href="@($"showtimes/edit?showtimeid={showtime.ShowtimeId}")">Edit</a> |
-        <a href="@($"showtimes/details?showtimeid={showtime.ShowtimeId}")">Details</a> |
-        <a href="@($"showtimes/delete?showtimeid={showtime.ShowtimeId}")">Delete</a>
-    </TemplateColumn>
-</QuickGrid>
+<div class="mb-3 d-flex gap-3">
+    <div class="flex-grow-1">
+        <input class="form-control" style="max-width:600px" placeholder="Tìm kiếm ..." @bind="searchItem" />
+    </div>
+    <div class="flex-grow-1">
+        <select class="form-control" @bind="filterIsSoldOut">
+            <option value="">All</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+    <div class="flex-grow-1">
+        <select class="form-control" @bind="filterScreen">
+            <option value="">All</option>
+            @foreach (var screen in Screens)
+            {
+                <option value="@screen.ScreenId">@screen.ScreenName</option>
+            }
+        </select>
+    </div>
+    <div class="flex-grow-1">
+        <select class="form-control" @bind="filterExperienceType">
+            <option value="">All</option>
+            @foreach (var type in ExperienceTypes)
+            {
+                <option value="@type">@type</option>
+            }
+        </select>
+    </div>
+    <button class="btn btn-primary mt-2" @onclick="OnSearchClicked">
+        Tìm kiếm
+    </button>
+</div>
+
+<!-- Bảng hiển thị các showtimes -->
+@if (Showtimes.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Movie</th>
+                    <th>Screen</th>
+                    <th>Show Date</th>
+                    <th>Show Time</th>
+                    <th>Experience Type</th>
+                    <th>Is Sold Out</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var showtime in Showtimes)
+                {
+                    <tr>
+                        <td>@showtime.Movie.Title</td>
+                        <td>@showtime.Screen.ScreenName</td>
+                        <td>@showtime.ShowDate.ToString("yyyy-MM-dd")</td>
+                        <td>@showtime.ShowTime.ToString("HH:mm")</td>
+                        <td>@showtime.ExperienceType</td>
+                        <td>@(showtime.IsSoldOut ? "Yes" : "No")</td>
+                        <td>
+                            <a href="@($"showtimes/edit?showtimeid={showtime.ShowtimeId}")" class="btn btn-warning btn-sm">Edit</a> |
+                            <a href="@($"showtimes/details?showtimeid={showtime.ShowtimeId}")" class="btn btn-info btn-sm">Details</a> |
+                            <a href="@($"showtimes/delete?showtimeid={showtime.ShowtimeId}")" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Phân trang -->
+    <div class="text-center mt-3">
+        <button class="btn btn-secondary" @onclick="GoToPreviousPage" disabled="@IsFirstPage">Trước</button>
+        <span>Trang @currentPage của @totalPages</span>
+        <button class="btn btn-secondary" @onclick="GoToNextPage" disabled="@IsLastPage">Sau</button>
+    </div>
+}
+else
+{
+    <p class="text-center text-muted">Không có showtimes nào để hiển thị.</p>
+}
 
 @code {
     private G5MovieTicketBookingSystemContext context = default!;
+    private List<Showtime> Showtimes = new();
+    private string searchItem = string.Empty;  // Từ khóa tìm kiếm
+    private int currentPage = 1;  // Trang hiện tại
+    private int pageSize = 5;  // Số lượng showtimes trên mỗi trang
+    private int totalPages = 1; // Tổng số trang
+    private int totalShowtimes = 0; // Tổng số showtimes
 
-    protected override void OnInitialized()
+    private string filterIsSoldOut = string.Empty;
+    private int? filterScreen = null;
+    private string filterExperienceType = string.Empty;
+
+    private List<Screen> Screens = new();  // Danh sách Screens để hiển thị trong dropdown
+    private List<string> ExperienceTypes = new();  // Danh sách các ExperienceType để hiển thị trong dropdown
+
+    protected override async Task OnInitializedAsync()
     {
         context = DbFactory.CreateDbContext();
-
-        var showtimes = context.Showtimes
-            .Include(s => s.Movie) 
-            .Include(s => s.Screen)  
-            .ToList();
-
+        await LoadShowtimes();
+        await LoadFilters();
     }
 
+    private async Task LoadFilters()
+    {
+        // Load danh sách screens và experience types để hiển thị trong các dropdown
+        Screens = await context.Screens.ToListAsync();
+        ExperienceTypes = await context.Showtimes.Select(s => s.ExperienceType).Distinct().ToListAsync();
+    }
 
-    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+    private async Task LoadShowtimes()
+    {
+        // Truy vấn cơ sở dữ liệu
+        var query = context.Showtimes
+            .Include(s => s.Movie)
+            .Include(s => s.Screen)
+            .AsQueryable();
+
+        // Lọc theo các tiêu chí
+        if (!string.IsNullOrEmpty(searchItem))
+        {
+            query = query.Where(s => EF.Functions.Like(s.Movie.Title, $"%{searchItem}%"));
+        }
+
+        if (!string.IsNullOrEmpty(filterIsSoldOut))
+        {
+            var isSoldOut = filterIsSoldOut == "true";
+            query = query.Where(s => s.IsSoldOut == isSoldOut);
+        }
+
+        if (filterScreen.HasValue)
+        {
+            query = query.Where(s => s.ScreenId == filterScreen.Value);
+        }
+
+        if (!string.IsNullOrEmpty(filterExperienceType))
+        {
+            query = query.Where(s => s.ExperienceType == filterExperienceType);
+        }
+
+        // Tính tổng số showtimes
+        totalShowtimes = await query.CountAsync();
+
+        // Tính số trang
+        totalPages = (int)Math.Ceiling(totalShowtimes / (double)pageSize);
+
+        // Lấy dữ liệu cho trang hiện tại
+        Showtimes = await query
+            .Skip((currentPage - 1) * pageSize)  // Bỏ qua các bản ghi trước đó
+            .Take(pageSize)  // Lấy số lượng bản ghi cho trang hiện tại
+            .ToListAsync();
+    }
+
+    // Xử lý sự kiện khi nhấn nút "Tìm kiếm"
+    private async Task OnSearchClicked()
+    {
+        currentPage = 1;  // Quay lại trang đầu tiên khi tìm kiếm
+        await LoadShowtimes();
+    }
+
+    // Chuyển đến trang trước
+    private async Task GoToPreviousPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+            await LoadShowtimes();
+        }
+    }
+
+    // Chuyển đến trang sau
+    private async Task GoToNextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+            await LoadShowtimes();
+        }
+    }
+
+    // Kiểm tra nếu đang ở trang đầu tiên
+    private bool IsFirstPage => currentPage == 1;
+
+    // Kiểm tra nếu đang ở trang cuối cùng
+    private bool IsLastPage => currentPage == totalPages;
+
+    public async ValueTask DisposeAsync()
+    {
+        using var context = await DbFactory.CreateDbContextAsync();
+        await context.DisposeAsync();
+    }
 }
-<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
-
-@* <script src="~/microsoft/signalr/dist/browser/signalr.js"></script> *@
-
-<script>
-        // Kết nối đến SignalR Hub
-    var connection = new signalR.HubConnectionBuilder()
-        .withUrl("/showTimeHub")
-        .build();
-
-
-    //     var connection = new signalR.HubConnectionBuilder()
-    // .withUrl("/foodHub", { accessTokenFactory: () => localStorage.getItem("authToken") })
-    // .build();
-
-    // Bắt đầu kết nối SignalR
-    connection.start().catch(function (err) {
-        console.error("❌ SignalR Connection Error:", err.toString());
-    });
-
-    // Lắng nghe sự kiện cập nhật
-    connection.on("ReceiveUpdateNotification", function (showtime) {
-
-        location.reload();
-
-    });
-     connection.on("ReceiveAddNotification", function (showtime) {
-
-        location.reload();
-
-    });
-     connection.on("ReceiveDeleteNotification", function (showtime) {
-
-        location.reload();
-
-    });
-
-</script>

@@ -76,6 +76,11 @@
     {
         using var context = DbFactory.CreateDbContext();
         context.Movies.Remove(movie!);
+        var listShowtime = await context.Showtimes.Where(m => m.MovieId == MovieId).ToListAsync();
+        foreach (var showtime in listShowtime)
+        {
+            context.Showtimes.Remove(showtime);
+        }
         await context.SaveChangesAsync();
         await HubContext.Clients.All.SendAsync("ReceiveDeleteNotification", movie.MovieId);
         NavigationManager.NavigateTo("/movies");

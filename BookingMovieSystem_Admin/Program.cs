@@ -61,6 +61,7 @@ namespace BookingMovieSystem_Admin
             app.MapHub<MovieHub>("/movieHub");
             app.MapHub<ShowTimeHub>("/showTimeHub");
             app.MapHub<UserHub>("/userHub");
+            app.MapHub<UserHub>("/seatTypeHub");
             app.Run();
         }
     }

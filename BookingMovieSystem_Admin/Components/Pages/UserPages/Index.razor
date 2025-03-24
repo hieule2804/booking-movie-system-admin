@@ -7,61 +7,180 @@
 
 <PageTitle>Users</PageTitle>
 
+
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="text-primary">User Management</h2>
         <a href="users/create" class="btn btn-success"><i class="bi bi-plus-circle"></i> Create New</a>
     </div>
 
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <div class="table-responsive">
-                <QuickGrid Class="table table-hover table-striped align-middle text-center" Items="users">
-                    <PropertyColumn Title="Username" Property="user => user.Username" />
-                    <PropertyColumn Title="Email" Property="user => user.Email" />
-                    <PropertyColumn Title="Full Name" Property="user => user.Fullname" />
+    <div class="mb-3 d-flex align-items-center gap-3">
+        <input class="form-control" style="max-width: 250px;" placeholder="Search by username..." @bind="searchItem" />
 
-                    <TemplateColumn Context="user" Title="Roles">
-                        @if (user.Roles != null && user.Roles.Any())
-                        {
-                            @foreach (var role in user.Roles)
+        <select class="form-control" style="max-width: 250px;" @bind="selectedRole">
+            <option value="">Chọn vai trò...</option>
+            @foreach (var role in roles)
+            {
+                <option value="@role.RoleName">@role.RoleName</option>
+            }
+        </select>
+        <button class="btn btn-primary" @onclick="OnSearchClicked">
+            Tìm kiếm
+        </button>
+    </div>
+
+    @if (users.Any())
+    {
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Full Name</th>
+                                <th>Roles</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in users)
                             {
-                                <span class="badge bg-primary me-1">@role.RoleName</span>
+                                <tr>
+                                    <td>@user.Username</td>
+                                    <td>@user.Email</td>
+                                    <td>@user.Fullname</td>
+                                    <td>
+                                        @if (user.Roles != null && user.Roles.Any())
+                                        {
+                                            @foreach (var role in user.Roles)
+                                            {
+                                                <span class="badge bg-primary me-1">@role.RoleName</span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">No roles</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <a href="@($"users/edit?userid={user.UserId}")" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
+                                            <a href="@($"users/details?userid={user.UserId}")" class="btn btn-info btn-sm text-white"><i class="bi bi-eye"></i> Details</a>
+                                            <a href="@($"users/delete?userid={user.UserId}")" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
                             }
-                        }
-                        else
-                        {
-                            <span class="text-muted">No roles</span>
-                        }
-                    </TemplateColumn>
-
-                    <TemplateColumn Context="user" Title="Actions">
-                        <div class="d-flex justify-content-center gap-2">
-                            <a href="@($"users/edit?userid={user.UserId}")" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
-                            <a href="@($"users/details?userid={user.UserId}")" class="btn btn-info btn-sm text-white"><i class="bi bi-eye"></i> Details</a>
-                            <a href="@($"users/delete?userid={user.UserId}")" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Delete</a>
-                        </div>
-                    </TemplateColumn>
-                </QuickGrid>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
+        <!-- Phân trang -->
+        <div class="text-center mt-3">
+            <button class="btn btn-secondary" @onclick="GoToPreviousPage" disabled="@IsFirstPage">Trước</button>
+            <span>Trang @currentPage của @totalPages</span>
+            <button class="btn btn-secondary" @onclick="GoToNextPage" disabled="@IsLastPage">Sau</button>
+        </div>
+    }
+    else
+    {
+        <p class="text-center text-muted">Không có người dùng nào để hiển thị.</p>
+    }
+</div>
 @code {
-    private G5MovieTicketBookingSystemContext context = default!;
-    private IQueryable<User> users = Enumerable.Empty<User>().AsQueryable();
+    private List<User> users = new();
+    private List<Role> roles = new(); // Danh sách các vai trò
+    private string searchItem = string.Empty;  // Từ khóa tìm kiếm
+    private string selectedRole = string.Empty; // Vai trò đã chọn
+    private int currentPage = 1;  // Trang hiện tại
+    private int pageSize = 5;  // Số lượng người dùng trên mỗi trang
+    private int totalPages = 1; // Tổng số trang
+    private int TotalUser = 0; // Tổng số người dùng
 
     protected override async Task OnInitializedAsync()
     {
-        context = await DbFactory.CreateDbContextAsync();
-        users = context.Users.Include(u => u.Roles);
+        await LoadRoles(); // Tải các vai trò từ cơ sở dữ liệu
+        await LoadUser(); // Tải người dùng
     }
 
-    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+    private async Task LoadRoles()
+    {
+        using var context = await DbFactory.CreateDbContextAsync();
+        roles = await context.Roles.ToListAsync(); // Lấy tất cả vai trò
+    }
+
+    private async Task LoadUser()
+    {
+        using var context = await DbFactory.CreateDbContextAsync();
+        // Truy vấn cơ sở dữ liệu
+        var query = context.Users
+            .Include(s => s.Roles)
+            .AsNoTracking();
+
+        // Lọc theo từ khóa tìm kiếm
+        if (!string.IsNullOrEmpty(searchItem))
+        {
+            query = query.Where(s => EF.Functions.Like(s.Fullname, $"%{searchItem}%"));
+        }
+
+        // Lọc theo vai trò nếu có
+        if (!string.IsNullOrEmpty(selectedRole))
+        {
+            query = query.Where(s => s.Roles.Any(r => r.RoleName == selectedRole));
+        }
+
+        // Tính tổng số người dùng và số trang
+        TotalUser = await query.CountAsync();
+        totalPages = (int)Math.Ceiling(TotalUser / (double)pageSize);
+
+        // Lấy người dùng theo phân trang
+        users = await query
+            .Skip((currentPage - 1) * pageSize)  // Bỏ qua các bản ghi trước đó
+            .Take(pageSize)  // Lấy số lượng bản ghi cho trang hiện tại
+            .ToListAsync();
+    }
+
+    private async Task OnSearchClicked()
+    {
+        // Khi nhấn nút tìm kiếm, gọi phương thức LoadUser để lọc theo cả tìm kiếm và vai trò
+        await LoadUser();
+    }
+
+    private async Task GoToPreviousPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+            await LoadUser();
+        }
+    }
+
+    private async Task GoToNextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+            await LoadUser();
+        }
+    }
+
+    private bool IsFirstPage => currentPage == 1;
+    private bool IsLastPage => currentPage == totalPages;
+
+    public async ValueTask DisposeAsync()
+    {
+        using var context = await DbFactory.CreateDbContextAsync();
+        await context.DisposeAsync();
+    }
 }
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
-@* <script src="~/microsoft/signalr/dist/browser/signalr.js"></script> *@
+ <script src="~/microsoft/signalr/dist/browser/signalr.js"></script> 
 
 <script>
         // Kết nối đến SignalR Hub
