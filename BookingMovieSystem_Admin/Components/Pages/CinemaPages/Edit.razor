@@ -175,10 +175,22 @@ else
         if (confirmed)
         {
             using var context = DbFactory.CreateDbContext();
+
+            var showtimes = await context.Showtimes.Where(s => s.ScreenId == screenId).ToListAsync();
+
+            if (showtimes.Any())
+            {
+                foreach (var showtime in showtimes)
+                {
+                    context.Showtimes.Remove(showtime);  // Xóa các showtimes có ScreenId trùng
+                }
+            }
+
             var screen = await context.Screens.FindAsync(screenId);
 
             if (screen != null)
             {
+                context.Screens.Remove(screen);
                 await context.SaveChangesAsync();
 
                 Screens.Remove(screen);
@@ -187,16 +199,44 @@ else
         }
     }
 
+
     private async Task AddScreenToCinema(int screenId)
     {
         using var context = DbFactory.CreateDbContext();
-        var screen = await context.Screens.FindAsync(screenId);
+
+        // Tìm màn hình từ cơ sở dữ liệu theo ScreenId
+        var screen = await context.Screens.FirstOrDefaultAsync(s => s.ScreenId == screenId);
+
         if (screen != null)
         {
-            await context.SaveChangesAsync();
-            Console.WriteLine("Screen added to cinema");
-            Screens.Add(screen);
-            StateHasChanged();
+        
+                screen.CinemaId = CinemaId;
+
+                try
+                {
+                    // Lưu thay đổi vào cơ sở dữ liệu
+                    await context.SaveChangesAsync();
+
+                    // Cập nhật giao diện người dùng: thêm màn hình vào danh sách Screens và loại bỏ khỏi AllScreens
+                    Screens.Add(screen);
+                    AllScreens.Remove(screen);
+
+                    // Cập nhật lại giao diện
+                    StateHasChanged();
+
+                    Console.WriteLine($"Screen {screen.ScreenName} has been added to Cinema {CinemaId}.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error adding screen to cinema: {ex.Message}");
+                }
+           
+        }
+        else
+        {
+            // Nếu không tìm thấy màn hình với screenId
+            Console.WriteLine("Screen not found.");
         }
     }
+
 }

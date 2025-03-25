@@ -7,10 +7,12 @@ namespace BookingMovieSystem_Admin.Services
     {
         Task<IEnumerable<Screen>> GetAllScreensAsync();
         Task<IEnumerable<Screen>> GetScreensWithSeatsAsync();
-        Task<IEnumerable<ScreenDtos>> GetScreensWithSeatCountAsync();
+
+        Task<IEnumerable<ScreenDtos>> GetScreensWithSeatCountAsync(string searchItem = "", int? selectedCinemaId = null);
+
+        Task<IEnumerable<Cinema>> GetCinemasAsync();
 
         Task<Screen> GetScreenByIdAsync(int id);
         Task UpdateScreen(Screen screen);
-
     }
 }

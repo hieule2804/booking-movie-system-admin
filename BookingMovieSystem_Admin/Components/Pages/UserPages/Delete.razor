@@ -56,16 +56,27 @@
 
         if (user is null)
         {
-            NavigationManager.NavigateTo("notfound");
+            NavigationManager.NavigateTo("users");
         }
     }
 
     private async Task DeleteUser()
     {
         using var context = DbFactory.CreateDbContext();
-        context.Users.Remove(user!);
-        await context.SaveChangesAsync();
-        await HubContext.Clients.All.SendAsync("ReceiveDeleteNotification", user.UserId);
-        NavigationManager.NavigateTo("/users");
+
+        // Kiểm tra nếu người dùng tồn tại trước khi xóa
+        if (user != null)
+        {
+            context.Users.Remove(user); // Xóa người dùng khỏi cơ sở dữ liệu
+            await context.SaveChangesAsync(); // Lưu thay đổi vào cơ sở dữ liệu
+
+            // Gửi thông báo cho tất cả các client qua SignalR
+            await HubContext.Clients.All.SendAsync("ReceiveDeleteNotification", user.UserId);
+
+            // Chuyển hướng về trang danh sách người dùng
+            NavigationManager.NavigateTo("/users");
+        }
+       
     }
+
 }

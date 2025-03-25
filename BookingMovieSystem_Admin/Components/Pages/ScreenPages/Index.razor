@@ -12,10 +12,21 @@
         <a href="screens/create" class="btn btn-success">Tạo Mới</a>
     </p>
 
-    <!-- Tìm kiếm -->
-    <div class="mb-3">
+    <!-- Tìm kiếm và Lọc theo Cinema cùng một dòng -->
+    <div class="mb-3 d-flex justify-content-between">
+        <!-- Bộ lọc Cinema Name -->
+        <select class="form-control" style="max-width:300px" @bind="selectedCinema">
+            <option value="">Chọn Cinema</option>
+            @foreach (var cinema in cinemas)
+            {
+                <option value="@cinema">@cinema</option>
+            }
+        </select>
+
+        <!-- Tìm kiếm theo Screen Name -->
         <input class="form-control" style="max-width:600px" placeholder="Tìm kiếm Màn Hình..." @bind="searchItem" />
-        <button class="btn btn-primary mt-2" style="max-width:300px" @onclick="OnSearchClicked">
+
+        <button class="btn btn-primary mt-2" style="max-width:150px" @onclick="OnSearchClicked">
             Tìm kiếm
         </button>
     </div>
@@ -65,24 +76,41 @@
 
 @code {
     private List<ScreenDtos>? screens;
-    private string searchItem = string.Empty; // Từ khóa tìm kiếm
+    private string searchItem = string.Empty; // Từ khóa tìm kiếm màn hình
+    private string selectedCinema = string.Empty; // Cinema đã chọn
+    private List<string> cinemas = new List<string>(); // Danh sách Cinema
     private int currentPage = 1;  // Trang hiện tại
     private int pageSize = 5;  // Số lượng màn hình trên mỗi trang
     private int totalPages = 1; // Tổng số trang
     private int totalScreens = 0; // Tổng số màn hình
+
     protected override async Task OnInitializedAsync()
     {
+        await LoadCinemas();
         await LoadScreens();
+    }
+
+    // Tải danh sách các Cinema
+    private async Task LoadCinemas()
+    {
+        var query = await ScreenService.GetScreensWithSeatCountAsync();
+        cinemas = query.Select(s => s.CinemaName).Distinct().ToList();
     }
 
     private async Task LoadScreens()
     {
         var query = await ScreenService.GetScreensWithSeatCountAsync();
 
-        // Nếu có từ khóa tìm kiếm, lọc danh sách màn hình theo tìm kiếm
+        // Nếu có từ khóa tìm kiếm Screen, lọc danh sách theo ScreenName
         if (!string.IsNullOrEmpty(searchItem))
         {
             query = query.Where(s => s.ScreenName.Contains(searchItem, StringComparison.OrdinalIgnoreCase));
+        }
+
+        // Nếu có cinema đã chọn, lọc theo CinemaName
+        if (!string.IsNullOrEmpty(selectedCinema))
+        {
+            query = query.Where(s => s.CinemaName == selectedCinema);
         }
 
         totalScreens = query.Count();
@@ -98,12 +126,12 @@
             .ToList();  // Gọi ToList() thay vì ToListAsync()
     }
 
-
     // Xử lý sự kiện khi nhấn nút "Tìm kiếm"
     private async Task OnSearchClicked()
     {
         await LoadScreens(); // Tải lại danh sách màn hình theo tìm kiếm
     }
+
     private async Task GoToPreviousPage()
     {
         if (currentPage > 1)
@@ -113,7 +141,6 @@
         }
     }
 
-    // Chuyển sang trang sau
     private async Task GoToNextPage()
     {
         if (currentPage < totalPages)

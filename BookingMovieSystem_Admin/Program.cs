@@ -22,7 +22,7 @@ namespace BookingMovieSystem_Admin
             // Đăng ký Repository
             builder.Services.AddScoped<IScreenRepository, ScreenRepository>();
             builder.Services.AddScoped<IScreenSeatRepository, ScreenSeatRepository>();
-
+            builder.Services.AddScoped<ICinemaRepository, CinemaRepository>();
             // Đăng ký Service
             builder.Services.AddScoped<IScreenService, ScreenService>();
             builder.Services.AddScoped<IScreenSeatService, ScreenSeatService>();

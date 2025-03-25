@@ -1,0 +1,193 @@
+﻿@page "/dashboard"
+@inject G5MovieTicketBookingSystemContext _context
+@inject IJSRuntime JS
+
+<h3>Dashboard - Thống kê số lượng đơn hàng và phim theo ngày</h3>
+
+<div class="row">
+    <!-- Đồ thị đơn hàng -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Đồ thị tổng số đơn hàng theo ngày
+            </div>
+            <div class="card-body">
+                <canvas id="orderChart"></canvas> <!-- Vị trí để vẽ đồ thị đơn hàng -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Đồ thị phim -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Đồ thị tổng số phim phát hành theo năm
+            </div>
+            <div class="card-body">
+                <canvas id="movieChart"></canvas> <!-- Vị trí để vẽ đồ thị phim -->
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<DailyOrderStatistic> dailyOrders = new List<DailyOrderStatistic>();
+    private List<YearlyMovieStatistic> yearlyMovies = new List<YearlyMovieStatistic>();
+
+    // Lấy dữ liệu khi component được khởi tạo
+    protected override async Task OnInitializedAsync()
+    {
+        dailyOrders = await GetDailyOrders();
+        yearlyMovies = await GetYearlyMovies();
+    }
+
+    // Vẽ các biểu đồ sau khi component đã được render
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await DrawOrderChart();  // Vẽ biểu đồ đơn hàng
+            await DrawMovieChart();  // Vẽ biểu đồ phim
+        }
+    }
+
+    private async Task<List<DailyOrderStatistic>> GetDailyOrders()
+    {
+        var orders = await _context.Orders
+            .Where(o => o.OrderTimestamp >= DateTime.Now.AddYears(-1))  // Lọc đơn hàng trong 1 năm qua
+            .ToListAsync();
+
+        var dailyData = orders
+            .GroupBy(o => o.OrderTimestamp.Date)  // Nhóm theo ngày của OrderTimestamp
+            .Select(g => new DailyOrderStatistic
+                {
+                    Date = g.Key,
+                    OrderCount = g.Count(),
+                })
+            .OrderBy(d => d.Date)  // Sắp xếp theo ngày
+            .ToList();
+
+        return dailyData;
+    }
+
+    private async Task<List<YearlyMovieStatistic>> GetYearlyMovies()
+    {
+        var movies = await _context.Movies
+            .Where(m => m.ReleaseDate >= DateTime.Now.AddYears(-10))  // Chọn phim phát hành trong 10 năm qua (tùy chỉnh nếu cần)
+            .ToListAsync();
+
+        var yearlyData = movies
+            .GroupBy(m => m.ReleaseDate.Year)  // Nhóm theo năm của ReleaseDate
+            .Select(g => new YearlyMovieStatistic
+                {
+                    Year = g.Key,
+                    MovieCount = g.Count(),
+                })
+            .OrderBy(y => y.Year)
+            .ToList();
+
+        return yearlyData;
+    }
+
+    private async Task DrawOrderChart()
+    {
+        var labels = dailyOrders.Select(o => o.Date.ToString("dd/MM/yyyy")).ToArray();  // Hiển thị ngày theo định dạng dd/MM/yyyy
+        var data = dailyOrders.Select(o => (float)o.OrderCount).ToArray();
+
+        var chartData = new
+        {
+            labels = labels,
+            datasets = new[]
+            {
+                new
+                {
+                    label = "Số lượng đơn hàng",  // Thêm label cho dataset
+                    data = data,
+                    borderColor = "#FF5733",  // Màu đường
+                    backgroundColor = "rgba(255, 87, 51, 0.2)",  // Màu nền cho đường
+                    fill = true,  // Cho phép điền vùng dưới đường
+                    tension = 0.4  // Độ cong của đường
+                }
+            }
+        };
+
+        var chartOptions = new
+        {
+            responsive = true,
+            plugins = new
+            {
+                legend = new
+                {
+                    position = "top"
+                }
+            },
+            scales = new
+            {
+                y = new
+                {
+                    beginAtZero = true  // Bắt đầu trục Y từ 0
+                }
+            }
+        };
+
+        await JS.InvokeVoidAsync("drawLineChart", "orderChart", chartData, chartOptions);
+    }
+
+    private async Task DrawMovieChart()
+    {
+        var labels = yearlyMovies.Select(o => $"{o.Year}").ToArray();
+        var data = yearlyMovies.Select(o => (float)o.MovieCount).ToArray();
+
+        var chartData = new
+        {
+            labels = labels,
+            datasets = new[]
+            {
+                new
+                {
+                    label = "Số lượng phim",  // Thêm label cho dataset
+                    data = data,
+                    borderColor = "#33FF57",  // Màu đường
+                    backgroundColor = "rgba(51, 255, 87, 0.2)",  // Màu nền cho đường
+                    fill = true,  // Cho phép điền vùng dưới đường
+                    tension = 0.4  // Độ cong của đường
+                }
+            }
+        };
+
+        var chartOptions = new
+        {
+            responsive = true,
+            plugins = new
+            {
+                legend = new
+                {
+                    position = "top"
+                }
+            },
+            scales = new
+            {
+                y = new
+                {
+                    beginAtZero = true  // Bắt đầu trục Y từ 0
+                }
+            }
+        };
+
+        await JS.InvokeVoidAsync("drawLineChart", "movieChart", chartData, chartOptions);
+    }
+
+    // Lớp thống kê số đơn hàng theo ngày
+    public class DailyOrderStatistic
+    {
+        public DateTime Date { get; set; }  
+        public int OrderCount { get; set; }
+    }
+
+    // Lớp thống kê phim theo năm
+    public class YearlyMovieStatistic
+    {
+        public int Year { get; set; }
+        public int MovieCount { get; set; }
+    }
+}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "A27bsVNwCKpo9y+U6gUgrdLUONLYbKRF0B0prDn/cZo=",
+  "Hash": "UoDogcpz6O1puu5G4wxqb/kKohVwkSPUkVcw8QBz0rU=",
   "Source": "BookingMovieSystem_Admin",
   "BasePath": "_content/BookingMovieSystem_Admin",
   "Mode": "Default",
@@ -183,6 +183,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\wwwroot\\js\\chart.js",
+      "SourceId": "BookingMovieSystem_Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\wwwroot\\",
+      "BasePath": "_content/BookingMovieSystem_Admin",
+      "RelativePath": "js/chart#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "g34hx1dpzu",
+      "Integrity": "BFxIIRaB6GS09yFV/Dy2zGOp2tbdSr2I+AdvilFZy8g=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\chart.js"
     },
     {
       "Identity": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",
@@ -799,6 +820,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "js/chart.g34hx1dpzu.js",
+      "AssetFile": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\wwwroot\\js\\chart.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "301"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BFxIIRaB6GS09yFV/Dy2zGOp2tbdSr2I+AdvilFZy8g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 25 Mar 2025 04:22:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g34hx1dpzu"
+        },
+        {
+          "Name": "label",
+          "Value": "js/chart.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BFxIIRaB6GS09yFV/Dy2zGOp2tbdSr2I+AdvilFZy8g="
+        }
+      ]
+    },
+    {
+      "Route": "js/chart.js",
+      "AssetFile": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\wwwroot\\js\\chart.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "301"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BFxIIRaB6GS09yFV/Dy2zGOp2tbdSr2I+AdvilFZy8g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 25 Mar 2025 04:22:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BFxIIRaB6GS09yFV/Dy2zGOp2tbdSr2I+AdvilFZy8g="
         }
       ]
     },

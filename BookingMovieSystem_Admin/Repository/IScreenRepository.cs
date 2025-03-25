@@ -10,6 +10,6 @@ namespace BookingMovieSystem_Admin.Repository
 
         Task<Screen> GetScreenByIdAsync(int id);
         Task UpdateScreen(Screen screen);
-
+        Task AddScreen(Screen screen);
     }
 }

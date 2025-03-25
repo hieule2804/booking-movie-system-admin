@@ -35,5 +35,10 @@ namespace BookingMovieSystem_Admin.Repository.Impl
             _context.Screens.Update(screen);
             await _context.SaveChangesAsync();
         }
+        public async Task AddScreen(Screen screen)
+        {
+            _context.Screens.Add(screen);
+            await _context.SaveChangesAsync();
+        }
     }
 }

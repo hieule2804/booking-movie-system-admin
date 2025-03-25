@@ -41,6 +41,7 @@
     [SupplyParameterFromQuery]
     private int ScreenId { get; set; }
     [Inject] private IHubContext<ScreenHub> HubContext { get; set; } = default!;
+
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
@@ -55,11 +56,26 @@
     private async Task DeleteScreen()
     {
         using var context = DbFactory.CreateDbContext();
+
+        // Kiểm tra xem showTime có tồn tại hay không trước khi xóa
         var showTime = await context.Showtimes.FirstOrDefaultAsync(m => m.ScreenId == ScreenId);
-        context.Showtimes.Remove(showTime);
-        context.Screens.Remove(screen!);
-        await context.SaveChangesAsync();
-        await HubContext.Clients.All.SendAsync("ReceiveDeleteNotification", screen.ScreenId);
-        NavigationManager.NavigateTo("/screens");
+        if (showTime != null)
+        {
+            context.Showtimes.Remove(showTime);  // Xóa ShowTime nếu có
+        }
+
+        // Kiểm tra xem screen có tồn tại hay không trước khi xóa
+        if (screen != null)
+        {
+            context.Screens.Remove(screen);  // Xóa Screen nếu có
+            await context.SaveChangesAsync();  // Lưu thay đổi
+            await HubContext.Clients.All.SendAsync("ReceiveDeleteNotification", screen.ScreenId);
+            NavigationManager.NavigateTo("/screens");
+        }
+        else
+        {
+            // Thông báo lỗi nếu không tìm thấy Screen
+            NavigationManager.NavigateTo("notfound");
+        }
     }
 }

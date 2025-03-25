@@ -495,6 +495,88 @@
       ]
     },
     {
+      "Route": "js/chart.g34hx1dpzu.js",
+      "AssetFile": "js/chart.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "301"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BFxIIRaB6GS09yFV/Dy2zGOp2tbdSr2I+AdvilFZy8g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 25 Mar 2025 04:22:29 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g34hx1dpzu"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BFxIIRaB6GS09yFV/Dy2zGOp2tbdSr2I+AdvilFZy8g="
+        },
+        {
+          "Name": "label",
+          "Value": "js/chart.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/chart.js",
+      "AssetFile": "js/chart.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "301"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BFxIIRaB6GS09yFV/Dy2zGOp2tbdSr2I+AdvilFZy8g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 25 Mar 2025 04:22:29 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BFxIIRaB6GS09yFV/Dy2zGOp2tbdSr2I+AdvilFZy8g="
+        }
+      ]
+    },
+    {
       "Route": "lib/microsoft/signalr/dist/browser/signalr.cqu3aupeo3.js",
       "AssetFile": "lib/microsoft/signalr/dist/browser/signalr.js",
       "Selectors": [],

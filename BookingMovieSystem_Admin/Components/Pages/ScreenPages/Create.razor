@@ -18,8 +18,14 @@
             <DataAnnotationsValidator />
             <ValidationSummary class="text-danger" role="alert" />
             <div class="mb-3">
-                <label for="cinemaid" class="form-label">CinemaId:</label>
-                <InputNumber id="cinemaid" @bind-Value="Screen.CinemaId" class="form-control" />
+                <label for="cinemaid" class="form-label">Cinema:</label>
+                <InputSelect id="cinemaid" @bind-Value="Screen.CinemaId" class="form-control">
+                    <option value="">Select Cinema</option>  <!-- Option mặc định -->
+                    @foreach (var cinema in Cinemas)
+                    {
+                        <option value="@cinema.CinemaId">@cinema.CinemaName</option>
+                    }
+                </InputSelect>
                 <ValidationMessage For="() => Screen.CinemaId" class="text-danger" />
             </div>
             <div class="mb-3">
@@ -39,7 +45,16 @@
 @code {
     [SupplyParameterFromForm]
     private Screen Screen { get; set; } = new();
+    private List<Cinema> Cinemas { get; set; } = new();  // Lưu danh sách Cinemas
     [Inject] private IHubContext<ScreenHub> HubContext { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Lấy danh sách Cinemas từ cơ sở dữ liệu
+        using var context = DbFactory.CreateDbContext();
+        Cinemas = await context.Cinemas.ToListAsync(); // Lấy tất cả Cinema
+    }
+
     private async Task AddScreen()
     {
         using var context = DbFactory.CreateDbContext();
