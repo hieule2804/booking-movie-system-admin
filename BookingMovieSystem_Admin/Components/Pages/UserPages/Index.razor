@@ -4,7 +4,8 @@
 @using BookingMovieSystem_Admin.Models
 @implements IAsyncDisposable
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
-
+@using OfficeOpenXml
+@inject IJSRuntime JSRuntime
 <PageTitle>Users</PageTitle>
 
 
@@ -13,7 +14,10 @@
         <h2 class="text-primary">User Management</h2>
         <a href="users/create" class="btn btn-success"><i class="bi bi-plus-circle"></i> Create New</a>
     </div>
-
+    <p>
+        <a class="btn btn-primary btn-sm" href="movies/create">Create New</a>
+        <button class="btn btn-success btn-sm ms-2" @onclick="@ExportToExcel">Export to Excel</button>
+    </p>
     <div class="mb-3 d-flex align-items-center gap-3">
         <input class="form-control" style="max-width: 250px;" placeholder="Search by username..." @bind="searchItem" />
 
@@ -92,6 +96,7 @@
     }
 </div>
 @code {
+    private G5MovieTicketBookingSystemContext context = default!;
     private List<User> users = new();
     private List<Role> roles = new(); // Danh sách các vai trò
     private string searchItem = string.Empty;  // Từ khóa tìm kiếm
@@ -103,8 +108,75 @@
 
     protected override async Task OnInitializedAsync()
     {
+        context = DbFactory.CreateDbContext();
         await LoadRoles(); // Tải các vai trò từ cơ sở dữ liệu
         await LoadUser(); // Tải người dùng
+    }
+    private async Task ExportToExcel()
+    {
+        try
+        {
+            // Load all movies (not just the paged ones) for export
+            var allUser = await context.Users
+               
+                .Include(m => m.Roles).
+                Include(m => m.SeatLocks).Include(m => m.TicketScanLogs).Include(m => m.Orders).OrderBy(m => m.UserId)
+                .ToListAsync();
+
+            // Set EPPlus license context (required for non-commercial use)
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            // Create a new Excel package in memory
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Movies");
+
+                // Add headers
+                worksheet.Cells[1, 1].Value = "ID";
+                worksheet.Cells[1, 2].Value = "UserName";
+                worksheet.Cells[1, 3].Value = "FullName";
+                worksheet.Cells[1, 4].Value = "Roles";
+
+
+                // Style the header row
+                using (var range = worksheet.Cells[1, 1, 1, 7])
+                {
+                    range.Style.Font.Bold = true;
+                    range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                }
+
+                // Add data
+                for (int i = 0; i < allUser.Count; i++)
+                {
+                    var user = allUser[i];
+                    worksheet.Cells[i + 2, 1].Value = user.UserId;
+                    worksheet.Cells[i + 2, 2].Value = user.Email;
+                    worksheet.Cells[i + 2, 3].Value = user.Fullname;
+                    worksheet.Cells[i + 2, 4].Value = string.Join(", ", user.Roles.Select(r => r.RoleName));
+
+                }
+
+                // Auto-fit columns
+                worksheet.Cells.AutoFitColumns();
+
+                // Convert the Excel package to a byte array
+                var excelData = package.GetAsByteArray();
+
+                // Convert to base64 for download
+                var base64 = Convert.ToBase64String(excelData);
+                var fileName = $"User_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+                // Trigger download using JavaScript
+                await JSRuntime.InvokeVoidAsync("downloadFile", fileName, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", base64);
+            }
+        }
+        catch (Exception ex)
+        {
+          
+            Console.WriteLine($"Error exporting to Excel: {ex.Message}");
+            StateHasChanged();
+        }
     }
 
     private async Task LoadRoles()

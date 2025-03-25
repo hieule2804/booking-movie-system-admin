@@ -3,7 +3,8 @@
 @using BookingMovieSystem_Admin.Models
 @implements IAsyncDisposable
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
-
+@using OfficeOpenXml
+@inject IJSRuntime JSRuntime
 <PageTitle>Danh sách Showtimes</PageTitle>
 
 <h1>Danh sách Showtimes</h1>
@@ -11,7 +12,10 @@
 <p>
     <a href="showtimes/create" class="btn btn-primary btn-sm">Create New</a>
 </p>
-
+<p>
+    <a class="btn btn-primary btn-sm" href="movies/create">Create New</a>
+    <button class="btn btn-success btn-sm ms-2" @onclick="@ExportToExcel">Export to Excel</button>
+</p>
 
 <div class="mb-3 d-flex gap-3">
     <div class="flex-grow-1">
@@ -204,7 +208,111 @@ else
 
     public async ValueTask DisposeAsync()
     {
-        using var context = await DbFactory.CreateDbContextAsync();
-        await context.DisposeAsync();
+        if (context != null)
+        {
+            await context.DisposeAsync();
+        }
     }
+    private async Task ExportToExcel()
+    {
+        try
+        {
+            // Load all showtimes (not just the paged ones) for export
+            var allShowtimes = await context.Showtimes
+                .Include(s => s.Movie)
+                .Include(s => s.Screen)
+                .OrderBy(s => s.ShowtimeId)
+                .ToListAsync();
+
+            // Set EPPlus license context (required for non-commercial use)
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            // Create a new Excel package in memory
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Showtimes");
+
+                // Add headers
+                worksheet.Cells[1, 1].Value = "Movie Title";
+                worksheet.Cells[1, 2].Value = "Movie Title";
+                worksheet.Cells[1, 3].Value = "Screen Name";
+                worksheet.Cells[1, 4].Value = "Show Date";
+                worksheet.Cells[1, 5].Value = "Show Time";
+                worksheet.Cells[1, 6].Value = "Experience Type";
+                worksheet.Cells[1, 7].Value = "Sold Out";
+
+                // Style the header row
+                using (var range = worksheet.Cells[1, 1, 1, 6])
+                {
+                    range.Style.Font.Bold = true;
+                    range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                }
+
+                // Add data
+                for (int i = 0; i < allShowtimes.Count; i++)
+                {
+                    var showtime = allShowtimes[i];
+                    worksheet.Cells[i + 2, 1].Value = showtime.ShowtimeId;
+                    worksheet.Cells[i + 2, 2].Value = showtime.Movie?.Title ?? "N/A";
+                    worksheet.Cells[i + 2, 3].Value = showtime.Screen?.ScreenName ?? "N/A";
+                    worksheet.Cells[i + 2, 4].Value = showtime.ShowDate.ToString("yyyy-MM-dd");
+                    worksheet.Cells[i + 2, 5].Value = showtime.ShowTime.ToString("HH:mm");
+                    worksheet.Cells[i + 2, 6].Value = showtime.ExperienceType;
+                    worksheet.Cells[i + 2, 7].Value = showtime.IsSoldOut ? "Yes" : "No";
+                }
+
+                // Auto-fit columns
+                worksheet.Cells.AutoFitColumns();
+
+                // Convert the Excel package to a byte array
+                var excelData = package.GetAsByteArray();
+
+                // Convert to base64 for download
+                var base64 = Convert.ToBase64String(excelData);
+                var fileName = $"Showtimes_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+                // Trigger download using JavaScript
+                await JSRuntime.InvokeVoidAsync("downloadFile", fileName, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", base64);
+            }
+        }
+        catch (Exception ex)
+        {
+        
+            Console.WriteLine($"Error exporting to Excel: {ex.Message}");
+            StateHasChanged();
+        }
+    }
+
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+<script>
+    // Kết nối đến SignalR Hub
+    var connection = new signalR.HubConnectionBuilder()
+        .withUrl("/showTimeHub")
+        .build();
+
+    // Bắt đầu kết nối SignalR
+    connection.start().catch(function (err) {
+        console.error("❌ SignalR Connection Error:", err.toString());
+    });
+
+    // Lắng nghe sự kiện cập nhật
+    connection.on("ReceiveUpdateNotification", function (showtime) {
+        location.reload();
+    });
+    connection.on("ReceiveAddNotification", function (showtime) {
+        location.reload();
+    });
+    connection.on("ReceiveDeleteNotification", function (showtime) {
+        location.reload();
+    });
+    window.downloadFile = (fileName, contentType, base64Data) => {
+           const linkSource = `data:${contentType};base64,${base64Data}`;
+           const downloadLink = document.createElement("a");
+           downloadLink.href = linkSource;
+           downloadLink.download = fileName;
+           downloadLink.click();
+       };
+</script>
