@@ -89,7 +89,7 @@ else
         try
         {
             await context.SaveChangesAsync();
-            await HubContext.Clients.All.SendAsync("ReceiveUpdateNotification", ScreenSeat);
+            await HubContext.Clients.All.SendAsync("ReceiveAddNotification", ScreenSeat);
         }
         catch (DbUpdateConcurrencyException)
         {

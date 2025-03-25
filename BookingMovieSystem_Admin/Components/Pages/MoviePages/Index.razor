@@ -247,22 +247,22 @@
 
 <script>
     var connection = new signalR.HubConnectionBuilder()
-        .withUrl("/cinemaHub")
+        .withUrl("/movieHub")
         .build();
 
     connection.start().catch(function (err) {
         console.error("❌ SignalR Connection Error:", err.toString());
     });
 
-    connection.on("ReceiveUpdateNotification", function (cinema) {
+    connection.on("ReceiveUpdateNotification", function (movie) {
         location.reload();
     });
 
-    connection.on("ReceiveAddNotification", function (cinema) {
+    connection.on("ReceiveAddNotification", function (movie) {
         location.reload();
     });
 
-    connection.on("ReceiveDeleteNotification", function (cinema) {
+    connection.on("ReceiveDeleteNotification", function (movie) {
         location.reload();
     });
       window.downloadFile = (fileName, contentType, base64Data) => {

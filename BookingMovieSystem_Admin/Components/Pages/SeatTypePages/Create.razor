@@ -1,4 +1,6 @@
 ﻿@page "/seattypes/create"
+@using BookingMovieSystem_Admin.Hub
+@using Microsoft.AspNetCore.SignalR
 @using Microsoft.EntityFrameworkCore
 @using BookingMovieSystem_Admin.Models
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
@@ -37,12 +39,13 @@
 @code {
     [SupplyParameterFromForm]
     private SeatType SeatType { get; set; } = new();
-
+    [Inject] private IHubContext<SeatTypeHub> HubContext { get; set; } = default!;
     // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddSeatType()
     {
         using var context = DbFactory.CreateDbContext();
         context.SeatTypes.Add(SeatType);
+        await HubContext.Clients.All.SendAsync("ReceiveAddNotification", SeatType);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/seattypes");
     }

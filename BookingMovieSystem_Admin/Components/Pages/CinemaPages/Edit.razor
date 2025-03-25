@@ -146,7 +146,7 @@ else
         try
         {
             await context.SaveChangesAsync();
-            // await HubContext.Clients.All.SendAsync("ReceiveUpdateNotification", Cinema);
+            await HubContext.Clients.All.SendAsync("ReceiveAddNotification", Cinema);
         }
         catch (DbUpdateConcurrencyException)
         {

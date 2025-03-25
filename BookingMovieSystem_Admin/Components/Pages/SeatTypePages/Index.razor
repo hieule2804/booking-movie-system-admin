@@ -141,28 +141,36 @@
         await context.DisposeAsync();
     }
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
 <script>
+    // Kết nối đến SignalR Hub
     var connection = new signalR.HubConnectionBuilder()
-        .withUrl("/screenseatHub")
+        .withUrl("/seatTypeHub")
         .build();
 
+    // Bắt đầu kết nối SignalR
     connection.start().catch(function (err) {
         console.error("❌ SignalR Connection Error:", err.toString());
     });
 
-    connection.on("ReceiveUpdateNotification", function (screenseat) {
-        // Thay vì reload lại trang, bạn có thể xử lý dữ liệu mới tại đây
-        console.log("Updated Screenseat", screenseat);
-        // Bạn có thể gọi một phương thức của Blazor để cập nhật UI
+    // Lắng nghe sự kiện cập nhật
+    connection.on("ReceiveUpdateNotification", function (seatType) {
+        location.reload();
     });
 
-    connection.on("ReceiveAddNotification", function (screenseat) {
-        console.log("Added Screenseat", screenseat);
+    connection.on("ReceiveAddNotification", function (seatType) {
+        location.reload();
     });
 
-    connection.on("ReceiveDeleteNotification", function (screenseat) {
-        console.log("Deleted Screenseat", screenseat);
+    connection.on("ReceiveDeleteNotification", function (seatType) {
+        location.reload();
     });
+        window.downloadFile = (fileName, contentType, base64Data) => {
+        const linkSource = `data:${contentType};base64,${base64Data}`;
+        const downloadLink = document.createElement("a");
+        downloadLink.href = linkSource;
+        downloadLink.download = fileName;
+        downloadLink.click();
+    };
 </script>
-
-

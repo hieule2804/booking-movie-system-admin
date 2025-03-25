@@ -1,4 +1,6 @@
 ﻿@page "/seattypes/delete"
+@using BookingMovieSystem_Admin.Hub
+@using Microsoft.AspNetCore.SignalR
 @using Microsoft.EntityFrameworkCore
 @using BookingMovieSystem_Admin.Models
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
@@ -65,6 +67,7 @@
 
     [SupplyParameterFromQuery]
     private int SeatTypeId { get; set; }
+    [Inject] private IHubContext<SeatTypeHub> HubContext { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -99,6 +102,7 @@
 
         }
         context.SeatTypes.Remove(seattype!);
+        await HubContext.Clients.All.SendAsync("ReceiveDeleteNotification", seattype.SeatTypeId);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/seattypes");
     }

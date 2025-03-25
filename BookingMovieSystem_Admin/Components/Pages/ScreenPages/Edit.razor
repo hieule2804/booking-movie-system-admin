@@ -75,7 +75,7 @@ else
 
             context.Entry(existingScreen).State = EntityState.Modified;
             await context.SaveChangesAsync();
-            await HubContext.Clients.All.SendAsync("ReceiveUpdateNotification", Screen);
+            await HubContext.Clients.All.SendAsync("ReceiveAddNotification", Screen);
             Console.WriteLine($"✅ Updated ScreenName to: {existingScreen.ScreenName}");
         }
         else
