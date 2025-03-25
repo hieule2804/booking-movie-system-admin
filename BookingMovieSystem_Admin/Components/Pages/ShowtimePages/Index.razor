@@ -2,25 +2,39 @@
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using BookingMovieSystem_Admin.Models
-@using BookingMovieSystem_Admin.Models
 @implements IAsyncDisposable
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
-
+@using OfficeOpenXml
+@inject IJSRuntime JSRuntime
 <PageTitle>Index</PageTitle>
 
-<h1>Index</h1>
+<h1>Showtimes</h1>
 
 <p>
     <a href="showtimes/create">Create New</a>
 </p>
+<p>
+    <a class="btn btn-primary btn-sm" href="movies/create">Create New</a>
+    <button class="btn btn-success btn-sm ms-2" @onclick="@ExportToExcel">Export to Excel</button>
+</p>
+<div class="mb-3">
+    <label>Items per page:</label>
+    <select class="form-select d-inline-block w-auto" @onchange="PageSizeChanged">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+    </select>
+</div>
 
-<QuickGrid Class="table" Items="context.Showtimes">
-    <PropertyColumn Property="showtime => showtime.Movie.Title" />
-    <PropertyColumn Property="showtime => showtime.Screen.ScreenName" />
-    <PropertyColumn Property="showtime => showtime.ShowDate" />
-    <PropertyColumn Property="showtime => showtime.ShowTime" />
-    <PropertyColumn Property="showtime => showtime.ExperienceType" />
-    <PropertyColumn Property="showtime => showtime.IsSoldOut" />
+<QuickGrid Class="table" Items="@pagedShowtime.AsQueryable()">
+    @* Bind directly to pagedShowtime *@
+    <PropertyColumn Property="showtime => showtime.Movie.Title" Sortable="true" />
+    <PropertyColumn Property="showtime => showtime.Screen.ScreenName" Sortable="true" />
+    <PropertyColumn Property="showtime => showtime.ShowDate" Sortable="true" />
+    <PropertyColumn Property="showtime => showtime.ShowTime" Sortable="true" />
+    <PropertyColumn Property="showtime => showtime.ExperienceType" Sortable="true" />
+    <PropertyColumn Property="showtime => showtime.IsSoldOut" Sortable="true" />
 
     <TemplateColumn Context="showtime">
         <a href="@($"showtimes/edit?showtimeid={showtime.ShowtimeId}")">Edit</a> |
@@ -29,37 +43,239 @@
     </TemplateColumn>
 </QuickGrid>
 
+<div class="pagination d-flex justify-content-between align-items-center">
+    <div>
+        Showing @((CurrentPage - 1) * PageSize + 1) to @(Math.Min(CurrentPage * PageSize, TotalPage)) of @TotalPage entries
+    </div>
+    <div class="d-flex align-items-center">
+        <button class="btn btn-secondary btn-sm me-2" @onclick="FirstPage" disabled="@(!HasPreviousPage)">First</button>
+        <button class="btn btn-secondary btn-sm me-2" @onclick="PreviousPage" disabled="@(!HasPreviousPage)">Previous</button>
+
+        <div class="btn-group me-2">
+            @{
+                int maxPagesToShow = 5;
+                int startPage = Math.Max(1, CurrentPage - maxPagesToShow / 2);
+                int endPage = Math.Min(TotalPages, startPage + maxPagesToShow - 1);
+
+                if (endPage == TotalPages)
+                {
+                    startPage = Math.Max(1, endPage - maxPagesToShow + 1);
+                }
+            }
+
+            @if (startPage > 1)
+            {
+                <button class="btn btn-outline-secondary btn-sm" @onclick="() => GoToPage(1)">1</button>
+                @if (startPage > 2)
+                {
+                    <span class="btn btn-outline-secondary btn-sm disabled">...</span>
+                }
+            }
+
+            @for (int i = startPage; i <= endPage; i++)
+            {
+                int pageNumber = i;
+                <button class="btn btn-sm @(CurrentPage == pageNumber ? "btn-primary" : "btn-outline-secondary")"
+                @onclick="() => GoToPage(pageNumber)">
+                    @pageNumber
+                </button>
+            }
+
+            @if (endPage < TotalPages)
+            {
+                @if (endPage < TotalPages - 1)
+                {
+                    <span class="btn btn-outline-secondary btn-sm disabled">...</span>
+                }
+                <button class="btn btn-outline-secondary btn-sm" @onclick="() => GoToPage(TotalPages)">@TotalPages</button>
+            }
+        </div>
+
+        <button class="btn btn-secondary btn-sm ms-2" @onclick="NextPage" disabled="@(!HasNextPage)">Next</button>
+        <button class="btn btn-secondary btn-sm ms-2" @onclick="LastPage" disabled="@(!HasNextPage)">Last</button>
+    </div>
+</div>
+
 @code {
     private G5MovieTicketBookingSystemContext context = default!;
-
-    protected override void OnInitialized()
+    private List<Showtime> pagedShowtime = new();
+    private int CurrentPage = 1;
+    private int PageSize = 10;
+    private int TotalPage = 0;
+    private int TotalPages => (int)Math.Ceiling((double)TotalPage / PageSize);
+    private bool HasPreviousPage => CurrentPage > 1;
+    private bool HasNextPage => CurrentPage < TotalPages;
+    private string ErrorMessage;
+    protected override async Task OnInitializedAsync()
     {
         context = DbFactory.CreateDbContext();
-
-        var showtimes = context.Showtimes
-            .Include(s => s.Movie) 
-            .Include(s => s.Screen)  
-            .ToList();
-
+        await LoadShowtime();
     }
 
+    private async Task LoadShowtime()
+    {
+        try
+        {
+            if (context == null)
+            {
+                context = DbFactory.CreateDbContext();
+                if (context == null)
+                {
+                    throw new InvalidOperationException("Failed to initialize database context.");
+                }
+            }
 
-    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+            TotalPage = await context.Showtimes.CountAsync();
+            pagedShowtime = await context.Showtimes
+                .Include(s => s.Movie)
+                .Include(s => s.Screen)
+                .OrderBy(m => m.ShowtimeId)
+                .Skip((CurrentPage - 1) * PageSize)
+                .Take(PageSize)
+                .ToListAsync();
+        }
+        catch (Exception ex)
+        {
+
+        }
+        finally
+        {
+            StateHasChanged();
+        }
+    }
+
+    private async Task FirstPage()
+    {
+        CurrentPage = 1;
+        await LoadShowtime();
+    }
+
+    private async Task PreviousPage()
+    {
+        if (HasPreviousPage)
+        {
+            CurrentPage--;
+            await LoadShowtime();
+        }
+    }
+
+    private async Task GoToPage(int page)
+    {
+        CurrentPage = page;
+        await LoadShowtime();
+    }
+
+    private async Task NextPage()
+    {
+        if (HasNextPage)
+        {
+            CurrentPage++;
+            await LoadShowtime();
+        }
+    }
+
+    private async Task LastPage()
+    {
+        CurrentPage = TotalPages;
+        await LoadShowtime();
+    }
+
+    private async Task PageSizeChanged(ChangeEventArgs e)
+    {
+        if (e.Value != null)
+        {
+            PageSize = Convert.ToInt32(e.Value);
+            CurrentPage = 1;  // Reset to first page when page size changes
+            await LoadShowtime();
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (context != null)
+        {
+            await context.DisposeAsync();
+        }
+    }
+    private async Task ExportToExcel()
+    {
+        try
+        {
+            // Load all showtimes (not just the paged ones) for export
+            var allShowtimes = await context.Showtimes
+                .Include(s => s.Movie)
+                .Include(s => s.Screen)
+                .OrderBy(s => s.ShowtimeId)
+                .ToListAsync();
+
+            // Set EPPlus license context (required for non-commercial use)
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            // Create a new Excel package in memory
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Showtimes");
+
+                // Add headers
+                  worksheet.Cells[1, 1].Value = "Movie Title";
+                worksheet.Cells[1, 2].Value = "Movie Title";
+                worksheet.Cells[1, 3].Value = "Screen Name";
+                worksheet.Cells[1, 4].Value = "Show Date";
+                worksheet.Cells[1, 5].Value = "Show Time";
+                worksheet.Cells[1, 6].Value = "Experience Type";
+                worksheet.Cells[1, 7].Value = "Sold Out";
+
+                // Style the header row
+                using (var range = worksheet.Cells[1, 1, 1, 6])
+                {
+                    range.Style.Font.Bold = true;
+                    range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                }
+
+                // Add data
+                for (int i = 0; i < allShowtimes.Count; i++)
+                {
+                    var showtime = allShowtimes[i];
+                    worksheet.Cells[i + 2, 1].Value = showtime.ShowtimeId;
+                    worksheet.Cells[i + 2, 2].Value = showtime.Movie?.Title ?? "N/A";
+                    worksheet.Cells[i + 2, 3].Value = showtime.Screen?.ScreenName ?? "N/A";
+                    worksheet.Cells[i + 2, 4].Value = showtime.ShowDate.ToString("yyyy-MM-dd");
+                    worksheet.Cells[i + 2, 5].Value = showtime.ShowTime.ToString("HH:mm");
+                    worksheet.Cells[i + 2, 6].Value = showtime.ExperienceType;
+                    worksheet.Cells[i + 2, 7].Value = showtime.IsSoldOut ? "Yes" : "No";
+                }
+
+                // Auto-fit columns
+                worksheet.Cells.AutoFitColumns();
+
+                // Convert the Excel package to a byte array
+                var excelData = package.GetAsByteArray();
+
+                // Convert to base64 for download
+                var base64 = Convert.ToBase64String(excelData);
+                var fileName = $"Showtimes_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+                // Trigger download using JavaScript
+                await JSRuntime.InvokeVoidAsync("downloadFile", fileName, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", base64);
+            }
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = "Failed to export showtimes to Excel. Please try again later.";
+            Console.WriteLine($"Error exporting to Excel: {ex.Message}");
+            StateHasChanged();
+        }
+    }
 }
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
 
-@* <script src="~/microsoft/signalr/dist/browser/signalr.js"></script> *@
-
 <script>
-        // Kết nối đến SignalR Hub
+    // Kết nối đến SignalR Hub
     var connection = new signalR.HubConnectionBuilder()
         .withUrl("/showTimeHub")
         .build();
-
-
-    //     var connection = new signalR.HubConnectionBuilder()
-    // .withUrl("/foodHub", { accessTokenFactory: () => localStorage.getItem("authToken") })
-    // .build();
 
     // Bắt đầu kết nối SignalR
     connection.start().catch(function (err) {
@@ -68,19 +284,19 @@
 
     // Lắng nghe sự kiện cập nhật
     connection.on("ReceiveUpdateNotification", function (showtime) {
-
         location.reload();
-
     });
-     connection.on("ReceiveAddNotification", function (showtime) {
-
+    connection.on("ReceiveAddNotification", function (showtime) {
         location.reload();
-
     });
-     connection.on("ReceiveDeleteNotification", function (showtime) {
-
+    connection.on("ReceiveDeleteNotification", function (showtime) {
         location.reload();
-
     });
-
+    window.downloadFile = (fileName, contentType, base64Data) => {
+           const linkSource = `data:${contentType};base64,${base64Data}`;
+           const downloadLink = document.createElement("a");
+           downloadLink.href = linkSource;
+           downloadLink.download = fileName;
+           downloadLink.click();
+       };
 </script>

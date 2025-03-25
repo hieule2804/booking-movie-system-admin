@@ -4,7 +4,8 @@
 @using BookingMovieSystem_Admin.Models
 @implements IAsyncDisposable
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
-
+@using OfficeOpenXml
+@inject IJSRuntime JSRuntime
 <PageTitle>Users</PageTitle>
 
 <div class="container mt-4">
@@ -12,16 +13,28 @@
         <h2 class="text-primary">User Management</h2>
         <a href="users/create" class="btn btn-success"><i class="bi bi-plus-circle"></i> Create New</a>
     </div>
-
+    <p>
+        <a class="btn btn-primary btn-sm" href="movies/create">Create New</a>
+        <button class="btn btn-success btn-sm ms-2" @onclick="@ExportToExcel">Export to Excel</button>
+    </p>
+    <div class="mb-3">
+        <label>Items per page:</label>
+        <select class="form-select d-inline-block w-auto" @onchange="PageSizeChanged">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+        </select>
+    </div>
     <div class="card shadow-sm">
         <div class="card-body">
             <div class="table-responsive">
-                <QuickGrid Class="table table-hover table-striped align-middle text-center" Items="users">
-                    <PropertyColumn Title="Username" Property="user => user.Username" />
-                    <PropertyColumn Title="Email" Property="user => user.Email" />
-                    <PropertyColumn Title="Full Name" Property="user => user.Fullname" />
+                <QuickGrid Class="table table-hover table-striped align-middle text-center" Items="@pagedShowtime.AsQueryable()">
+                    <PropertyColumn Title="Username" Property="user => user.Username" Sortable="true" />
+                    <PropertyColumn Title="Email" Property="user => user.Email" Sortable="true" />
+                    <PropertyColumn Title="Full Name" Property="user => user.Fullname" Sortable="true" />
 
-                    <TemplateColumn Context="user" Title="Roles">
+                    <TemplateColumn Context="user" Title="Roles" Sortable="true">
                         @if (user.Roles != null && user.Roles.Any())
                         {
                             @foreach (var role in user.Roles)
@@ -47,18 +60,226 @@
         </div>
     </div>
 </div>
+<div class="pagination d-flex justify-content-between align-items-center">
+    <div>
+        Showing @((CurrentPage - 1) * PageSize + 1) to @(Math.Min(CurrentPage * PageSize, TotalPage)) of @TotalPage entries
+    </div>
+    <div class="d-flex align-items-center">
+        <button class="btn btn-secondary btn-sm me-2" @onclick="FirstPage" disabled="@(!HasPreviousPage)">First</button>
+        <button class="btn btn-secondary btn-sm me-2" @onclick="PreviousPage" disabled="@(!HasPreviousPage)">Previous</button>
 
+        <div class="btn-group me-2">
+            @{
+                int maxPagesToShow = 5;
+                int startPage = Math.Max(1, CurrentPage - maxPagesToShow / 2);
+                int endPage = Math.Min(TotalPages, startPage + maxPagesToShow - 1);
+
+                if (endPage == TotalPages)
+                {
+                    startPage = Math.Max(1, endPage - maxPagesToShow + 1);
+                }
+            }
+
+            @if (startPage > 1)
+            {
+                <button class="btn btn-outline-secondary btn-sm" @onclick="() => GoToPage(1)">1</button>
+                @if (startPage > 2)
+                {
+                    <span class="btn btn-outline-secondary btn-sm disabled">...</span>
+                }
+            }
+
+            @for (int i = startPage; i <= endPage; i++)
+            {
+                int pageNumber = i;
+                <button class="btn btn-sm @(CurrentPage == pageNumber ? "btn-primary" : "btn-outline-secondary")"
+                @onclick="() => GoToPage(pageNumber)">
+                    @pageNumber
+                </button>
+            }
+
+            @if (endPage < TotalPages)
+            {
+                @if (endPage < TotalPages - 1)
+                {
+                    <span class="btn btn-outline-secondary btn-sm disabled">...</span>
+                }
+                <button class="btn btn-outline-secondary btn-sm" @onclick="() => GoToPage(TotalPages)">@TotalPages</button>
+            }
+        </div>
+
+        <button class="btn btn-secondary btn-sm ms-2" @onclick="NextPage" disabled="@(!HasNextPage)">Next</button>
+        <button class="btn btn-secondary btn-sm ms-2" @onclick="LastPage" disabled="@(!HasNextPage)">Last</button>
+    </div>
+</div>
 @code {
     private G5MovieTicketBookingSystemContext context = default!;
-    private IQueryable<User> users = Enumerable.Empty<User>().AsQueryable();
-
+    private List<User> pagedShowtime = new();
+    private int CurrentPage = 1;
+    private int PageSize = 10;
+    private int TotalPage = 0;
+    private int TotalPages => (int)Math.Ceiling((double)TotalPage / PageSize);
+    private bool HasPreviousPage => CurrentPage > 1;
+    private bool HasNextPage => CurrentPage < TotalPages;
+    private string ErrorMessage;
     protected override async Task OnInitializedAsync()
     {
-        context = await DbFactory.CreateDbContextAsync();
-        users = context.Users.Include(u => u.Roles);
+        context = DbFactory.CreateDbContext();
+        await LoadUser();
+    }
+    private async Task LoadUser()
+    {
+        try
+        {
+            if (context == null)
+            {
+                context = DbFactory.CreateDbContext();
+                if (context == null)
+                {
+                    throw new InvalidOperationException("Failed to initialize database context.");
+                }
+            }
+
+            TotalPage = await context.Users.CountAsync();
+            pagedShowtime = await context.Users
+                .Include(s => s.Orders).
+                Include(s=>s.SeatLocks).
+                   Include(s =>s.TicketScanLogs).
+                      Include(s => s.Roles)
+                .OrderBy(m => m.UserId)
+                .Skip((CurrentPage - 1) * PageSize)
+                .Take(PageSize)
+                .ToListAsync();
+        }
+        catch (Exception ex)
+        {
+
+        }
+        finally
+        {
+            StateHasChanged();
+        }
     }
 
-    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+    private async Task FirstPage()
+    {
+        CurrentPage = 1;
+        await LoadUser();
+    }
+
+    private async Task PreviousPage()
+    {
+        if (HasPreviousPage)
+        {
+            CurrentPage--;
+            await LoadUser();
+        }
+    }
+
+    private async Task GoToPage(int page)
+    {
+        CurrentPage = page;
+        await LoadUser();
+    }
+
+    private async Task NextPage()
+    {
+        if (HasNextPage)
+        {
+            CurrentPage++;
+            await LoadUser();
+        }
+    }
+
+    private async Task LastPage()
+    {
+        CurrentPage = TotalPages;
+        await LoadUser();
+    }
+
+    private async Task PageSizeChanged(ChangeEventArgs e)
+    {
+        if (e.Value != null)
+        {
+            PageSize = Convert.ToInt32(e.Value);
+            CurrentPage = 1;  // Reset to first page when page size changes
+            await LoadUser();
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (context != null)
+        {
+            await context.DisposeAsync();
+        }
+    }
+    private async Task ExportToExcel()
+    {
+        try
+        {
+            // Load all movies (not just the paged ones) for export
+            var allUser = await context.Users
+                .OrderBy(m => m.UserId)
+                .Include(m=> m.Roles)
+                .ToListAsync();
+
+            // Set EPPlus license context (required for non-commercial use)
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            // Create a new Excel package in memory
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Movies");
+
+                // Add headers
+                worksheet.Cells[1, 1].Value = "ID";
+                worksheet.Cells[1, 2].Value = "UserName";
+                worksheet.Cells[1, 3].Value = "FullName";
+                worksheet.Cells[1, 4].Value = "Roles";
+          
+
+                // Style the header row
+                using (var range = worksheet.Cells[1, 1, 1, 7])
+                {
+                    range.Style.Font.Bold = true;
+                    range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                }
+
+                // Add data
+                for (int i = 0; i < allUser.Count; i++)
+                {
+                    var user = allUser[i];
+                    worksheet.Cells[i + 2, 1].Value = user.UserId;
+                    worksheet.Cells[i + 2, 2].Value = user.Email;
+                    worksheet.Cells[i + 2, 3].Value = user.Fullname;
+                    worksheet.Cells[i + 2, 4].Value = string.Join(", ", user.Roles.Select(r => r.RoleName));
+                
+                }
+
+                // Auto-fit columns
+                worksheet.Cells.AutoFitColumns();
+
+                // Convert the Excel package to a byte array
+                var excelData = package.GetAsByteArray();
+
+                // Convert to base64 for download
+                var base64 = Convert.ToBase64String(excelData);
+                var fileName = $"User_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+                // Trigger download using JavaScript
+                await JSRuntime.InvokeVoidAsync("downloadFile", fileName, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", base64);
+            }
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = "Failed to export movies to Excel. Please try again later.";
+            Console.WriteLine($"Error exporting to Excel: {ex.Message}");
+            StateHasChanged();
+        }
+    }
+  
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
 @* <script src="~/microsoft/signalr/dist/browser/signalr.js"></script> *@
@@ -95,5 +316,11 @@
         location.reload();
 
     });
-
+    window.downloadFile = (fileName, contentType, base64Data) => {
+        const linkSource = `data:${contentType};base64,${base64Data}`;
+        const downloadLink = document.createElement("a");
+        downloadLink.href = linkSource;
+        downloadLink.download = fileName;
+        downloadLink.click();
+    };
 </script>

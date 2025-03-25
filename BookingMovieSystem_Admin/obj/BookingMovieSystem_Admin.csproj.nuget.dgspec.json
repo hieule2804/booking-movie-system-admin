@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj": {}
+    "D:\\booking-movie-system-admin\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj": {}
   },
   "projects": {
-    "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj": {
+    "D:\\booking-movie-system-admin\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj",
+        "projectUniqueName": "D:\\booking-movie-system-admin\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj",
         "projectName": "BookingMovieSystem_Admin",
-        "projectPath": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj",
-        "packagesPath": "C:\\Users\\Adminn\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT UNI\\SP25\\PRN222\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin\\obj\\",
+        "projectPath": "D:\\booking-movie-system-admin\\BookingMovieSystem_Admin\\BookingMovieSystem_Admin.csproj",
+        "packagesPath": "C:\\Users\\VitConLonton\\.nuget\\packages\\",
+        "outputPath": "D:\\booking-movie-system-admin\\BookingMovieSystem_Admin\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Adminn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\VitConLonton\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\FPT UNI\\FA24\\PRN212\\packageSource": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,12 +44,16 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.7.0, )"
+            },
             "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
               "target": "Package",
               "version": "[8.0.11, )"
@@ -90,6 +93,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.7, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.30.0, )"
+            },
+            "Selenium.WebDriver.ChromeDriver": {
+              "target": "Package",
+              "version": "[134.0.6998.16500, )"
             }
           },
           "imports": [
@@ -111,7 +122,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

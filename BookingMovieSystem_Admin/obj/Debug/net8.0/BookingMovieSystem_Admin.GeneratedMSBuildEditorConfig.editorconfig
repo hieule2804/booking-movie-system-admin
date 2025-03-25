@@ -17,173 +17,173 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookingMovieSystem_Admin
 build_property.RootNamespace = BookingMovieSystem_Admin
-build_property.ProjectDir = D:\FPT UNI\SP25\PRN222\BookingMovieSystem_Admin\BookingMovieSystem_Admin\
+build_property.ProjectDir = D:\booking-movie-system-admin\BookingMovieSystem_Admin\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\FPT UNI\SP25\PRN222\BookingMovieSystem_Admin\BookingMovieSystem_Admin
+build_property.MSBuildProjectDirectory = D:\booking-movie-system-admin\BookingMovieSystem_Admin
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/App.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Layout/SearchBarComponent.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Layout/SearchBarComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcU2VhcmNoQmFyQ29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/CinemaPages/Create.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/CinemaPages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaW5lbWFQYWdlc1xDcmVhdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/CinemaPages/Delete.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/CinemaPages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaW5lbWFQYWdlc1xEZWxldGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/CinemaPages/Details.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/CinemaPages/Details.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaW5lbWFQYWdlc1xEZXRhaWxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/CinemaPages/Edit.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/CinemaPages/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaW5lbWFQYWdlc1xFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/CinemaPages/Index.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/CinemaPages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaW5lbWFQYWdlc1xJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/Counter.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/Error.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/Home.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/MoviePages/Create.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/MoviePages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb3ZpZVBhZ2VzXENyZWF0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/MoviePages/Delete.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/MoviePages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb3ZpZVBhZ2VzXERlbGV0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/MoviePages/Details.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/MoviePages/Details.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb3ZpZVBhZ2VzXERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/MoviePages/Edit.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/MoviePages/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb3ZpZVBhZ2VzXEVkaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/MoviePages/Index.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/MoviePages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb3ZpZVBhZ2VzXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenPages/Create.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ScreenPages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5QYWdlc1xDcmVhdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenPages/Delete.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ScreenPages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5QYWdlc1xEZWxldGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenPages/Details.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ScreenPages/Details.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5QYWdlc1xEZXRhaWxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenPages/Edit.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ScreenPages/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5QYWdlc1xFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenPages/Index.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ScreenPages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5QYWdlc1xJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Create.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5TZWF0UGFnZXNcQ3JlYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Delete.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5TZWF0UGFnZXNcRGVsZXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Details.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Details.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5TZWF0UGFnZXNcRGV0YWlscy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Edit.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5TZWF0UGFnZXNcRWRpdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Index.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ScreenSeatPages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTY3JlZW5TZWF0UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ShowtimePages/Create.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ShowtimePages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTaG93dGltZVBhZ2VzXENyZWF0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ShowtimePages/Delete.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ShowtimePages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTaG93dGltZVBhZ2VzXERlbGV0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ShowtimePages/Details.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ShowtimePages/Details.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTaG93dGltZVBhZ2VzXERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ShowtimePages/Edit.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ShowtimePages/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTaG93dGltZVBhZ2VzXEVkaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/ShowtimePages/Index.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/ShowtimePages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTaG93dGltZVBhZ2VzXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/UserPages/Create.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/UserPages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyUGFnZXNcQ3JlYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/UserPages/Delete.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/UserPages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyUGFnZXNcRGVsZXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/UserPages/Details.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/UserPages/Details.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyUGFnZXNcRGV0YWlscy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/UserPages/Edit.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/UserPages/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyUGFnZXNcRWRpdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/UserPages/Index.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/UserPages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyUGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Pages/Weather.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Routes.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/_Imports.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Layout/MainLayout.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-dx8blglarp
 
-[D:/FPT UNI/SP25/PRN222/BookingMovieSystem_Admin/BookingMovieSystem_Admin/Components/Layout/NavMenu.razor]
+[D:/booking-movie-system-admin/BookingMovieSystem_Admin/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-wh9eu4o39t

@@ -4,7 +4,8 @@
 @using BookingMovieSystem_Admin.Models
 @implements IAsyncDisposable
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
-
+@using OfficeOpenXml 
+@inject IJSRuntime JSRuntime
 <PageTitle>Index</PageTitle>
 
 <h1>Movie</h1>
@@ -12,14 +13,27 @@
 <p>
     <a class="btn btn-primary btn-sm" href="movies/create">Create New</a>
 </p>
+<p>
+    <a class="btn btn-primary btn-sm" href="movies/create">Create New</a>
+    <button class="btn btn-success btn-sm ms-2" @onclick="@ExportToExcel">Export to Excel</button>
+</p>
+<div class="mb-3">
+    <label>Items per page:</label>
+    <select class="form-select d-inline-block w-auto" @onchange="PageSizeChanged">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+    </select>
+</div>
 
-<QuickGrid Class="table" Items="context.Movies">
-    <PropertyColumn Property="movie => movie.Title" />
-    <PropertyColumn Property="movie => movie.Genre" />
-    <PropertyColumn Property="movie => movie.Duration" />
-    <PropertyColumn Property="movie => movie.Language" />
-    <PropertyColumn Property="movie => movie.Rating" />
-    <PropertyColumn Property="movie => movie.ReleaseDate" />
+<QuickGrid Class="table" Items="@pagedMovies.AsQueryable()">
+    <PropertyColumn Property="movie => movie.Title" Sortable="true" />
+    <PropertyColumn Property="movie => movie.Genre" Sortable="true" />
+    <PropertyColumn Property="movie => movie.Duration" Sortable="true" />
+    <PropertyColumn Property="movie => movie.Language" Sortable="true" />
+    <PropertyColumn Property="movie => movie.Rating" Sortable="true" />
+    <PropertyColumn Property="movie => movie.ReleaseDate" Format="yyyy-MM-dd" Sortable="true" />
     <PropertyColumn Property="movie => movie.Description" />
 
     <TemplateColumn Context="movie">
@@ -31,15 +45,215 @@
     </TemplateColumn>
 </QuickGrid>
 
+<div class="pagination d-flex justify-content-between align-items-center">
+    <div>
+        Showing @((CurrentPage - 1) * PageSize + 1) to @(Math.Min(CurrentPage * PageSize, TotalMovies)) of @TotalMovies entries
+    </div>
+    <div class="d-flex align-items-center">
+        <button class="btn btn-secondary btn-sm me-2" @onclick="FirstPage" disabled="@(!HasPreviousPage)">First</button>
+        <button class="btn btn-secondary btn-sm me-2" @onclick="PreviousPage" disabled="@(!HasPreviousPage)">Previous</button>
+
+        <!-- Hiển thị các số trang với giới hạn -->
+        <div class="btn-group me-2">
+            @{
+                int maxPagesToShow = 5; // Số trang tối đa hiển thị
+                int startPage = Math.Max(1, CurrentPage - maxPagesToShow / 2);
+                int endPage = Math.Min(TotalPages, startPage + maxPagesToShow - 1);
+
+                // Điều chỉnh startPage nếu endPage chạm đến TotalPages
+                if (endPage == TotalPages)
+                {
+                    startPage = Math.Max(1, endPage - maxPagesToShow + 1);
+                }
+            }
+
+            @if (startPage > 1)
+            {
+                <button class="btn btn-outline-secondary btn-sm" @onclick="() => GoToPage(1)">1</button>
+                @if (startPage > 2)
+                {
+                    <span class="btn btn-outline-secondary btn-sm disabled">...</span>
+                }
+            }
+
+            @for (int i = startPage; i <= endPage; i++)
+            {
+                int pageNumber = i;
+                <button class="btn btn-sm @(CurrentPage == pageNumber ? "btn-primary" : "btn-outline-secondary")"
+                @onclick="() => GoToPage(pageNumber)">
+                    @pageNumber
+                </button>
+            }
+
+            @if (endPage < TotalPages)
+            {
+                @if (endPage < TotalPages - 1)
+                {
+                    <span class="btn btn-outline-secondary btn-sm disabled">...</span>
+                }
+                <button class="btn btn-outline-secondary btn-sm" @onclick="() => GoToPage(TotalPages)">@TotalPages</button>
+            }
+        </div>
+
+        <button class="btn btn-secondary btn-sm ms-2" @onclick="NextPage" disabled="@(!HasNextPage)">Next</button>
+        <button class="btn btn-secondary btn-sm ms-2" @onclick="LastPage" disabled="@(!HasNextPage)">Last</button>
+    </div>
+</div>
+
 @code {
     private G5MovieTicketBookingSystemContext context = default!;
-
-    protected override void OnInitialized()
+    private List<Movie> pagedMovies = new();
+    private int CurrentPage = 1;
+    private int PageSize = 10;
+    private int TotalMovies = 0;
+    private int TotalPages => (int)Math.Ceiling((double)TotalMovies / PageSize);
+    private bool HasPreviousPage => CurrentPage > 1;
+    private bool HasNextPage => CurrentPage < TotalPages;
+    private string ErrorMessage;
+    protected override async Task OnInitializedAsync()
     {
         context = DbFactory.CreateDbContext();
+        await LoadMovies();
     }
 
-    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+    private async Task LoadMovies()
+    {
+        try
+        {
+            TotalMovies = await context.Movies.CountAsync();
+            pagedMovies = await context.Movies
+                .OrderBy(m => m.Title) // Default sorting
+                .Skip((CurrentPage - 1) * PageSize)
+                .Take(PageSize)
+                .ToListAsync();
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading movies: {ex.Message}");
+        }
+    }
+
+    private async Task FirstPage()
+    {
+        CurrentPage = 1;
+        await LoadMovies();
+    }
+
+    private async Task PreviousPage()
+    {
+        if (HasPreviousPage)
+        {
+            CurrentPage--;
+            await LoadMovies();
+        }
+    }
+    private async Task GoToPage(int page)
+    {
+        CurrentPage = page;
+        await LoadMovies();
+    }
+    private async Task NextPage()
+    {
+        if (HasNextPage)
+        {
+            CurrentPage++;
+            await LoadMovies();
+        }
+    }
+
+    private async Task LastPage()
+    {
+        CurrentPage = TotalPages;
+        await LoadMovies();
+    }
+
+    private async Task PageSizeChanged(ChangeEventArgs e)
+    {
+        if (e.Value != null)
+        {
+            PageSize = Convert.ToInt32(e.Value);
+            CurrentPage = 1; // Reset về trang đầu khi thay đổi PageSize
+            await LoadMovies();
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (context != null)
+        {
+            await context.DisposeAsync();
+        }
+    }
+
+    private async Task ExportToExcel()
+    {
+        try
+        {
+            // Load all movies (not just the paged ones) for export
+            var allMovies = await context.Movies
+                .OrderBy(m => m.Title)
+                .ToListAsync();
+
+            // Set EPPlus license context (required for non-commercial use)
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            // Create a new Excel package in memory
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Movies");
+
+                // Add headers
+                worksheet.Cells[1, 1].Value = "Title";
+                worksheet.Cells[1, 2].Value = "Genre";
+                worksheet.Cells[1, 3].Value = "Duration (minutes)";
+                worksheet.Cells[1, 4].Value = "Language";
+                worksheet.Cells[1, 5].Value = "Rating";
+                worksheet.Cells[1, 6].Value = "Release Date";
+                worksheet.Cells[1, 7].Value = "Description";
+
+                // Style the header row
+                using (var range = worksheet.Cells[1, 1, 1, 7])
+                {
+                    range.Style.Font.Bold = true;
+                    range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                }
+
+                // Add data
+                for (int i = 0; i < allMovies.Count; i++)
+                {
+                    var movie = allMovies[i];
+                    worksheet.Cells[i + 2, 1].Value = movie.Title;
+                    worksheet.Cells[i + 2, 2].Value = movie.Genre;
+                    worksheet.Cells[i + 2, 3].Value = movie.Duration;
+                    worksheet.Cells[i + 2, 4].Value = movie.Language;
+                    worksheet.Cells[i + 2, 5].Value = movie.Rating;
+                    worksheet.Cells[i + 2, 6].Value = movie.ReleaseDate.ToString("yyyy-MM-dd");
+                    worksheet.Cells[i + 2, 7].Value = movie.Description;
+                }
+
+                // Auto-fit columns
+                worksheet.Cells.AutoFitColumns();
+
+                // Convert the Excel package to a byte array
+                var excelData = package.GetAsByteArray();
+
+                // Convert to base64 for download
+                var base64 = Convert.ToBase64String(excelData);
+                var fileName = $"Movies_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+                // Trigger download using JavaScript
+                await JSRuntime.InvokeVoidAsync("downloadFile", fileName, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", base64);
+            }
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = "Failed to export movies to Excel. Please try again later.";
+            Console.WriteLine($"Error exporting to Excel: {ex.Message}");
+            StateHasChanged();
+        }
+    }
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
 @* <script src="~/microsoft/signalr/dist/browser/signalr.js"></script> *@
@@ -76,5 +290,11 @@
         location.reload();
 
     });
-
+    window.downloadFile = (fileName, contentType, base64Data) => {
+        const linkSource = `data:${contentType};base64,${base64Data}`;
+        const downloadLink = document.createElement("a");
+        downloadLink.href = linkSource;
+        downloadLink.download = fileName;
+        downloadLink.click();
+    };
 </script>

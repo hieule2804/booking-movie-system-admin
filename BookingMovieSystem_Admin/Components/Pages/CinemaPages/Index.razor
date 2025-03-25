@@ -3,7 +3,8 @@
 @using BookingMovieSystem_Admin.Models
 @implements IAsyncDisposable
 @inject IDbContextFactory<BookingMovieSystem_Admin.Models.G5MovieTicketBookingSystemContext> DbFactory
-
+@using OfficeOpenXml
+@inject IJSRuntime JSRuntime
 <PageTitle>Danh sách Rạp Chiếu Phim</PageTitle>
 
 <div class="container mt-4">
@@ -12,7 +13,10 @@
     <div class="mb-3">
         <a href="cinemas/create" class="btn btn-success">➕ Thêm Rạp Mới</a>
     </div>
-
+    <p>
+        <a class="btn btn-primary btn-sm" href="movies/create">Create New</a>
+        <button class="btn btn-success btn-sm ms-2" @onclick="@ExportToExcel">Export to Excel</button>
+    </p>
     <div class="mb-3">
         <input class="form-control" style="max-width:600px" placeholder="Tìm kiếm Rạp..." @bind="searchItem" />
         <button class="btn btn-primary mt-2" style="max-width:300px" @onclick="OnSearchClicked">
@@ -70,6 +74,7 @@
 </div>
 
 @code {
+    private G5MovieTicketBookingSystemContext context = default!;
     private List<Cinema> cinemas = new();
     private string searchItem = string.Empty;
     private int currentPage = 1;
@@ -80,6 +85,7 @@
     // OnInitializedAsync: Gọi hàm để tải dữ liệu ban đầu khi trang được tải.
     protected override async Task OnInitializedAsync()
     {
+        context = DbFactory.CreateDbContext();
         await LoadCinemas();
     }
 
@@ -149,6 +155,88 @@
         using var context = await DbFactory.CreateDbContextAsync();
         await context.DisposeAsync();
     }
+    private string ErrorMessage;
+    private async Task ExportToExcel()
+    {
+        try
+        {
+            // Load all movies with their showtimes, screens, and cinemas
+            var allCinema = await context.Cinemas
+                .Include(m => m.Screens)
+                 
+                .OrderBy(m => m.CinemaId)
+                .ToListAsync();
+
+            // Set EPPlus license context (required for non-commercial use)
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            // Create a new Excel package in memory
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Movies");
+
+                // Add headers
+                worksheet.Cells[1, 1].Value = "Cinema ID";
+                worksheet.Cells[1, 2].Value = "Cinema Name";
+                worksheet.Cells[1, 3].Value = "City";
+                worksheet.Cells[1, 4].Value = "Address";
+                worksheet.Cells[1, 5].Value = "Screen Name";
+              
+
+                // Style the header row
+                using (var range = worksheet.Cells[1, 1, 1, 6])
+                {
+                    range.Style.Font.Bold = true;
+                    range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                }
+
+                // Use a single row counter
+                int row = 2;
+
+                // Iterate over each movie
+                foreach (var cinema in allCinema)
+                {
+                    // Iterate over each showtime for the movie
+                    foreach (var showtime in cinema.Screens)
+                    {
+                        var screen = showtime;
+                        
+
+                        if (screen != null)
+                        {
+                            worksheet.Cells[row, 1].Value = cinema.CinemaId;
+                            worksheet.Cells[row, 2].Value = cinema.CinemaName;
+                            worksheet.Cells[row, 3].Value = cinema.City;
+                            worksheet.Cells[row, 4].Value = cinema.Address;
+                            worksheet.Cells[row, 5].Value = screen.ScreenName;
+                
+                            row++; // Increment the row counter
+                        }
+                    }
+                }
+
+                // Auto-fit columns
+                worksheet.Cells.AutoFitColumns();
+
+                // Convert the Excel package to a byte array
+                var excelData = package.GetAsByteArray();
+
+                // Convert to base64 for download
+                var base64 = Convert.ToBase64String(excelData);
+                var fileName = $"Movies_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+                // Trigger download using JavaScript
+                await JSRuntime.InvokeVoidAsync("downloadFile", fileName, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", base64);
+            }
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = "Failed to export movies to Excel. Please try again later.";
+            Console.WriteLine($"Error exporting to Excel: {ex.Message}");
+            StateHasChanged();
+        }
+    }
 }
 
 
@@ -174,4 +262,11 @@
     connection.on("ReceiveDeleteNotification", function (cinema) {
         location.reload();
     });
+      window.downloadFile = (fileName, contentType, base64Data) => {
+        const linkSource = `data:${contentType};base64,${base64Data}`;
+        const downloadLink = document.createElement("a");
+        downloadLink.href = linkSource;
+        downloadLink.download = fileName;
+        downloadLink.click();
+    };
 </script>

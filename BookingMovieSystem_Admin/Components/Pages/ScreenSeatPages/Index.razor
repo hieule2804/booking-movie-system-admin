@@ -4,7 +4,8 @@
 @using BookingMovieSystem_Admin.Models
 @implements IAsyncDisposable
 @inject IDbContextFactory<G5MovieTicketBookingSystemContext> DbFactory
-
+@using OfficeOpenXml
+@inject IJSRuntime JSRuntime
 <PageTitle>Screen Seats</PageTitle>
 
 <div class="container mt-4">
@@ -13,7 +14,10 @@
     <p class="text-end">
         <a href="screenseats/create" class="btn btn-success">Create New</a>
     </p>
-
+    <p>
+        <a class="btn btn-primary btn-sm" href="movies/create">Create New</a>
+        <button class="btn btn-success btn-sm ms-2" @onclick="@ExportToExcel">Export to Excel</button>
+    </p>
     <div class="table-responsive">
         <QuickGrid Class="table table-striped table-hover table-bordered" Items="@ScreenSeats.AsQueryable()">
             <PropertyColumn Property="screenseat => screenseat.SeatLabel" Title="Seat Label" />
@@ -45,6 +49,72 @@
     }
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
+
+    private async Task ExportToExcel()
+    {
+        try
+        {
+            // Load all movies (not just the paged ones) for export
+            var allScreenSeat = await context.ScreenSeats
+                .OrderBy(m => m.ScreenSeatId)
+                .ToListAsync();
+
+            // Set EPPlus license context (required for non-commercial use)
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            // Create a new Excel package in memory
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("ScreenSeeat");
+
+                // Add headers
+                worksheet.Cells[1, 1].Value = "SeatLabel";
+                worksheet.Cells[1, 2].Value = "SeatType";
+                worksheet.Cells[1, 3].Value = "Price";
+   
+
+                // Style the header row
+                using (var range = worksheet.Cells[1, 1, 1, 7])
+                {
+                    range.Style.Font.Bold = true;
+                    range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                }
+
+                // Add data
+                for (int i = 0; i < allScreenSeat.Count; i++)
+                {
+                    // var movie = allMovies[i];
+                    // worksheet.Cells[i + 2, 1].Value = movie.Title;
+                    // worksheet.Cells[i + 2, 2].Value = movie.Genre;
+                    // worksheet.Cells[i + 2, 3].Value = movie.Duration;
+                    // worksheet.Cells[i + 2, 4].Value = movie.Language;
+                    // worksheet.Cells[i + 2, 5].Value = movie.Rating;
+                    // worksheet.Cells[i + 2, 6].Value = movie.ReleaseDate.ToString("yyyy-MM-dd");
+                    // worksheet.Cells[i + 2, 7].Value = movie.Description;
+                }
+
+                // Auto-fit columns
+                worksheet.Cells.AutoFitColumns();
+
+                // Convert the Excel package to a byte array
+                var excelData = package.GetAsByteArray();
+
+                // Convert to base64 for download
+                var base64 = Convert.ToBase64String(excelData);
+                var fileName = $"Movies_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+                // Trigger download using JavaScript
+                await JSRuntime.InvokeVoidAsync("downloadFile", fileName, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", base64);
+            }
+        }
+        catch (Exception ex)
+        {
+           
+            Console.WriteLine($"Error exporting to Excel: {ex.Message}");
+            StateHasChanged();
+        }
+    }
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
 
@@ -82,5 +152,11 @@
         location.reload();
 
     });
-
+     window.downloadFile = (fileName, contentType, base64Data) => {
+        const linkSource = `data:${contentType};base64,${base64Data}`;
+        const downloadLink = document.createElement("a");
+        downloadLink.href = linkSource;
+        downloadLink.download = fileName;
+        downloadLink.click();
+    };
 </script>
